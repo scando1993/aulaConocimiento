@@ -1,2 +1,3 @@
 luego de clonar el proyecto, en una terminal o CMD ubicarse en la carpeta y ejecutar el comando "composer install" para traer las librerias necesarias.
+en el directorio raiz hay un archivo "env", cambiar el nombre a ".env"
 luego, si se presenta un error de certificados, ejecutar el comando "php artisan key:generate"
