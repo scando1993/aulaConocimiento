@@ -23,3 +23,4 @@ Route::get('realizar/{id}', 'TallerController@realizar');
 
 Route::resource('taller','TallerController');
 
+Route::get('pdf', 'PdfController@invoice');
