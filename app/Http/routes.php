@@ -21,5 +21,5 @@ Route::get('listar', 'TallerController@listar');
 
 Route::get('realizar/{id}', 'TallerController@realizar');
 
-
 Route::resource('taller','TallerController');
+
