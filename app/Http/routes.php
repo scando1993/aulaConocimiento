@@ -11,8 +11,10 @@
 |
 */
 
+
+
 Route::get('/', function () {
-    return view('login');
+    return view('auth/login');
 });
 
 Route::post('loginme', 'loginController@login');
