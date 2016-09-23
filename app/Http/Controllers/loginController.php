@@ -17,7 +17,9 @@ class loginController extends BaseController
     	$password = $req-> input('password');
 
     	$checkLogin = DB::table('Usuario')->where(['Username'=>$username, 'Password'=>$password])->get();
-    	if(count($checkLogin) >0){
+    	echo $username."....".$password;
+
+        if(count($checkLogin) >0){
     		echo "Sucessfull Login";
     	}
     	else{

@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/login', function () {
+Route::get('/', function () {
     return view('login');
 });
 
@@ -21,5 +21,5 @@ Route::get('listar', 'TallerController@listar');
 
 Route::get('realizar/{id}', 'TallerController@realizar');
 
-
 Route::resource('taller','TallerController');
+
