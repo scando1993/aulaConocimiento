@@ -8,7 +8,7 @@
                 <h2>LISTADO DE TALLERES</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('taller.create') }}"> Crear nuevo bloque</a>
+                <a class="btn btn-success" data-toggle="modal" data-target="#myModal"> Crear nuevo bloque</a>
             </div>
         </div>
     </div>
@@ -43,6 +43,59 @@
     @endforeach
     </table>
 
-    {!! $items->render() !!}
+
+<script src="https://code.jquery.com/jquery-3.1.1.js" ></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Nuevo Taller</h4>
+      </div>
+      <div class="modal-body">
+        
+
+
+{!! Form::open(array('route' => 'taller.store','method'=>'POST')) !!}
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Titulo:</strong>
+                {!! Form::text('titulo', null, array('placeholder' => 'Titulo','class' => 'form-control')) !!}
+            </div>
+        </div>
+        
+       <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Duracion:</strong>
+                {!! Form::text('duracion', null, array('placeholder' => 'duracion','class' => 'form-control')) !!}
+            </div>
+        </div>
+
+
+        
+    </div>
+    
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+      {!! Form::close() !!}
+    </div>
+  </div>
+</div>
+
+
+
 
 @endsection

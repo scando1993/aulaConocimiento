@@ -11,7 +11,7 @@ class Taller extends Model
 
     public function recursos() {
 
-        return $this->hasMany('App\Recurso');
+        return $this->hasMany('App\Recurso')->orderBy('orden');
     }
 
 

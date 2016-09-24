@@ -14,7 +14,7 @@
     <div class="row">
            
         <?php $i = '1'; ?>
-
+<script src="../lightbox/lightbox.min.js"></script>
         @foreach ($item->recursos as $recurso)
 
         <div class="row">
@@ -47,7 +47,7 @@
         @endif
        
         @if($recurso->extension===".jpg")
-        <script src="../lightbox/lightbox.min.js"></script>
+        
         <a class="btn btn-success" href="../Recursos/{{ $recurso->nombre_archivo }}.jpg" data-lightbox="image-1" data-title="My caption">Ver Imagen  </a>
         @endif
         </div><br/>
