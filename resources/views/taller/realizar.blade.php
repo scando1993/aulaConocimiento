@@ -1,15 +1,13 @@
-@extends('layouts.default')
- 
-@section('content')
+@extends('layouts.app')
 
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            </br><div class="pull-left">
-                <h2> TALLER: {{ $item->titulo }}</h2></br>
-            </div>
-           
-        </div>
-    </div>
+@section('contentheader_title')
+     TALLER: {{ $item->titulo }}
+@endsection
+
+
+@section('main-content')
+
+   
 
     <div class="row">
            

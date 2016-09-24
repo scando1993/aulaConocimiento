@@ -1,6 +1,11 @@
-@extends('layouts.default')
- 
-@section('content')
+@extends('layouts.app')
+
+@section('contentheader_title')
+     Actividades
+@endsection
+
+
+@section('main-content')
 
     <div class="row">
         <div class="col-lg-12 margin-tb">

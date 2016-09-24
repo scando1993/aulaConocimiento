@@ -1,12 +1,15 @@
-@extends('layouts.default')
- 
-@section('content')
+@extends('layouts.app')
+
+@section('contentheader_title')
+     LISTADO DE TALLERES
+@endsection
+
+
+@section('main-content')
 
     <div class="row">
         </br><div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>LISTADO DE TALLERES</h2>
-            </div>
+            
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('taller.create') }}"> Crear nuevo bloque</a>
             </div>
