@@ -4,9 +4,7 @@
 
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2> Show Item</h2>
-            </div>
+            
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('taller.index') }}"> Back</a>
             </div>
@@ -36,6 +34,7 @@
                 <th>Descripcion</th>
                 <th>Nombre de archivo</th>
                 <th>Tipo archivo</th>
+                <th>Acciones</th>
             </tr>
             
             @foreach ($item->recursos as $recurso)
@@ -43,9 +42,40 @@
                 <td>{{ $recurso->descripcion }}</td>
                 <td>{{ $recurso->nombre_archivo }}</td>
                 <td>{{ $recurso->extension }}</td>
-            </tr>    
+                <td NOWRAP>
+                    <a class="btn btn-primary" href="">Edit</a>
+                    {!! Form::open(['method' => 'DELETE','route' => ['recurso.destroy', $recurso->id],'style'=>'display:inline']) !!}
+                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                    {!! Form::close() !!}
+                </td>
+            </tr>   
+                
             @endforeach
+            {!! Form::open(array('route' => 'recurso.store','method'=>'POST','files' => true)) !!}
+            {{ Form::hidden('taller_id', $item->id) }}
+            {{ Form::hidden('archivo', '') }}
+            {{ Form::hidden('nombre_archivo', '') }}
+            {{ Form::hidden('extension','' ) }}
             
+            <tr>
+                <td>{!! Form::text('descripcion', null, array('placeholder' => 'Nueva descripcion','class' => 'form-control')) !!}</td>
+            </tr>
+            <tr>
+                <td>
+                    
+                      <label class="col-md-4 control-label">Nuevo Archivo</label>
+                      <div class="col-md-6">
+                        <input type="file" class="form-control" name="file" >
+                    </div>
+                     
+                </td>
+             
+                <td>
+                    <button type="submit" class="btn btn-sucess">Guardar</button>
+                   
+                </td> 
+            </tr>
+            {!! Form::close() !!}
         </table>
         </div>
         

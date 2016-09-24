@@ -23,3 +23,6 @@ Route::get('realizar/{id}', 'TallerController@realizar');
 
 
 Route::resource('taller','TallerController');
+
+Route::resource('recurso','RecursoController');
+
