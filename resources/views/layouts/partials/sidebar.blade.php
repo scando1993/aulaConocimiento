@@ -55,8 +55,10 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ route('taller.index') }}"><i class='fa fa-link'></i> 
             <span>Mantenimiento Tutorias</span></a></li>
-
-            
+            <li class="active"><a href="#"><i class='fa fa-link'></i> 
+            <span>Mantenimiento Evaluaciones</span></a></li>
+            <li class="active"><a href="#"><i class='fa fa-link'></i> 
+            <span>Mantenimiento Cursos</span></a></li>
 
         </ul><!-- /.sidebar-menu -->
     </section>
