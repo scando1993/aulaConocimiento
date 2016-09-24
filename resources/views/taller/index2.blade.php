@@ -1,15 +1,13 @@
-@extends('layouts.default')
- 
-@section('content')
+@extends('layouts.app')
 
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                </br><h2>LISTADO DE TALLERES</h2>
-            </div>
-            
-        </div>
-    </div>
+@section('contentheader_title')
+    LISTADO DE TALLERES
+@endsection
+
+
+@section('main-content')
+
+    
 
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
