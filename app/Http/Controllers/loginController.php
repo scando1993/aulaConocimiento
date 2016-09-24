@@ -20,7 +20,7 @@ class loginController extends BaseController
     	echo $username."....".$password;
 
         if(count($checkLogin) >0){
-    		echo "Sucessfull Login";
+    		return redirect()->guest('home');
     	}
     	else{
     		echo "No such user";
