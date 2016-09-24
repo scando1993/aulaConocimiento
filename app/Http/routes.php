@@ -11,8 +11,10 @@
 |
 */
 
+
+
 Route::get('/', function () {
-    return view('login');
+    return view('auth/login');
 });
 
 Route::post('loginme', 'loginController@login');
@@ -21,8 +23,13 @@ Route::get('listar', 'TallerController@listar');
 
 Route::get('realizar/{id}', 'TallerController@realizar');
 
+Route::resource('taller','TallerController');
 
+<<<<<<< HEAD
 Route::resource('taller','TallerController');
 
 Route::resource('recurso','RecursoController');
 
+=======
+Route::get('pdf', 'PdfController@invoice');
+>>>>>>> 207e9d87feb5a8e7e3025bbe6187231955e9b32b
