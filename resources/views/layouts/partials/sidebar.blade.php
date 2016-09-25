@@ -8,7 +8,7 @@
         @if (! Auth::guest())
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{{asset('/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image" />
+                    <img src="{{asset('/img/user.png')}}" class="img-circle" alt="User Image" />
                 </div>
                 <div class="pull-left info">
                     <p>{{ Auth::user()->name }}</p>
@@ -61,7 +61,7 @@
 
             <li class="header">Administrativo</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a><i class='fa fa-link'></i> 
+            <li class="active"><a href="{{ route('taller.index') }}"><i class='fa fa-link'></i> 
             <span>Mantenimiento Tutorias</span></a></li>
             <li class="active"><a><i class='fa fa-link'></i> 
             <span>Mantenimiento Evaluaciones</span></a></li>
