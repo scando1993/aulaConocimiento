@@ -4,13 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "hash": "49e557f05b7b5ba71233561be0100f39",
-    "content-hash": "9ba248ce101cf484e8730b7b5768aa06",
-=======
     "hash": "f3d2266dc385f488cd02ed795307bdcf",
     "content-hash": "572c5827839b116c5603d25184e19727",
->>>>>>> 207e9d87feb5a8e7e3025bbe6187231955e9b32b
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
@@ -669,8 +664,6 @@
             "time": "2014-09-09 13:34:57"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "dompdf/dompdf",
             "version": "v0.6.2",
             "source": {
@@ -712,7 +705,6 @@
             "time": "2015-12-07 04:07:13"
         },
         {
->>>>>>> 207e9d87feb5a8e7e3025bbe6187231955e9b32b
             "name": "jakub-onderka/php-console-color",
             "version": "0.1",
             "source": {

@@ -17,24 +17,32 @@
                 </div>
             </div>
         @endif
-
-        <!-- search form (Optional) -->
-        <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="{{ trans('adminlte_lang::message.search') }}..."/>
-              <span class="input-group-btn">
-                <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-              </span>
-            </div>
-        </form>
-        <!-- /.search form -->
-
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
             <li class="header">Aprendizaje</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> 
-            <span>Introducción EV3</span></a></li>
+            <li class="treeview">
+                <a><span>{{ trans('Introducción EV3') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li class="treeview">
+                        <a><span>{{ trans('Bloques de Acción') }}</span><i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a>{{trans('Motor Mediano')}}</a></li>
+                            <li><a>{{trans('Motor Grande')}}</a></li>
+                            <li><a>{{trans('Mover la dirección')}}</a></li>
+                            <li><a>{{trans('Mover Tanque')}}</a></li>
+                            <li><a>{{trans('Pantalla')}}</a></li>
+                            <li><a>{{trans('Sonido')}}</a></li>
+                            <li><a>{{trans('Luz de Estado de Bloque EV3')}}</a></li>
+                        </ul>
+                    </li>
+                    <li><a>{{ trans('Bloques de Sensores') }}</a></li>
+                    <li><a>{{ trans('Bloques de Flujo') }}</a></li>
+                    <li><a>{{ trans('Bloques de Datos') }}</a></li>
+                    <li><a>{{ trans('Bloques Avanzados') }}</a></li>
+                </ul>
+            </li>
+
 
             <li class="active"><a href="{{ URL('listar') }}"><i class='fa fa-link'></i> 
             <span>Tutorias</span></a></li>
@@ -53,13 +61,14 @@
 
             <li class="header">Administrativo</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ route('taller.index') }}"><i class='fa fa-link'></i> 
+            <li class="active"><a><i class='fa fa-link'></i> 
             <span>Mantenimiento Tutorias</span></a></li>
-            <li class="active"><a href="#"><i class='fa fa-link'></i> 
+            <li class="active"><a><i class='fa fa-link'></i> 
             <span>Mantenimiento Evaluaciones</span></a></li>
-            <li class="active"><a href="#"><i class='fa fa-link'></i> 
+            <li class="active"><a><i class='fa fa-link'></i> 
             <span>Mantenimiento Cursos</span></a></li>
-
+            <li class="active"><a><i class='fa fa-link'></i> 
+            <span>Mantenimiento de Introducción</span></a></li>
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
