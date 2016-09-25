@@ -38,9 +38,30 @@
         <td>
             <a class="btn btn-info" href="{{ route('taller.show',$item->id) }}">Show</a>
             <a class="btn btn-info" href="{{ route('taller.edit',$item->id) }}">Editar</a>
-            {!! Form::open(['method' => 'DELETE','route' => ['taller.destroy', $item->id],'style'=>'display:inline']) !!}
-            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-            {!! Form::close() !!}
+            <a class="btn btn-danger" data-toggle="modal" data-target="#etaller{{ $item->id }}"> Eliminar</a>
+
+            <!-- Modal -->
+            <div class="modal fade" id="etaller{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Confirmar eliminación</h4>
+                    </div>
+                    
+                  <div class="modal-footer">
+                     {!! Form::open(['method' => 'DELETE','route' => ['taller.destroy', $item->id],'style'=>'display:inline']) !!}
+                     <button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
+                     {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
+                    {!! Form::close() !!}
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+
+
+           
         </td>
     </tr>
     @endforeach
@@ -100,6 +121,8 @@
 {!! $items->render() !!}
 
 
+
+  
 
 
 
