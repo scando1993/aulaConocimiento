@@ -8,8 +8,8 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="{{ url('/home') }}">Aula de Conocimiento</a>
-        </div><!-- /.login-logo -->
+            <img src="/aulaConocimiento/resources/image/logo.png" alt="Hogar de Cristo" height="90" width="370">
+        </div><!-- .login-logo -->
 
     @if (count($errors) > 0)
         <div class="alert alert-danger">
@@ -47,7 +47,7 @@
     </form>
 
 
-    <a href="{{ url('/password/reset') }}">Olvidé mi contraseña</a><br>
+    <!-- <a href="{{ url('/password/reset') }}">Olvidé mi contraseña</a><br> -->
 
 </div><!-- /.login-box-body -->
 
