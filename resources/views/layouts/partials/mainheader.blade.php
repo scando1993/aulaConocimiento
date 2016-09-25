@@ -10,6 +10,9 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 <!-- Tasks Menu -->
+                @if (Auth::guest())
+
+                @else
                 <!-- User Account Menu -->
                 <li class="dropdown user user-menu">
                     <!-- Menu Toggle Button -->
@@ -51,6 +54,7 @@
                         </li>
                     </ul>
                 </li>
+                @endif
                 <!-- Control Sidebar Toggle Button -->
                 <li>
                     <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
