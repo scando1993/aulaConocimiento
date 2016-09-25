@@ -5,3 +5,4 @@ Homestead.yaml
 Homestead.json
 .env
 /database/migrations/2016_09_24_161749_alter_recurso_create_orden.php
+composer.lock
