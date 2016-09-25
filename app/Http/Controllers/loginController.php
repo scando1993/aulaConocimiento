@@ -17,7 +17,6 @@ class loginController extends BaseController
     	$password = $req-> input('password');
 
     	$checkLogin = DB::table('Usuario')->where(['Username'=>$username, 'Password'=>$password])->get();
-    	echo $username."....".$password;
 
         if(count($checkLogin) >0){
     		return redirect()->guest('home');
