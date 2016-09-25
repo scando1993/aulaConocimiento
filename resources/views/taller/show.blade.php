@@ -1,6 +1,11 @@
-@extends('layouts.default')
- 
-@section('content')
+@extends('layouts.app')
+
+@section('contentheader_title')
+     Actividades
+@endsection
+
+
+@section('main-content')
 
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -31,6 +36,7 @@
         <div class="table-resposive">
         <table class="table-bordered table-striped">
             <tr>
+                <th>Actividad</th>
                 <th>Descripcion</th>
                 <th>Nombre de archivo</th>
                 <th>Tipo archivo</th>
@@ -39,6 +45,7 @@
             
             @foreach ($item->recursos as $recurso)
             <tr>
+                <th>{{ $recurso->orden }}</th>
                 <td>{{ $recurso->descripcion }}</td>
                 <td>{{ $recurso->nombre_archivo }}</td>
                 <td>{{ $recurso->extension }}</td>
@@ -57,10 +64,13 @@
             {{ Form::hidden('nombre_archivo', '') }}
             {{ Form::hidden('extension','' ) }}
             
+
             <tr>
+                <td>{!! Form::number('orden', null, array('placeholder' => '#','class' => 'form-control')) !!}</td>
                 <td>{!! Form::text('descripcion', null, array('placeholder' => 'Nueva descripcion','class' => 'form-control')) !!}</td>
             </tr>
             <tr>
+                <td></td>
                 <td>
                     
                       <label class="col-md-4 control-label">Nuevo Archivo</label>
