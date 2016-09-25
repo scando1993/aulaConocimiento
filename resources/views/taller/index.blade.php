@@ -37,7 +37,7 @@
         <td>{{ $item->duracion }}</td>
         <td>
             <a class="btn btn-info" href="{{ route('taller.show',$item->id) }}">Show</a>
-            <a class="btn btn-primary" href="{{ route('taller.edit',$item->id) }}">Edit</a>
+            <a class="btn btn-info" href="{{ route('taller.edit',$item->id) }}">Editar</a>
             {!! Form::open(['method' => 'DELETE','route' => ['taller.destroy', $item->id],'style'=>'display:inline']) !!}
             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
             {!! Form::close() !!}
@@ -97,6 +97,9 @@
     </div>
   </div>
 </div>
+{!! $items->render() !!}
+
+
 
 
 

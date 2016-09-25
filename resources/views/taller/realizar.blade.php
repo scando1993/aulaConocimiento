@@ -29,32 +29,46 @@
         @endif
 
         @if($recurso->extension===".pdf")
-                
-        {{-- <div class="panel panel-inverse">
-            <div class="panel-heading">
-                <h4 class="panel-title">{{ $recurso->archivo }}</h4>
-            </div>
-            <div class="panel-body">
-                <iframe src="../ViewerJS/index.html#../Recursos/{{ $recurso->nombre_archivo }}.pdf" width='500' height='400'></iframe>
-            </div>
-        </div> --}}
+        <a class="btn btn-success" data-toggle="modal" data-target="#pdf{{ $recurso->id }}"> Ver PDF</a>
+        <!-- Modal -->
+            <div class="modal fade" id="pdf{{ $recurso->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
 
-        <div class="pull-left">
-                <a class="btn btn-success" href="../ViewerJS/index.html#../Recursos/{{ $recurso->nombre_archivo }}.pdf" target="_blank"> Ver PDF</a>
-            </div>
+                    <div class="panel panel-inverse">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">{{ $recurso->archivo }}</h4>
+                        </div>
+                        <div class="panel-body">
+                            <iframe src="../ViewerJS/index.html#../Recursos/{{ $recurso->nombre_archivo }}.pdf" width='800' height='600' allowfullscreen webkitallowfullscreen></iframe>
+                        </div>
+                    </div> 
+
+                    
+                   </div>
+                  
+                </div>
+              </div>
+            </div>  
+       
         @endif
        
         @if($recurso->extension===".jpg")
-        
         <a class="btn btn-success" href="../Recursos/{{ $recurso->nombre_archivo }}.jpg" data-lightbox="image-1" data-title="My caption">Ver Imagen  </a>
         @endif
         </div><br/>
 
         @endforeach
 
-    
+  
+<script src="https://code.jquery.com/jquery-3.1.1.js" ></script>
 
-</select>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+
 
     </div>
 

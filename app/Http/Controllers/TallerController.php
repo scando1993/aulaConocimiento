@@ -87,31 +87,31 @@ class TallerController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     
+    */ 
     public function edit($id)
     {
         $item = Taller::find($id);
-        return view('Taller.edit',compact('item'));
+        return view('Taller.editar_taller',compact('item'));
     }
-*/
+
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     
+     */
     public function update(Request $request, $id)
     {
          $this->validate($request, [
             'titulo' => 'required',
         ]);
 
-        Item::find($id)->update($request->all());
+        Taller::find($id)->update($request->all());
         return redirect()->route('taller.index')
                         ->with('success','Item updated successfully');
     }
-*/
+
     /**
      * Remove the specified resource from storage.
      *
