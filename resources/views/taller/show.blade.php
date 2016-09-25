@@ -50,7 +50,7 @@
                 <td>{{ $recurso->nombre_archivo }}</td>
                 <td>{{ $recurso->extension }}</td>
                 <td NOWRAP>
-                    <a class="btn btn-primary" href="">Edit</a>
+                    <a class="btn btn-primary" href={{ route('recurso.edit',$recurso->id) }}>Edit</a>
                     <a class="btn btn-danger" data-toggle="modal" data-target="#eactv{{ $recurso->id }}"> Eliminar</a>
 
                         <!-- Modal -->

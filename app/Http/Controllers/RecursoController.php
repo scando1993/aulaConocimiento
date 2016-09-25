@@ -59,31 +59,51 @@ class RecursoController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     
+    */ 
     public function edit($id)
     {
-        $item = Taller::find($id);
-        return view('Taller.edit',compact('item'));
+        $item = Recurso::find($id);
+        return view('taller.editar_actividad',compact('item'));
     }
-*/
+
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     
+    */ 
     public function update(Request $request, $id)
     {
          $this->validate($request, [
-            'titulo' => 'required',
         ]);
+         $t=Recurso::find($id)->taller_id;
 
-        Item::find($id)->update($request->all());
-        return redirect()->route('taller.index')
+
+
+        $file = $request->file('file');
+       
+        if ($file)
+            {
+                 $nombreobj = $file->getClientOriginalName();
+        //configurar ruta local en config-->filisystem
+        \Storage::disk('local')->put($nombreobj, \File::get($file));
+
+        $request['archivo']=$nombreobj;
+
+                $extension=substr( $nombreobj , -4);
+                $request['extension']=$extension;
+                $narchivo=$nombreobj;
+                $narchivo=substr($narchivo, 0,strlen($narchivo)-4);
+                $request['nombre_archivo']=$narchivo;
+            }
+
+
+        Recurso::find($id)->update($request->all());
+        return redirect()->route('taller.show',$t)
                         ->with('success','Item updated successfully');
     }
-*/
+
     /**
      * Remove the specified resource from storage.
      *
