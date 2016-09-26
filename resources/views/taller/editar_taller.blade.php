@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('contentheader_title')
-     EDICIÓN DE TALLERES
+     Edición de Tutorias
 @endsection
  
 @section('main-content')

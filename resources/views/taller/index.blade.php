@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('contentheader_title')
-     LISTADO DE TALLERES
+     Mantenimiento de Tutorias
 @endsection
 
 
@@ -22,7 +22,7 @@
         </div>
     @endif
 </br>
-    <table class="table table-bordered">
+    <table class="table table-bordered" style="width : 80%; margin : 0 auto;">
         <tr>
             <th>No</th>
             <th>Titulo</th>

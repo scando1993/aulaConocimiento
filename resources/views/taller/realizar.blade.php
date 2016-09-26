@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('contentheader_title')
-     TALLER: {{ $item->titulo }}
+     Tutoria: {{ $item->titulo }}
 @endsection
 
 
@@ -9,7 +9,7 @@
 
    
 
-    <div class="row">
+    <div class="row" style="width : 80%; margin : 0 auto;">
            
         <?php $i = '1'; ?>
 <script src="../lightbox/lightbox.min.js"></script>
