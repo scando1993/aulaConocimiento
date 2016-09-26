@@ -30,3 +30,5 @@ Route::resource('taller','TallerController');
 Route::resource('recurso','RecursoController');
 
 Route::get('pdf', 'PdfController@invoice');
+
+Route::resource('curso','CursoController');
