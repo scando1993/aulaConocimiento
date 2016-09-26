@@ -7,7 +7,7 @@
 
 @section('main-content')
 
-    <div class="row">
+    <div class="row" style="width : 80%; margin : 0 auto;">
         <div class="col-lg-12 margin-tb">
             
             <div class="pull-right">
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <div class="table-resposive">
+        <div class="table-resposive" style="float:left"; >
         <table class="table-bordered table-striped">
             <tr>
                 <th>Actividad</th>
@@ -50,15 +50,97 @@
                 <td>{{ $recurso->nombre_archivo }}</td>
                 <td>{{ $recurso->extension }}</td>
                 <td NOWRAP>
-                    <a class="btn btn-primary" href="">Edit</a>
-                    <a class="btn btn-danger" data-toggle="modal" data-target="#eactv{{ $recurso->id }}"> Eliminar</a>
+                    {{--<a class="btn btn-primary" href={{ route('recurso.edit',$recurso->id) }}>Edit</a>--}}
 
-                        <!-- Modal -->
+                    <a class="btn btn-primary" data-toggle="modal" data-target="#editactv{{ $recurso->id }}"> Editar</a>
+                    <a class="btn btn-danger" data-toggle="modal" data-target="#eactv{{ $recurso->id }}"> Eliminar</a>
+                    <div>    
+                        <!-- Modal editar actividad-->
+                        <div class="modal fade" id="editactv{{ $recurso->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Editar Actividad</h4>
+                                </div>
+
+                                <div class="modal-body">
+                                    {!! Form::model($recurso, ['method' => 'PATCH','route' => ['recurso.update', $recurso->id],'files'=>true]) !!}
+                                    <div class="row">
+
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                          <div class="form-group">
+                                                <strong>Numero de actividad:</strong>
+                                                {!! Form::number('orden', null, array('placeholder' => '#','class' => 'form-control')) !!}
+                                          </div>    
+                                        </div>
+
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <strong>Descripcion:</strong>
+                                                {!! Form::text('descripcion', null, array('placeholder' => 'Nueva descripcion','class' => 'form-control')) !!}
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-xs-12 col-sm-12 col-md-12"> 
+                                          <div class="form-group">      
+                                            <strong>Archivo:{{$recurso->archivo}}</strong>
+                                          </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-sm-12 col-md-12"> 
+                                          <div class="form-group">    
+                                            <label class="col-md-4 control-label">Editar Archivo</label>
+                                                
+                                          </div>
+                                        </div>        
+                                        
+                                        <div class="col-xs-12 col-sm-12 col-md-12"> 
+                                          <div class="form-group"> 
+                                            <input type="file" class="form-control" name="file" > 
+                                          </div>
+                                        </div> 
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                          <div class="form-group"> 
+                                            <p>Archivos soportados: .mp4, .pdf, .jpg, .png, .gif</p>
+                                          </div>
+                                        </div>     
+                                    </div>
+                                </div>
+                                
+                              <div class="modal-footer">
+                                 <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
+                                 {!! Form::submit('Editar', ['class' => 'btn btn-success']) !!}
+                                {!! Form::close() !!}
+                              </div>
+                              
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+
+
+                    
+
+                        
+
+
+
+                </td>
+            </tr>
+
+            
+            <!-- Modal eliminar -->
+            <div>
                         <div class="modal fade" id="eactv{{ $recurso->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                           <div class="modal-dialog modal-sm" role="document">
                             <div class="modal-content">
 
                                 <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     <h4 class="modal-title" id="myModalLabel">Confirmar eliminación</h4>
                                 </div>
                                 
@@ -71,52 +153,69 @@
                               
                             </div>
                           </div>
-                        </div>
-
-
-
-                </td>
-            </tr>   
-                
+                        </div>   
+            </div>    
             @endforeach
         </table>
 
+</div>
 
 <script src="https://code.jquery.com/jquery-3.1.1.js" ></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 
-<!-- Modal -->
-<div class="modal fade" id="nactividad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">Nueva Actividad</h4>
-      </div>
-      <div class="modal-body">
+<!-- Modal nueva actividad-->
+<div>
+  <div class="modal fade" id="nactividad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Nueva Actividad</h4>
+        </div>
+        <div class="modal-body">
+          
+              {!! Form::open(array('route' => 'recurso.store','method'=>'POST','files' => true)) !!}
+              {{ Form::hidden('taller_id', $item->id) }}
+              {{ Form::hidden('archivo', '') }}
+              {{ Form::hidden('nombre_archivo', '') }}
+              {{ Form::hidden('extension','' ) }}
+
+              <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                  <strong>Numero de actividad:</strong>
+                  {!! Form::number('orden', null, array('placeholder' => '#','class' => 'form-control')) !!}
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                  <strong>Descripción de la actividad:</strong>
+                  {!! Form::text('descripcion', null, array('placeholder' => 'Nueva descripcion','class' => 'form-control')) !!}
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                  <strong>Subir archivo:</strong>
+                  <input type="file" class="form-control" name="file" >
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group"> 
+                  <p>Archivos soportados: .mp4, .pdf, .jpg, .png, .gif</p>
+                </div>
+              </div> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          {!! Form::close() !!}
+        </div>
         
-            {!! Form::open(array('route' => 'recurso.store','method'=>'POST','files' => true)) !!}
-            {{ Form::hidden('taller_id', $item->id) }}
-            {{ Form::hidden('archivo', '') }}
-            {{ Form::hidden('nombre_archivo', '') }}
-            {{ Form::hidden('extension','' ) }}
-            {!! Form::number('orden', null, array('placeholder' => '#','class' => 'form-control')) !!}
-            {!! Form::text('descripcion', null, array('placeholder' => 'Nueva descripcion','class' => 'form-control')) !!}
-            <label class="col-md-4 control-label">Nuevo Archivo</label>
-            <div class="col-md-6">
-                <input type="file" class="form-control" name="file" >
-            </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <button type="submit" class="btn btn-primary">Guardar</button>
-      </div>
-      {!! Form::close() !!}
     </div>
   </div>
 </div>
-
 
            
             

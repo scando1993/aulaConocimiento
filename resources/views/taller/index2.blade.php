@@ -35,6 +35,9 @@
     @endforeach
     </table>
 
+    <div style="width : 80%; margin : 0 auto;">
     {!! $items->render() !!}
+    </div>
+
 
 @endsection

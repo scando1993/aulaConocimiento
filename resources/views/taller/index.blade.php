@@ -7,11 +7,11 @@
 
 @section('main-content')
 
-    <div class="row">
+    <div class="row" style="width : 80%; margin : 0 auto;">
         </br><div class="col-lg-12 margin-tb">
             
             <div class="pull-right">
-                <a class="btn btn-success" data-toggle="modal" data-target="#myModal"> Crear nuevo bloque</a>
+                <a class="btn btn-success" data-toggle="modal" data-target="#myModal"> Crear nueva tutoria</a>
             </div>
         </div>
     </div>
@@ -37,29 +37,78 @@
         <td>{{ $item->duracion }}</td>
         <td>
             <a class="btn btn-info" href="{{ route('taller.show',$item->id) }}">Show</a>
-            <a class="btn btn-info" href="{{ route('taller.edit',$item->id) }}">Editar</a>
+            {{--<a class="btn btn-info" href="{{ route('taller.edit',$item->id) }}">Editar</a>--}}
+            <a class="btn btn-info" data-toggle="modal" data-target="#edittaller{{ $item->id }}"> Editar</a>
             <a class="btn btn-danger" data-toggle="modal" data-target="#etaller{{ $item->id }}"> Eliminar</a>
 
-            <!-- Modal -->
-            <div class="modal fade" id="etaller{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-              <div class="modal-dialog modal-sm" role="document">
-                <div class="modal-content">
+                        
+            <!-- Modal editar -->
+            <div> 
+                        <div class="modal fade" id="edittaller{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
 
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">Confirmar eliminación</h4>
-                    </div>
-                    
-                  <div class="modal-footer">
-                     {!! Form::open(['method' => 'DELETE','route' => ['taller.destroy', $item->id],'style'=>'display:inline']) !!}
-                     <button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
-                     {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
-                    {!! Form::close() !!}
-                  </div>
-                  
-                </div>
-              </div>
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Editar Taller</h4>
+                                </div>
+
+                                <div class="modal-body">
+                                    {!! Form::model($item, ['method' => 'PATCH','route' => ['taller.update', $item->id]]) !!}
+                                    <div class="row">
+
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <strong>Titulo:</strong>
+                                                {!! Form::text('titulo', null, array('placeholder' => 'Titulo','class' => 'form-control')) !!}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <strong>Duracion:</strong>
+                                                {!! Form::number('duracion', null, array('placeholder' => 'Duracion','class' => 'form-control')) !!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                              <div class="modal-footer">
+                                 <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
+                                 {!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
+                                {!! Form::close() !!}
+                              </div>
+                              
+                            </div>
+                          </div>
+                        </div>
+
             </div>
 
+
+
+            <!-- Modal eliminar -->
+            <div>
+                <div class="modal fade" id="etaller{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Confirmar eliminación</h4>
+                        </div>
+                        
+                      <div class="modal-footer">
+                         {!! Form::open(['method' => 'DELETE','route' => ['taller.destroy', $item->id],'style'=>'display:inline']) !!}
+                         <button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
+                         {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
+                        {!! Form::close() !!}
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+            </div>
 
            
         </td>
@@ -73,43 +122,36 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 
-<!-- Modal -->
+<!-- Modal Nuevo taller-->
+<div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Nuevo Taller</h4>
-      </div>
-      <div class="modal-body">
-        
-
-
-{!! Form::open(array('route' => 'taller.store','method'=>'POST')) !!}
-    <div class="row">
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Titulo:</strong>
-                {!! Form::text('titulo', null, array('placeholder' => 'Titulo','class' => 'form-control')) !!}
-            </div>
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Nuevo Taller</h4>
         </div>
-        
-       <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Duracion:</strong>
-                {!! Form::text('duracion', null, array('placeholder' => 'duracion','class' => 'form-control')) !!}
-            </div>
+        <div class="modal-body">
+
+            {!! Form::open(array('route' => 'taller.store','method'=>'POST')) !!}
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>Titulo:</strong>
+                            {!! Form::text('titulo', null, array('placeholder' => 'Titulo','class' => 'form-control')) !!}
+                        </div>
+                    </div>
+                    
+                   <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>Duracion:</strong>
+                            {!! Form::number('duracion', null, array('placeholder' => 'Duracion','class' => 'form-control')) !!}
+                        </div>
+                    </div>
+                    
+                </div>
         </div>
-
-
-        
-    </div>
-    
-
-
-
-      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
         <button type="submit" class="btn btn-primary">Guardar</button>
@@ -118,8 +160,10 @@
     </div>
   </div>
 </div>
-{!! $items->render() !!}
 
+<div style="width : 80%; margin : 0 auto;">
+{!! $items->render() !!}
+</div>
 
 
   

@@ -17,7 +17,7 @@ class TallerController extends Controller
      */
     public function index(Request $request)
     {
-        $items = Taller::orderBy('id','DESC')->paginate(5);
+        $items = Taller::orderBy('id','ASC')->paginate(5);
         return view('Taller.index',compact('items'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
@@ -29,7 +29,7 @@ class TallerController extends Controller
      */
      public function listar(Request $request)
     {
-        $items = Taller::orderBy('id','DESC')->paginate(5);
+        $items = Taller::orderBy('id','ASC')->paginate(5);
         return view('Taller.index2',compact('items'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }

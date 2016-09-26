@@ -54,8 +54,8 @@
        
         @endif
        
-        @if($recurso->extension===".jpg")
-        <a class="btn btn-success" href="../Recursos/{{ $recurso->nombre_archivo }}.jpg" data-lightbox="image-1" data-title="My caption">Ver Imagen  </a>
+        @if($recurso->extension===".jpg" || $recurso->extension===".png" || $recurso->extension===".gif")
+        <a class="btn btn-success" href="../Recursos/{{ $recurso->archivo }}" data-lightbox="image{{$recurso->id}}" >Ver Imagen  </a>
         @endif
         </div><br/>
 
