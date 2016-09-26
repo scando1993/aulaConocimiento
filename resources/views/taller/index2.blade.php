@@ -28,7 +28,9 @@
         <td>{{ $item->titulo }}</td>
         
         <td>
-            <a class="btn btn-info" href="{{ URL('realizar',$item->id) }}">Realizar</a>
+            <a class="btn btn-info" href="{{ URL('realizar',$item->id) }}">
+                <span class="glyphicon glyphicon-arrow-right"></span>
+            </a>
 
         </td>
     </tr>

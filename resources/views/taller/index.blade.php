@@ -11,7 +11,9 @@
         </br><div class="col-lg-12 margin-tb">
             
             <div class="pull-right">
-                <a class="btn btn-success" data-toggle="modal" data-target="#myModal"> Crear nueva tutoria</a>
+                <a class="btn btn-success" data-toggle="modal" data-target="#myModal">
+                  <span class="glyphicon glyphicon-plus"></span> Crear tutoria
+                 </a>
             </div>
         </div>
     </div>
@@ -36,10 +38,16 @@
         <td>{{ $item->titulo }}</td>
         <td>{{ $item->duracion }}</td>
         <td>
-            <a class="btn btn-info" href="{{ route('taller.show',$item->id) }}">Show</a>
+            <a class="btn btn-info" href="{{ route('taller.show',$item->id) }}">
+              <span class="glyphicon glyphicon-list-alt"></span>
+            </a>
             {{--<a class="btn btn-info" href="{{ route('taller.edit',$item->id) }}">Editar</a>--}}
-            <a class="btn btn-info" data-toggle="modal" data-target="#edittaller{{ $item->id }}"> Editar</a>
-            <a class="btn btn-danger" data-toggle="modal" data-target="#etaller{{ $item->id }}"> Eliminar</a>
+            <a class="btn btn-info" data-toggle="modal" data-target="#edittaller{{ $item->id }}"> 
+                <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+            <a class="btn btn-danger" data-toggle="modal" data-target="#etaller{{ $item->id }}"> 
+                <span class="glyphicon glyphicon-remove"></span>
+            </a>
 
                         
             <!-- Modal editar -->

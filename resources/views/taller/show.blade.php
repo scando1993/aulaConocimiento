@@ -11,7 +11,9 @@
         <div class="col-lg-12 margin-tb">
             
             <div class="pull-right">
-                <a class="btn btn-success" data-toggle="modal" data-target="#nactividad"> Crear nueva actividad</a>
+                <a class="btn btn-success" data-toggle="modal" data-target="#nactividad">
+                <span class="glyphicon glyphicon-plus"> Crear Actividad</span> 
+                </a>
             </div>
         </div>
     </div>
@@ -52,8 +54,8 @@
                 <td NOWRAP>
                     {{--<a class="btn btn-primary" href={{ route('recurso.edit',$recurso->id) }}>Edit</a>--}}
 
-                    <a class="btn btn-primary" data-toggle="modal" data-target="#editactv{{ $recurso->id }}"> Editar</a>
-                    <a class="btn btn-danger" data-toggle="modal" data-target="#eactv{{ $recurso->id }}"> Eliminar</a>
+                    <a class="btn btn-primary" data-toggle="modal" data-target="#editactv{{ $recurso->id }}"> <span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-danger" data-toggle="modal" data-target="#eactv{{ $recurso->id }}"> <span class="glyphicon glyphicon-remove"></span></a>
                     <div>    
                         <!-- Modal editar actividad-->
                         <div class="modal fade" id="editactv{{ $recurso->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
