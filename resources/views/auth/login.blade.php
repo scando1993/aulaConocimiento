@@ -8,8 +8,8 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="{{ url('/home') }}">Aula de Conocimiento</a>
-        </div><!-- /.login-logo -->
+            <img src="/aulaConocimiento/resources/image/logo.png" alt="Hogar de Cristo" height="90" width="370">
+        </div><!-- .login-logo -->
 
     @if (count($errors) > 0)
         <div class="alert alert-danger">
@@ -24,10 +24,11 @@
 
     <div class="login-box-body">
     <p class="login-box-msg"> Login para iniciar tu sesión </p>
-    <form action="loginme" method="post">
+    <form action='auth/login' method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="username" name="username" />
+            <input type="email" class="form-control" placeholder="email" name="email" />
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
             <input type="password" class="form-control" placeholder="password" name="password"/>
@@ -47,7 +48,7 @@
     </form>
 
 
-    <a href="{{ url('/password/reset') }}">Olvidé mi contraseña</a><br>
+    <!-- <a href="{{ url('/password/reset') }}">Olvidé mi contraseña</a><br> -->
 
 </div><!-- /.login-box-body -->
 
