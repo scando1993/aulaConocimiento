@@ -36,15 +36,56 @@
                             <li><a>{{trans('Luz de Estado de Bloque EV3')}}</a></li>
                         </ul>
                     </li>
-                    <li><a>{{ trans('Bloques de Sensores') }}</a></li>
-                    <li><a>{{ trans('Bloques de Flujo') }}</a></li>
-                    <li><a>{{ trans('Bloques de Datos') }}</a></li>
-                    <li><a>{{ trans('Bloques Avanzados') }}</a></li>
+                    <li class="treeview">
+                        <a><span>{{ trans('Bloques de Sensores') }}</span><i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                           <li><a>{{trans('Inicio')}}</a></li>
+                           <li><a>{{trans('Espera')}}</a></li>
+                           <li><a>{{trans('Bucle')}}</a></li>
+                           <li><a>{{trans('Interruptor')}}</a></li>
+                           <li><a>{{trans('Bucle Interruptor')}}</a></li> 
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a><span>{{ trans('Bloques de Flujo') }}</span><i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a>{{trans('Ultrasonido')}}</a></li>
+                            <li><a>{{trans('Infrarojo')}}</a></li>
+                            <li><a>{{trans('Gyro')}}</a></li>
+                            <li><a>{{trans('Color')}}</a></li>
+                            <li><a>{{trans('Motor Rotación')}}</a></li>
+                            <li><a>{{trans('Touch')}}</a></li>
+                            <li><a>{{trans('Timer')}}</a></li>
+                            <li><a>{{trans('Botones Brick')}}</a></li>
+                            <li><a>{{trans('Sonido NXT')}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a><span>{{ trans('Bloques de Datos') }}</span><i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a>{{trans('Constante')}}</a></li>
+                            <li><a>{{trans('Variable')}}</a></li>
+                            <li><a>{{trans('Lista')}}</a></li>
+                            <li><a>{{trans('Logico')}}</a></li>
+                            <li><a>{{trans('Matematico')}}</a></li>
+                            <li><a>{{trans('Redondear')}}</a></li>
+                            <li><a>{{trans('Comparar')}}</a></li>
+                            <li><a>{{trans('Rango')}}</a></li>
+                            <li><a>{{trans('Texto')}}</a></li>
+                            <li><a>{{trans('Aleatorio')}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a><span>{{ trans('Bloques Avanzados') }}</span><i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a>{{trans('Acceso archivo')}}</a></li>
+                            <li><a>{{trans('Mensajeria')}}</a></li>
+                            <li><a>{{trans('Conección bluetooth')}}</a></li>
+                        </ul>
+                        </li>
                 </ul>
             </li>
-
-
-            <li class="active"><a href="{{ URL('listar') }}"><i class='fa fa-link'></i> 
+            <li class="active"><a href="{{ URL('listar') }}"><i class='fa'></i> 
             <span>Tutorias</span></a></li>
 
 
@@ -61,14 +102,23 @@
 
             <li class="header">Administrativo</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ route('taller.index') }}"><i class='fa fa-link'></i> 
-            <span>Mantenimiento Tutorias</span></a></li>
-            <li class="active"><a><i class='fa fa-link'></i> 
-            <span>Mantenimiento Evaluaciones</span></a></li>
-            <li class="active"><a><i class='fa fa-link'></i> 
-            <span>Mantenimiento Cursos</span></a></li>
-            <li class="active"><a><i class='fa fa-link'></i> 
-            <span>Mantenimiento de Introducción</span></a></li>
+            <li class="treeview">
+                <a><span>{{ trans('Mantenimientos') }}</span><i class="fa fa-angle-left pull-right"></i></a>
+                <ul class = "treeview-menu">
+                    <li><a href="{{ route('taller.index') }}">{{trans('Tutorias')}}</a></li>
+                    <li><a>{{trans('Evaluaciones')}}</a></li>
+                    <li><a>{{trans('Cursos')}}</a></li>
+                    <li><a>{{trans('Introducción')}}</a></li>
+                </ul>
+            </li>
+            <!-- <li class="active"><a href="{{ route('taller.index') }}"><i class=''></i>  -->
+            <!-- <span>Mantenimiento Tutorias</span></a></li> -->
+            <!-- <li class="active"><a><i class=''></i>  -->
+            <!-- <span>Mantenimiento Evaluaciones</span></a></li> -->
+            <!-- <li class="active"><a><i class=''></i>  -->
+            <!-- <span>Mantenimiento Cursos</span></a></li> -->
+            <!-- <li class="active"><a><i class=''></i>  -->
+            <!-- <span>Mantenimiento de Introducción</span></a></li> -->
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
