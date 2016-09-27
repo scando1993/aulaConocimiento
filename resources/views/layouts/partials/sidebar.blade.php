@@ -17,6 +17,7 @@
                 </div>
             </div>
         @endif
+
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
             <li class="header">Aprendizaje</li>
@@ -85,7 +86,7 @@
                         </li>
                 </ul>
             </li>
-            <li class="active"><a href="{{ URL('listar') }}"><i class='fa'></i> 
+            <li class="active"><a href="{{ URL('listar') }}"><i class='fa fa-angle-left pull-right'></i> 
             <span>Tutorias</span></a></li>
 
 
@@ -99,7 +100,7 @@
                     <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
                 </ul>
             </li> -->
-
+            @if (! Auth::user()->rol == 1)
             <li class="header">Administrativo</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="treeview">
@@ -111,6 +112,7 @@
                     <li><a>{{trans('Introducción')}}</a></li>
                 </ul>
             </li>
+            @endif
             <!-- <li class="active"><a href="{{ route('taller.index') }}"><i class=''></i>  -->
             <!-- <span>Mantenimiento Tutorias</span></a></li> -->
             <!-- <li class="active"><a><i class=''></i>  -->
