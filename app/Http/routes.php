@@ -37,3 +37,5 @@ Route::resource('recurso','RecursoController');
 Route::get('pdf', 'PdfController@invoice');
 
 Route::resource('curso','CursoController');
+
+Route::get('ev3/{nombre}','ev3Controller@index');
