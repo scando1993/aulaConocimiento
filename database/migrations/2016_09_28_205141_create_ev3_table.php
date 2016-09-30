@@ -12,7 +12,6 @@ class CreateEv3Table extends Migration
      */
     public function up()
     {
-        //
         Schema::create('ev3', function ($table) {
             $table->increments('id');
             $table->integer('id_padre');
@@ -21,7 +20,6 @@ class CreateEv3Table extends Migration
             $table->string('fuente');
             $table->boolean('visible');
             $table->timestamps();
-            
         });
     }
 
@@ -32,6 +30,8 @@ class CreateEv3Table extends Migration
      */
     public function down()
     {
-        Schema::drop('ev3');
+        if (Schema::hasTable('ev3')) {
+            Schema::drop('ev3');
+        };
     }
 }
