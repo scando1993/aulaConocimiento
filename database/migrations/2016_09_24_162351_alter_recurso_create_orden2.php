@@ -13,9 +13,9 @@ class AlterRecursoCreateOrden2 extends Migration
     public function up()
     {
         //
-                Schema::table('recurso', function ($table) {
-            $table->integer('orden');
-});
+//                 Schema::table('recurso', function ($table) {
+//             $table->integer('orden');
+// });
     }
 
     /**

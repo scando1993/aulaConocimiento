@@ -13,13 +13,13 @@ class AlterTaller extends Migration
     public function up()
     {
         //
-        Schema::table('recurso', function ($table) {
-            $table->string('descripcion');
-});
+//         Schema::table('recurso', function ($table) {
+//             $table->string('descripcion');
+// });
 
-        Schema::table('taller', function ($table) {
-    $table->dropColumn('descripcion');
-});
+//         Schema::table('taller', function ($table) {
+//     $table->dropColumn('descripcion');
+// });
     }
 
     /**

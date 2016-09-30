@@ -13,9 +13,9 @@ class AlterRecurso extends Migration
     public function up()
     {
         //
-        Schema::table('recurso', function ($table) {
-    $table->renameColumn('id_taller', 'taller_id');
-});
+        // Schema::table('recurso', function ($table) {
+    // $table->renameColumn('id_taller', 'taller_id');
+// });
     }
 
     /**

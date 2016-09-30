@@ -26,6 +26,7 @@ create table Menu(
 	Menu_ID int not null AUTO_INCREMENT,
 	Titulo varchar(200) not null UNIQUE,
 	Menu_PadreID int not null,
+	TieneRecursos
 	activo Boolean DEFAULT 1,
 );
 
