@@ -88,21 +88,8 @@
             </li>
             <li class="active"><a href="{{ URL('listar') }}"><i class='fa fa-angle-left pull-right'></i> 
             <span>Tutorias</span></a></li>
-
-
-            <!-- <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
-
-            <li><a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>
-            <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.multilevel') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
-                <ul class="treeview-menu">
-                    <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
-                    <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
-                </ul>
-            </li> -->
-            @if (! Auth::user()->rol == 1)
+            @if (! Auth::user()->rol == 0)
             <li class="header">Administrativo</li>
-            <!-- Optionally, you can add icons to the links -->
             <li class="treeview">
                 <a><span>{{ trans('Mantenimientos') }}</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class = "treeview-menu">
@@ -113,15 +100,6 @@
                 </ul>
             </li>
             @endif
-            <!-- <li class="active"><a href="{{ route('taller.index') }}"><i class=''></i>  -->
-            <!-- <span>Mantenimiento Tutorias</span></a></li> -->
-            <!-- <li class="active"><a><i class=''></i>  -->
-            <!-- <span>Mantenimiento Evaluaciones</span></a></li> -->
-            <!-- <li class="active"><a><i class=''></i>  -->
-            <!-- <span>Mantenimiento Cursos</span></a></li> -->
-            <!-- <li class="active"><a><i class=''></i>  -->
-            <!-- <span>Mantenimiento de Introducción</span></a></li> -->
-        </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
 </aside>
