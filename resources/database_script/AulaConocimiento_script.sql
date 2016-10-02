@@ -32,8 +32,6 @@ create table Menu(
 
 insert into Ente(Nombre, Apellido, FechaNacimiento,activo) values ("Administrador", "Administrador", curdate(),1);
 insert into Usuario(Ente_ID, Username,Password,Rol,activo) values (1, "admin", "admin123", 0, 1);
-insert into Menu(Titulo, Menu_PadreID) values ("Introducción EV3",Null);
-insert into Menu(Titulo, Menu_PadreID) values ("Tutorias",Null);
-insert into Menu(Titulo, Menu_PadreID) values ("Avance de Cocimiento",null);
-insert into Menu(Titulo, Menu_PadreID) values ("Mantenimiento Tutorias",null);
-insert into Menu(Titulo, Menu_PadreID) values ("Mantenimiento Evaluaciones",null);
+
+delete from menu;
+ALTER TABLE menu AUTO_INCREMENT = 1
