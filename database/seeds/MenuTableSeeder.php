@@ -150,65 +150,65 @@ class MenuTableSeeder extends Seeder {
     	));
     	Menu::create(array(#20
 	    	'id_padre'=>5,
-	        'titulo'=>'Bucle Interruptor',
-	        'descripcion'=> 'Bucle Interruptor',
+	        'titulo'=>'Interrupción de Bucle',
+	        'descripcion'=> 'Interrupción de Bucle',
 	        'esHoja'=>1,
 	        'activo'=>1
     	));
 
     	Menu::create(array(#21
 	    	'id_padre'=>6,
-	        'titulo'=>'Ultrasonido',
-	        'descripcion'=> 'Ultrasonido',
+	        'titulo'=>'Sensor Ultrasónico',
+	        'descripcion'=> 'Sensor Ultrasónico',
 	        'esHoja'=>1,
 	        'activo'=>1
     	));
     	Menu::create(array(#22
 	    	'id_padre'=>6,
-	        'titulo'=>'Infrarojo',
-	        'descripcion'=> 'Infrarojo',
+	        'titulo'=>'Sensor Infrarrojo',
+	        'descripcion'=> 'Sensor Infrarrojo',
 	        'esHoja'=>1,
 	        'activo'=>1
     	));
     	Menu::create(array(#23
 	    	'id_padre'=>6,
-	        'titulo'=>'Gyro',
-	        'descripcion'=> 'Gyro',
+	        'titulo'=>'Girosensor',
+	        'descripcion'=> 'Girosensor',
 	        'esHoja'=>1,
 	        'activo'=>1
     	));
     	Menu::create(array(#24
 	    	'id_padre'=>6,
-	        'titulo'=>'Color',
-	        'descripcion'=> 'Color',
+	        'titulo'=>'Sensor de Color',
+	        'descripcion'=> 'Sensor de Color',
 	        'esHoja'=>1,
 	        'activo'=>1
     	));
     	Menu::create(array(#25
 	    	'id_padre'=>6,
-	        'titulo'=>'Motor Rotación',
-	        'descripcion'=> 'Motor Rotación',
+	        'titulo'=>'Rotación del Motor',
+	        'descripcion'=> 'Rotación del Motor',
 	        'esHoja'=>1,
 	        'activo'=>1
     	));
     	Menu::create(array(#26
 	    	'id_padre'=>6,
-	        'titulo'=>'Touch',
-	        'descripcion'=> 'Touch',
+	        'titulo'=>'Sensor Táctil',
+	        'descripcion'=> 'Sensor Táctil',
 	        'esHoja'=>1,
 	        'activo'=>1
     	));
     	Menu::create(array(#27
 	    	'id_padre'=>6,
-	        'titulo'=>'Timer',
-	        'descripcion'=> 'Timer',
+	        'titulo'=>'Temporizador',
+	        'descripcion'=> 'Temporizador',
 	        'esHoja'=>1,
 	        'activo'=>1
     	));
     	Menu::create(array(#28
 	    	'id_padre'=>6,
-	        'titulo'=>'Botones Brick',
-	        'descripcion'=> 'Botones Brick',
+	        'titulo'=>'Botones Bloque EV3',
+	        'descripcion'=> 'Botones Bloque EV3',
 	        'esHoja'=>1,
 	        'activo'=>1
     	));
@@ -236,22 +236,22 @@ class MenuTableSeeder extends Seeder {
     	));
     	Menu::create(array(#32
 	    	'id_padre'=>7,
-	        'titulo'=>'Lista',
-	        'descripcion'=> 'Lista',
+	        'titulo'=>'Operaciones Secuenciales',
+	        'descripcion'=> 'Operaciones Secuenciales',
 	        'esHoja'=>1,
 	        'activo'=>1
     	));
     	Menu::create(array(#33
 	    	'id_padre'=>7,
-	        'titulo'=>'Lógico',
-	        'descripcion'=> 'Lógico',
+	        'titulo'=>'Operaciones Lógicas',
+	        'descripcion'=> 'Operaciones Lógicas',
 	        'esHoja'=>1,
 	        'activo'=>1
     	));
     	Menu::create(array(#34
 	    	'id_padre'=>7,
-	        'titulo'=>'Matemático',
-	        'descripcion'=> 'Matemático',
+	        'titulo'=>'Matemática',
+	        'descripcion'=> 'Matemática',
 	        'esHoja'=>1,
 	        'activo'=>1
     	));
@@ -271,8 +271,8 @@ class MenuTableSeeder extends Seeder {
     	));
     	Menu::create(array(#37
 	    	'id_padre'=>7,
-	        'titulo'=>'Rango',
-	        'descripcion'=> 'Rango',
+	        'titulo'=>'Alcance',
+	        'descripcion'=> 'Alcance',
 	        'esHoja'=>1,
 	        'activo'=>1
     	));
@@ -294,14 +294,14 @@ class MenuTableSeeder extends Seeder {
     	Menu::create(array(#40
 	    	'id_padre'=>8,
 	        'titulo'=>'Acceso Archivos',
-	        'descripcion'=> 'Acceso Archivos',
+	        'descripcion'=> 'Acceso archivos',
 	        'esHoja'=>1,
 	        'activo'=>1
     	));
     	Menu::create(array(#41
 	    	'id_padre'=>8,
-	        'titulo'=>'Mensajería',
-	        'descripcion'=> 'Mensajería',
+	        'titulo'=>'Mandar Mensaje',
+	        'descripcion'=> 'Mandar Mensaje',
 	        'esHoja'=>1,
 	        'activo'=>1
     	));
@@ -312,37 +312,79 @@ class MenuTableSeeder extends Seeder {
 	        'esHoja'=>1,
 	        'activo'=>1
     	));
+    	Menu::create(array(#43
+	    	'id_padre'=>8,
+	        'titulo'=>'Mantener',
+	        'descripcion'=> 'Mantener',
+	        'esHoja'=>1,
+	        'activo'=>1
+    	));
+    	Menu::create(array(#44
+	    	'id_padre'=>8,
+	        'titulo'=>'Comentario',
+	        'descripcion'=> 'Comentario',
+	        'esHoja'=>1,
+	        'activo'=>1
+    	));
+    	Menu::create(array(#45
+	    	'id_padre'=>8,
+	        'titulo'=>'Valor Sensor sin procesar',
+	        'descripcion'=> 'Valor Sensor sin procesar',
+	        'esHoja'=>1,
+	        'activo'=>1
+    	));
+    	Menu::create(array(#46
+	    	'id_padre'=>8,
+	        'titulo'=>'Detener',
+	        'descripcion'=> 'Detener',
+	        'esHoja'=>1,
+	        'activo'=>1
+    	));
+    	Menu::create(array(#47
+	    	'id_padre'=>8,
+	        'titulo'=>'Invertir Motor',
+	        'descripcion'=> 'Invertir Motor',
+	        'esHoja'=>1,
+	        'activo'=>1
+    	));
+    	Menu::create(array(#48
+	    	'id_padre'=>8,
+	        'titulo'=>'Motor sin regular',
+	        'descripcion'=> 'Motor sin regular',
+	        'esHoja'=>1,
+	        'activo'=>1
+    	));
 
-    	Menu::create(array( #43
+    	Menu::create(array( #49
 	    	'id_padre'=>null,
 	        'titulo'=>'Mantenimiento',
 	        'descripcion'=> 'Mantenimiento',
 	        'esHoja'=>0,
 	        'activo'=>1
     	));
-    	Menu::create(array(#44
-	    	'id_padre'=>43,
+    	Menu::create(array(#50
+	    	'id_padre'=>49,
 	        'titulo'=>'Tutorías',
 	        'descripcion'=> 'Tutorías',
 	        'esHoja'=>1,
 	        'activo'=>1
     	));
-    	Menu::create(array(#45
-	    	'id_padre'=>43,
+    	Menu::create(array(#51
+	    	'id_padre'=>49,
 	        'titulo'=>'Evaluaciones',
 	        'descripcion'=> 'Evaluaciones',
 	        'esHoja'=>1,
 	        'activo'=>1
     	));
-    	Menu::create(array(#46
-	    	'id_padre'=>43,
+    	Menu::create(array(#52
+	    	'id_padre'=>49,
 	        'titulo'=>'Cursos',
 	        'descripcion'=> 'Cursos',
 	        'esHoja'=>1,
 	        'activo'=>1
     	));
-    	Menu::create(array(#47
-	    	'id_padre'=>43,
+    	Menu::create(array(#53
+	    	'id_padre'=>49,
 	        'titulo'=>'Introducción EV3',
 	        'descripcion'=> 'Introducción EV3',
 	        'esHoja'=>1,
