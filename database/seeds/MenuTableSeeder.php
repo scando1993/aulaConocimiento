@@ -7,6 +7,8 @@ class MenuTableSeeder extends Seeder {
     public function run()
     {
         DB::table('menu')->delete();
+		$statement = "ALTER TABLE menu AUTO_INCREMENT = 1;";
+		DB::unprepared($statement);
 
         Menu::create(array(
 	    	'id_padre'=>null,
