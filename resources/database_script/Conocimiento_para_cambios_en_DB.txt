@@ -1,0 +1,2 @@
+comando para refrescar tablas y cambios en la base de datos
+- php artisan migrate:refresh

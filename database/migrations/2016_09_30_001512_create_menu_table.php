@@ -16,6 +16,7 @@ class CreateMenuTable extends Migration
             $table->increments('id');
             $table->integer('id_padre');
             $table->string('titulo');
+            $table->string('descripcion');
             $table->boolean('esHoja');
             $table->boolean('activo');
         });
