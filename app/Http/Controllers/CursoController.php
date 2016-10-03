@@ -32,7 +32,7 @@ class CursoController extends Controller
     {
 
        
-       // return view('Curso.create');
+        return view('curso.crear_curso');
     }
 
     
@@ -42,18 +42,22 @@ class CursoController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
-     
+     */
     public function store(Request $request)
     {
         $this->validate($request, [
             'nombre' => 'required',
         ]);
+        $request->fecha_inicio=null;
+        $request->fecha_fin=null;
+        $request->id_profesor='1';
+
 
         Curso::create($request->all());
-        return redirect()->route('Curso.index')
+        return redirect()->route('curso.index')
                         ->with('success','Item created successfully');
     }
-*/
+
     /**
      * Display the specified resource.
      *
