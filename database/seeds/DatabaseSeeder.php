@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
         Eloquent::unguard();
         $this->call(UserTableSeeder::class);
         $this->call(MenuTableSeeder::class);
+        $this->call(Ev3TableSeeder::class);
     }
 }

@@ -28,7 +28,7 @@
                     <li class="treeview">
                         <a><span>{{ trans('Bloques de Acción') }}</span><i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">
-                            <li><a href="{{url('ev3\motormediano')}}">{{trans('Motor Mediano')}}</a></li>
+                            <li><a href="{{url('ev3\Motor Mediano')}}">{{trans('Motor Mediano')}}</a></li>
                             <li><a href="{{url('ev3\motorgrande')}}">{{trans('Motor Grande')}}</a></li>
                             <li><a href="{{url('ev3\moverdireccion')}}">{{trans('Mover la dirección')}}</a></li>
                             <li><a href="{{url('ev3\movertanque')}}">{{trans('Mover Tanque')}}</a></li>
