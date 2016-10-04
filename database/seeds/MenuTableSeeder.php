@@ -314,8 +314,8 @@ class MenuTableSeeder extends Seeder {
     	));
     	Menu::create(array(#43
 	    	'id_padre'=>8,
-	        'titulo'=>'Mantener',
-	        'descripcion'=> 'Mantener',
+	        'titulo'=>'Mantener activo',
+	        'descripcion'=> 'Mantener activo',
 	        'esHoja'=>1,
 	        'activo'=>1
     	));
