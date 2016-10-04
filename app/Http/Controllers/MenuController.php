@@ -29,7 +29,22 @@ class MenuController extends Controller
     {   
         
         $ev3 = DB::table('menu')
-            ->where('menu.titulo','=',$nombre)
+            ->where('menu.id_padre','=',null)
+            ->get();
+
+
+
+        //$bloque= string($nombre);
+        //$menu = DB::table('menu')->where('titulo',$nombre);
+
+        //$menu = DB::table('menu')->get();
+        return view('ev3')->with('nombre',$ev3);
+    } 
+    public function listarDocumentos($id)
+    {   
+        
+        $ev3 = DB::table('menu')
+            ->where('menu.id_padre','=',null)
             ->get();
 
 

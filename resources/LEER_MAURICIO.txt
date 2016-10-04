@@ -1,0 +1,12 @@
+Mauricio este es tu branch en el que se reflejaran tus cambios y al final haremos merge todos con el Master.
+
+INDICACIONES PARA MAURICIO 
+
+1. Ejecuta el comando para ir a tu rama:
+	- git checkout -b branchMauricio 
+2. Para Traer el proyecto del repositorio ejecuta: 
+	- git pull origin branchMauricio
+3. Para realizar los cambios que tengas que hacer ejecuta los siguientes pasos:
+	- git add .
+	- git commit -m "descripcion de tu commit"
+	- git push origin branchMauricio 
