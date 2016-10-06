@@ -9,18 +9,17 @@ use App\Menu;
 
 class MenuController extends Controller {
 
-	public function index(){
+	public function index($nombre) { 
+		$ev3 = Menu::where('menu.titulo','=',$nombre)
+				->get();
+        return view('ev3')->with('nombre',$ev3);
+    } 
+
+	public function listar(){
 		$menuList = Menu::whereNull('id_padre')
 		->get();
      	return view('menu')->with('menuList', $menuList);
 	}
-
-	// public function listar(){
-	// 	$menuList = Menu::where('menu.id','==',null);
- //     	return view('menu',compact('menuList'))
- //     	->with('i', $menuList);
-	// }
-
 	// public function create(){
 
 	// }
