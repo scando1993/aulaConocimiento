@@ -42,4 +42,4 @@ Route::get('ev3/{nombre}','ev3Controller@index');
 
 Route::resource('menu','MenuController@listar');
 
-Route::get('partials/sidebar','MenuController@listar2');
+//Route::get('partials/sidebar','MenuController@listar2');
