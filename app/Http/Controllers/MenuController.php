@@ -20,6 +20,12 @@ class MenuController extends Controller {
 		->get();
      	return view('menu')->with('menuList', $menuList);
 	}
+
+	public function listar2(){
+		$menuList = Menu::whereNull('id_padre')
+		->get();
+     	return view('partials/sidebar')->with('menuList', $menuList);
+	}
 	// public function create(){
 
 	// }
