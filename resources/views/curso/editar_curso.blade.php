@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('contentheader_title')
-     Creación de Cursos
+     Edición de Cursos
 @endsection
-
+ 
 @section('main-content')
 
     <div class="row">
         <div class="col-lg-12 margin-tb">
             
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('curso.index') }}"> Retornar</a>
+                <a class="btn btn-primary" href="{{ route('curso.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
         </div>
     @endif
 
-    {!! Form::open(array('route' => 'curso.store','method'=>'POST')) !!}
+    {!! Form::model($item, ['method' => 'PATCH','route' => ['curso.update', $item->id],'files'=>true]) !!}
     <div class="row">
 
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -71,11 +71,11 @@
             </div>
         </div>
 
-        
-
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
         </div>
+
+
 
     </div>
     {!! Form::close() !!}
