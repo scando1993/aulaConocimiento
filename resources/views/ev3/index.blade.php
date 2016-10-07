@@ -1,11 +1,23 @@
 @extends('layouts.app')
 
 @section('contentheader_title')
-    EV3
+    Mantenimiento de Introduccion EV3
 @endsection
 
 
 @section('main-content')
+
+    <div class="row" style="width : 80%; margin : 0 auto;">
+        </br><div class="col-lg-12 margin-tb">
+            
+            <div class="pull-right">
+                <a class="btn btn-success" data-toggle="modal" data-target="#myModal">
+                  <span class="glyphicon glyphicon-plus"></span> Crear Recurso
+                 </a>
+            </div>
+        </div>
+    </div>
+
     @if ($message = Session::get('success'))
         <div class="alert alert-success" >
             <p>{{ $message }}</p>
@@ -23,9 +35,6 @@
         <td>{{ $item->titulo }}</td>
         <td>{{ $item->descripcion }}</td>
         <td>
-            <a class="btn btn-info">
-                <span class="glyphicon glyphicon-arrow-right"></span>
-            </a>
             <a class="btn btn-info" href="{{ route('taller.show',$item->id) }}">
               <span class="glyphicon glyphicon-list-alt"></span>
             </a>
