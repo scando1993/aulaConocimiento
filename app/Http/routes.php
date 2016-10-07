@@ -30,8 +30,6 @@ Route::get('realizar/{id}', 'TallerController@realizar');
 
 Route::resource('taller','TallerController');
 
-// Route::resource('taller','TallerController');
-
 Route::resource('recurso','RecursoController');
 
 Route::get('pdf', 'PdfController@invoice');
@@ -40,12 +38,6 @@ Route::resource('curso','CursoController');
 
 Route::get('ev3/{nombre}','ev3Controller@index');
 
-Route::resource('menu','MenuController@index');
+// Route::get('menu/padres', 'MenuController@listar')->name('listarPadres');
 
-Route::get('menu/{id}', function ($id) {
-    return 'menu->esHoja '.$id;
-});
-
-Route::get('foo', function () {
-    return 'Hello World';
-});
+Route::resource('menu','MenuController');

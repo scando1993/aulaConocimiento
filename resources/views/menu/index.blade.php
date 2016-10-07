@@ -5,10 +5,9 @@
 @endsection
 
 
-@section('main-content')
-    <div class="container spark-screen">
-        #Contenido para Vista de Menu
-        @foreach ($menuList as $menu)
+@section('content')
+    <div>
+        @foreach ($data as $menu)
             <p>{{ $menu->titulo }}</p>
             <p>{{ $menu->id_padre }}</p>
         @endforeach
