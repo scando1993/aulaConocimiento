@@ -33,6 +33,7 @@ class ev3Controller extends Controller
             ->where('menu.titulo','=',$nombre)
             ->get();
 
+        
 
 
         //$bloque= string($nombre);

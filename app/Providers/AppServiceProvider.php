@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +16,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        
+        View::composer('partials/sidebar',function($view){
+            $view->with('menu',$menu);
+        });
+        $menu = DB::table('menu')->get();          
+        View::share('menu', $menu);
     }
 
     /**
