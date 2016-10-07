@@ -25,10 +25,11 @@
         <ul class="sidebar-menu">
             <li class="header">Aprendizaje</li>
             <!-- Optionally, you can add icons to the links -->
+            <?php echo count($menu)?>
             <li class="treeview">  
             @foreach ($menu as $m)    
                 @if($m->id == $m->id_curso)
-                <a><span>{{ $m->titulo }}</span> <i class="fa"></i></a>
+                    <a><span>{{ $m->titulo }}</span> <i class="fa"></i></a>
                 @endif
                 <!-- <ul class="treeview-menu">
                     <li class="treeview">
@@ -113,8 +114,6 @@
                 </ul>
             </li>
             @endif
-            
-
     </section>
     <!-- /.sidebar -->
 </aside>

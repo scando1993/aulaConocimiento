@@ -32,14 +32,6 @@ class ev3Controller extends Controller
             ->join('menu', 'introev3.id_menu', '=', 'menu.id')
             ->where('menu.titulo','=',$nombre)
             ->get();
-
-        
-
-
-        //$bloque= string($nombre);
-        //$menu = DB::table('menu')->where('titulo',$nombre);
-
-        //$menu = DB::table('menu')->get();
         return view('ev3')->with('nombre',$ev3);
     } 
 }

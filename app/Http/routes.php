@@ -30,7 +30,7 @@ Route::get('realizar/{id}', 'TallerController@realizar');
 
 Route::resource('taller','TallerController');
 
-Route::resource('taller','TallerController');
+// Route::resource('taller','TallerController');
 
 Route::resource('recurso','RecursoController');
 
@@ -40,6 +40,12 @@ Route::resource('curso','CursoController');
 
 Route::get('ev3/{nombre}','ev3Controller@index');
 
-Route::resource('menu','MenuController@listar');
+Route::resource('menu','MenuController@index');
 
-//Route::get('partials/sidebar','MenuController@listar2');
+Route::get('menu/{id}', function ($id) {
+    return 'menu->esHoja '.$id;
+});
+
+Route::get('foo', function () {
+    return 'Hello World';
+});
