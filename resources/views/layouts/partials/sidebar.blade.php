@@ -40,8 +40,8 @@
                 
 
                 @if(!$m->id_padre)
-                <?php echo "<a><span></span>".$m->titulo."<i class='fa'></i></a>";  ?>
-                <?php $id_padre=$m->id ?>
+                    <?php echo "<a><span></span>".$m->titulo."<i class='fa'></i></a>";  ?>
+                    <?php $id_padre=$m->id ?>
                 @endif
                 @if($m->id_padre)
                     @if($m->id_padre==$id_padre)
@@ -134,8 +134,6 @@
                 </ul>
             </li>
             @endif
-            
-
     </section>
     <!-- /.sidebar -->
 </aside>

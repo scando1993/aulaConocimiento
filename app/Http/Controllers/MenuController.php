@@ -3,63 +3,93 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Menu;
 
 
 class MenuController extends Controller {
 
-	public function index($nombre) { 
-		$ev3 = Menu::where('menu.titulo','=',$nombre)
-				->get();
-        return view('ev3')->with('nombre',$ev3);
-    } 
+	public function index() { 
+		$data = Menu::all();
+        return view('Menu.index')->with('data',$data);
+    }
 
-	// public function listar(){
+	// public function listar() { 
+	// 	$data = Menu::all();
+ //     	return view('Menu.listar')->with('menuList', $data);
+ //    } 
+
+	// public function showFathers(){
 	// 	$menuList = Menu::whereNull('id_padre')
-	// 	->get();
- //     	return view('menu')->with('menuList', $menuList);
+	// 				->get();
+ //     	return view('Menu.index')->with('menuList', $menuList);
 	// }
 
-	public function listar2(){
-		$menuList = Menu::whereNull('id_padre')
-		->get();
-     	return view('partials/sidebar')->with('menuList', $menuList);
-	}
+	// public function showSonsById($id){
+	// 	$data = Menu::where('menu.id_padre','=',$id)
+	// 				->get();
+ //     	return view('menu.sons')->with('data', $data);
+	// }
 	
-	public function create(){
-		// Se carga el formualrio de creacion de Menu (app/views/menu/create.blade.php)
-		return view::make('menu.create');
-	}
-
-	public function store(){
-		// validate
-        // Para validacion se utiliza http://laravel.com/docs/validation
-        $rules = array(
-            'id_padre'       => 'required|id_padre',
-            'id_curso'       => 'required|id_curso',
-            'titulo'	=> 'required',
-            'esHoja'      => 'required|boolean',
-            'activo' => 'required|boolean'
-        );
-        $validator = Validator::make(Input::all(), $rules);
-
-	}	
-
-	// public function show(){
-
+	// public function create(){
+	// 	return view::make('menu.create');
 	// }
+
+	// public function store(Request $request){
+ //        try {
+ //        	$menu = new Menu();
+ //        	$menu->id_padre 	=$request->id_padre;
+ //        	$menu->id_curso		=$request->id_curso;
+ //        	$menu->titulo		=$request->titulo;
+ //        	$menu->esHoja 		=$request->esHoja;
+ //        	$menu->activo 		=$request->activo;
+ //        	$menu->save();
+
+ //        	return redirect()->route('menu.index');
+ //        }
+ //        catch(Exception $e){
+ //        	return "Fatal error - ".$e->getMessage();
+ //        }
+	// }	
+
+	// // public function show($id){
+	// // 	$menu = Menu::findOrFail($id);
+	// // 	return view('menu.edit', compact('menu'));
+	// // }
 
 	// public function edit($id){
-
+	// 	$menu = Menu::findOrFail($id);
+	// 	return view('menu.edit', compact('menu'));
 	// }
 
-	// public function update($id){
-
+	// public function update(Request $request,$id){
+	// 	$menu = Menu::findOrFail($id);
+	// 	$menu->id_padre 	=$request->id_padre;
+ //    	$menu->id_curso		=$request->id_curso;
+ //    	$menu->titulo		=$request->titulo;
+ //    	$menu->esHoja 		=$request->esHoja;
+ //    	$menu->activo 		=$request->activo;
+ //    	$menu->save();
+ //    	return redirect()->route('menu.index');
 	// }
+
+	// // public function inactive($id){
+	// // 	$menu = Menu::findOrFail($id);
+	// // 	$menu->activo 		=$request->0;
+	// // 	return redirect()->route('menu.index');
+	// // }
 
 	// public function destroy($id){
-
+	// 	try{
+	// 		$menu = Menu::findOrFail($id);
+	// 		$menu->delete();
+	// 		return redirect()->route('menu.index');
+	// 	}
+	// 	catch(Exception $e){
+	// 		return "Fatal error - ".$e->getMessage();
+	// 	}
 	// }
 
 }
