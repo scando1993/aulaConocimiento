@@ -11,20 +11,11 @@ use App\Menu;
 
 class MenuController extends Controller {
 
-	public function index() { 
-		$items = Menu::where('esHoja', '1')
-		->get();
-     	return view('menu.index')->with('items', $items);
-    } 
-
-	// public function index() { 
-	// 	$data = Menu::where('activo','1')
-	// 			->get();
- //        return view('Menu.index')->with('data',$data);
- //    }
-
 	
-
+	public function index() { 
+		$items = Menu::all();
+     	return view('menu.index')->with('items', $items);
+    }
 	// public function showFathers(){
 	// 	$menuList = Menu::whereNull('id_padre')
 	// 				->get();

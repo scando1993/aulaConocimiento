@@ -38,7 +38,6 @@ Route::resource('curso','CursoController');
 
 Route::get('ev3/{nombre}','ev3Controller@index');
 
-// Route::get('menu/padres', 'MenuController@listar')->name('listarPadres');
+Route::get('menu','MenuController@index');
 
-Route::resource('menu','MenuController');
 Route::resource('ev3','ev3Controller');

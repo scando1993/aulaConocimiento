@@ -39,15 +39,20 @@
                 @endif    
                 
 
-                @if(!$m->id_padre)
+                @if(!$m->id_padre and $m->id_curso)
+                    @if($m->activo==1)
                     <?php echo "<a><span></span>".$m->titulo."<i class='fa'></i></a>";  ?>
                     <?php $id_padre=$m->id ?>
+                    @endif
                 @endif
-                @if($m->id_padre)
+                @if($m->id_padre or !$m->id_curso)
                     @if($m->id_padre==$id_padre)
+                        @if($m->activo==1)
                         <?php echo "<ul class='treeview-menu'>";  ?>
-                        <?php echo "<li><a href=''>".$m->titulo."</a></li>";  ?>
+                        
+                        <?php echo "<li><a href='".url('menu')."'>".$m->titulo."</a></li>";  ?>
                         <?php echo "</ul>";?>
+                        @endif
                     @endif
                 @endif
             @endforeach        
