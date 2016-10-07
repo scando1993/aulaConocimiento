@@ -15,24 +15,36 @@ class MenuController extends Controller {
         return view('ev3')->with('nombre',$ev3);
     } 
 
-	public function listar(){
-		$menuList = Menu::whereNull('id_padre')
-		->get();
-     	return view('menu')->with('menuList', $menuList);
-	}
+	// public function listar(){
+	// 	$menuList = Menu::whereNull('id_padre')
+	// 	->get();
+ //     	return view('menu')->with('menuList', $menuList);
+	// }
 
 	public function listar2(){
 		$menuList = Menu::whereNull('id_padre')
 		->get();
      	return view('partials/sidebar')->with('menuList', $menuList);
 	}
-	// public function create(){
+	
+	public function create(){
+		// Se carga el formualrio de creacion de Menu (app/views/menu/create.blade.php)
+		return view::make('menu.create');
+	}
 
-	// }
+	public function store(){
+		// validate
+        // Para validacion se utiliza http://laravel.com/docs/validation
+        $rules = array(
+            'id_padre'       => 'required|id_padre',
+            'id_curso'       => 'required|id_curso',
+            'titulo'	=> 'required',
+            'esHoja'      => 'required|boolean',
+            'activo' => 'required|boolean'
+        );
+        $validator = Validator::make(Input::all(), $rules);
 
-	// public function store(){
-
-	// }
+	}	
 
 	// public function show(){
 

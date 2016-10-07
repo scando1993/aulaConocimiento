@@ -28,13 +28,13 @@
             <li class="treeview">  
             @foreach ($menu as $m)    
                 @if($m->id == $m->id_curso)
-                <a><span>{{ $m->titulo }}</span> <i class="fa fa-angle-left"></i></a>
+                <a><span>{{ $m->titulo }}</span> <i class="fa"></i></a>
                 @endif
-                <ul class="treeview-menu">
+                <!-- <ul class="treeview-menu">
                     <li class="treeview">
                         <a><span>{{ trans('Introducción EV3') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
-                        <ul class="treeview-menu">
-                            <li class="treeview">
+                        <ul class="treeview-menu"> -->
+                            <!-- <li class="treeview">
                                 <a><span>{{ trans('Bloques de Acción') }}</span><i class="fa fa-angle-left pull-right"></i></a>
                                 <ul class="treeview-menu">
                                     <li><a href="{{url('ev3\Motor Mediano')}}">{{trans('Motor Mediano')}}</a></li>
@@ -45,8 +45,8 @@
                                     <li><a href="{{url('ev3\sonido')}}">{{trans('Sonido')}}</a></li>
                                     <li><a href="{{url('ev3\luzestadobloque')}}">{{trans('Luz de Estado de Bloque EV3')}}</a></li>
                                 </ul>
-                            </li>
-                            <li class="treeview">
+                            </li> -->
+                            <!-- <li class="treeview">
                                 <a><span>{{ trans('Bloques de Sensores') }}</span><i class="fa fa-angle-left pull-right"></i></a>
                                 <ul class="treeview-menu">
                                    <li><a>{{trans('Inicio')}}</a></li>
@@ -55,8 +55,8 @@
                                    <li><a>{{trans('Interruptor')}}</a></li>
                                    <li><a>{{trans('Bucle Interruptor')}}</a></li> 
                                 </ul>
-                            </li>
-                            <li class="treeview">
+                            </li> -->
+                            <!-- <li class="treeview">
                                 <a><span>{{ trans('Bloques de Flujo') }}</span><i class="fa fa-angle-left pull-right"></i></a>
                                 <ul class="treeview-menu">
                                     <li><a>{{trans('Ultrasonido')}}</a></li>
@@ -69,8 +69,8 @@
                                     <li><a>{{trans('Botones Brick')}}</a></li>
                                     <li><a>{{trans('Sonido NXT')}}</a></li>
                                 </ul>
-                            </li>
-                            <li class="treeview">
+                            </li> -->
+                            <!-- <li class="treeview">
                                 <a><span>{{ trans('Bloques de Datos') }}</span><i class="fa fa-angle-left pull-right"></i></a>
                                 <ul class="treeview-menu">
                                     <li><a>{{trans('Constante')}}</a></li>
@@ -84,22 +84,21 @@
                                     <li><a>{{trans('Texto')}}</a></li>
                                     <li><a>{{trans('Aleatorio')}}</a></li>
                                 </ul>
-                            </li>
-                            <li class="treeview">
+                            </li> -->
+                            <!-- <li class="treeview">
                                 <a><span>{{ trans('Bloques Avanzados') }}</span><i class="fa fa-angle-left pull-right"></i></a>
                                 <ul class="treeview-menu">
                                     <li><a>{{trans('Acceso archivo')}}</a></li>
                                     <li><a>{{trans('Mensajeria')}}</a></li>
                                     <li><a>{{trans('Conección bluetooth')}}</a></li>
                                 </ul>
-                            </li>
-                            
-                        </ul>
+                            </li> --> 
+                        <!-- </ul>
                     </li>
                     <li class="active"><a href="{{ URL('listar') }}"><i class='fa fa-angle-left pull-right'></i> 
                         <span>Tutorias</span></a>
-                    </li>
-                </ul>
+                    </li> -->
+                <!-- </ul> -->
             </li>
             @endforeach
             @if (! Auth::user()->rol == 0)
