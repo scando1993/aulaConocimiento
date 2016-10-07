@@ -19,7 +19,7 @@ class MenuController extends Controller {
 
 	public function index() { 
 		$items = Menu::all();
-     	return view('Menu.index')->with('items', $items);
+     	return view('menu.index')->with('items', $items);
     } 
 
 	// public function showFathers(){
