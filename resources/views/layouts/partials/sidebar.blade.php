@@ -25,11 +25,33 @@
         <ul class="sidebar-menu">
             <li class="header">Aprendizaje</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="treeview">  
-            @foreach ($menu as $m)    
-                @if($m->id == $m->id_curso)
-                <a><span>{{ $m->titulo }}</span> <i class="fa"></i></a>
+            @foreach ($menu as $m)
+
+                <?php $tag=""?>
+                
+                @if (!$m->id_padre and $tag =="abierto")
+                    </li>
                 @endif
+
+                @if (!$m->id_padre)
+                    <li class='treeview'>
+                    <?php $tag="abierto"?>
+                @endif    
+                
+
+                @if(!$m->id_padre)
+                <?php echo "<a><span></span>".$m->titulo."<i class='fa'></i></a>";  ?>
+                <?php $id_padre=$m->id ?>
+                @endif
+                @if($m->id_padre)
+                    @if($m->id_padre==$id_padre)
+                        <?php echo "<ul class='treeview-menu'>";  ?>
+                        <?php echo "<li><a href=''>".$m->titulo."</a></li>";  ?>
+                        <?php echo "</ul>";?>
+                    @endif
+                @endif
+            @endforeach        
+            
                 <!-- <ul class="treeview-menu">
                     <li class="treeview">
                         <a><span>{{ trans('Introducción EV3') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
@@ -99,8 +121,7 @@
                         <span>Tutorias</span></a>
                     </li> -->
                 <!-- </ul> -->
-            </li>
-            @endforeach
+            
             @if (! Auth::user()->rol == 0)
             <li class="header">Administrativo</li>
             <li class="treeview">
