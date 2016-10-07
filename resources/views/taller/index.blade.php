@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('contentheader_title')
-     Mantenimiento de Tutorias 2
+     Mantenimiento de Tutorias
 @endsection
 
 
