@@ -46,7 +46,8 @@
                 @if($m->id_padre)
                     @if($m->id_padre==$id_padre)
                         <?php echo "<ul class='treeview-menu'>";  ?>
-                        <?php echo "<li><a href=''>".$m->titulo."</a></li>";  ?>
+                        <?php $url="url(menu\1)"?>
+                        <?php echo "<li><a href='".$url."'>".$m->titulo."</a></li>";  ?>
                         <?php echo "</ul>";?>
                     @endif
                 @endif

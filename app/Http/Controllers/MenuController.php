@@ -16,6 +16,12 @@ class MenuController extends Controller {
         return view('Menu.index')->with('data',$data);
     }
 
+    public function showSonsById($id){
+		$data = Menu::where('menu.id_padre','=',$id)
+	 				->get();
+ 		return view('menu.sons')->with('data', $data);
+	 }
+
 	// public function listar() { 
 	// 	$data = Menu::all();
  //     	return view('Menu.listar')->with('menuList', $data);
