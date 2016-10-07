@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests;
-use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use App\Ev3;
 
 class ev3Controller extends Controller
 {
@@ -20,18 +22,16 @@ class ev3Controller extends Controller
         
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return Response
-     */
-    public function index($nombre)
-    {   
-        
-        $ev3 = DB::table('introev3')
-            ->join('menu', 'introev3.id_menu', '=', 'menu.id')
-            ->where('menu.titulo','=',$nombre)
-            ->get();
+    public function index() {
+        $items = Ev3::join('menu', 'introev3.id_menu', '=', 'menu.id')
+                ->get();
+        return view('ev3.index')->with('items', $items);
+    }
+
+    public function findByName($name) {   
+        $item = Ev3::join('menu', 'introev3.id_menu', '=', 'menu.id')
+                ->where('menu.titulo','=',$name)
+                ->get();
         return view('ev3')->with('nombre',$ev3);
     } 
 }

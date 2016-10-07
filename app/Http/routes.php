@@ -41,3 +41,4 @@ Route::get('ev3/{nombre}','ev3Controller@index');
 // Route::get('menu/padres', 'MenuController@listar')->name('listarPadres');
 
 Route::resource('menu','MenuController');
+Route::resource('ev3','ev3Controller');
