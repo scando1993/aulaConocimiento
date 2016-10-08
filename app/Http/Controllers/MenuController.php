@@ -20,7 +20,13 @@ class MenuController extends Controller {
 	public function index() { 
 		$items = Menu::all();
      	return view('menu.index')->with('items', $items);
-    } 
+    }
+
+	public function showSonsById($id){
+	 	$data = Menu::where('menu.id_padre','=',$id)
+	 				->get();
+ 	    return view('menu')->with('menul', $data);
+	} 
 
 	// public function showFathers(){
 	// 	$menuList = Menu::whereNull('id_padre')

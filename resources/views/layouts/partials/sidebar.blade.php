@@ -50,7 +50,7 @@
                         @if($m->activo==1)
                         <?php echo "<ul class='treeview-menu'>";  ?>
                         
-                        <?php echo "<li><a href='".url('menu')."'>".$m->titulo."</a></li>";  ?>
+                        <?php echo "<li><a href='".url('menu/'.$m->id)."'>".$m->titulo."</a></li>";  ?>
                         <?php echo "</ul>";?>
                         @endif
                     @endif
