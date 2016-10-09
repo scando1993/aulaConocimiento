@@ -1,16 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.default')
 
-@section('contentheader_title')
-     Creación de Preguntas
-@endsection
-
-@section('main-content')
+@section('content')
 
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            
+            <div class="pull-left">
+                <h2>Crear Nueva Pregunta/h2>
+            </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('pregunta.index') }}"> Retornar</a>
+                <a class="btn btn-primary" href="{{ route('pregunta.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -32,14 +30,14 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Enunciado:</strong>
-                {!! Form::text('enunciado', null, array('placeholder' => 'nombre','class' => 'form-control')) !!}
+                {!! Form::text('enunciado', null, array('placeholder' => 'Enunciado','class' => 'form-control')) !!}
             </div>
         </div>
-        
-       <div class="col-xs-12 col-sm-12 col-md-12">
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Ruta:</strong>
-                {!! Form::text('ruta', null, array('placeholder' => 'descripcion','class' => 'form-control')) !!}
+                <strong>Ruta_Imagen:</strong>
+                {!! Form::number('ruta', null, array('placeholder' => 'ruta','class' => 'form-control')) !!}
             </div>
         </div>
 
@@ -52,15 +50,16 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Tipo de Pregunta:</strong>
-                {!! Form::text('tipo', null, array('placeholder' => 'tipo','class' => 'form-control')) !!}
+                <strong>Tipo_pregunta:</strong>
+                {!! Form::number('tipo', null, array('placeholder' => 'tipo','class' => 'form-control')) !!}
             </div>
         </div>
+
 
         
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
         </div>
 
     </div>

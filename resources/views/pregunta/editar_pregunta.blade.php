@@ -6,14 +6,6 @@
  
 @section('main-content')
 
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('pregunta.index') }}"> Back</a>
-            </div>
-        </div>
-    </div>
 
     @if (count($errors) > 0)
         <div class="alert alert-danger">
@@ -26,20 +18,20 @@
         </div>
     @endif
 
-    {!! Form::model($item, ['method' => 'PATCH','route' => ['pregunta.update', $item->id],'files'=>true]) !!}
+    {!! Form::model($item, ['method' => 'PATCH','route' => ['pregunta.update', $item->id]]) !!}
     <div class="row">
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Enunciado:</strong>
-                {!! Form::text('enunciado', null, array('placeholder' => 'nombre','class' => 'form-control')) !!}
+                {!! Form::text('enunciado', null, array('placeholder' => 'Enunciado','class' => 'form-control')) !!}
             </div>
         </div>
-        
-       <div class="col-xs-12 col-sm-12 col-md-12">
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Ruta:</strong>
-                {!! Form::text('ruta', null, array('placeholder' => 'descripcion','class' => 'form-control')) !!}
+                <strong>Ruta_Imagen:</strong>
+                {!! Form::number('ruta', null, array('placeholder' => 'ruta','class' => 'form-control')) !!}
             </div>
         </div>
 
@@ -52,18 +44,14 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Tipo de Pregunta:</strong>
-                {!! Form::text('tipo', null, array('placeholder' => 'tipo','class' => 'form-control')) !!}
+                <strong>Tipo_pregunta:</strong>
+                {!! Form::number('tipo', null, array('placeholder' => 'tipo','class' => 'form-control')) !!}
             </div>
         </div>
 
-        
-
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-
-
 
     </div>
     {!! Form::close() !!}
