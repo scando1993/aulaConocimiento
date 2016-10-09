@@ -51,6 +51,36 @@ class EvaluacionController extends Controller
                         ->with('success','Evaluacion eliminada correctamente');
     }
 
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+    */
+    public function show($id)
+    {
+       
+    }
+
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+         $this->validate($request, [
+            'nombre' => 'required',
+        ]);
+
+        Evaluacion::find($id)->update($request->all());
+        return redirect()->route('evaluacion.index')
+                        ->with('success','Evaluacion actualizada correctamente');
+    }
+
    
 
 }
