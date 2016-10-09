@@ -5,10 +5,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Crear Nuevo Taller</h2>
+                <h2>Crear Nuevo Recurso</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('taller.index') }}"> Atras</a>
+                <a class="btn btn-primary" href="{{ route('ev3.index') }}"> Atras</a>
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
         </div>
     @endif
 
-    {!! Form::open(array('route' => 'taller.store','method'=>'POST')) !!}
+    {!! Form::open(array('route' => 'ev3.store','method'=>'POST')) !!}
     <div class="row">
 
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -36,8 +36,8 @@
         
        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Duracion:</strong>
-                {!! Form::text('duracion', null, array('placeholder' => 'duracion','class' => 'form-control')) !!}
+                <strong>Descripción:</strong>
+                {!! Form::text('descripcion', null, array('placeholder' => 'descripcion','class' => 'form-control')) !!}
             </div>
         </div>
 

@@ -33,5 +33,10 @@ class ev3Controller extends Controller
                 ->where('menu.titulo','=',$name)
                 ->get();
         return view('ev3')->with('nombre',$ev3);
-    } 
+    }
+
+    public function create(){
+
+        return view('ev3.create');
+    }
 }
