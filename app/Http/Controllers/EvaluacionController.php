@@ -5,6 +5,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Evaluacion;
+use App\Taller;
+
+use Auth;
 
 class EvaluacionController extends Controller
 {
@@ -43,7 +46,7 @@ class EvaluacionController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-*/   
+    */   
     public function destroy($id)
     {
         Evaluacion::find($id)->delete();
@@ -81,6 +84,26 @@ class EvaluacionController extends Controller
                         ->with('success','Evaluacion actualizada correctamente');
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+     public function realizar($id)
+    {   
+        $user=Auth::user()->id;
+
+        $carbon = new \Carbon\Carbon();
+        $date = $carbon->now();
+        $cal=0;
+        $evaluacion=Taller::find($id)->evaluaciones;
+
+        printf("haciendo evaluacion(id eval):$evaluacion->id de(id user):$user  el dia(date):$date su calificacion es(int):$cal ");
+    
+        $aleatorio=$evaluacion->preguntas;
+        //return view('evaluaciones.realizar_evaluacion',compact('aleatorio','id'));
+
+    }
    
 
 }

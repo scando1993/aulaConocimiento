@@ -16,7 +16,7 @@ class Taller extends Model
 
     public function evaluaciones() {
 
-        return $this->hasMany('App\Evaluacion');
+        return $this->hasOne('App\Evaluacion');
     }
 
 

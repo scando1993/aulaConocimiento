@@ -40,5 +40,8 @@ Route::resource('curso','CursoController');
 
 Route::get('ev3/{nombre}','ev3Controller@index');
 
+Route::get('realizar_evaluacion/{id}', 'EvaluacionController@realizar');
+
 Route::resource('evaluacion','EvaluacionController');
+
 

@@ -14,5 +14,15 @@ class Evaluacion extends Model
         return $this->belongsTo('App\Taller');
     }
 
+    public function preguntas() {
+
+        return $this->hasMany('App\Pregunta');
+    }
+
+    public function evalUsers() {
+
+        return $this->hasMany('App\EvaluacionUsers');
+    }
+
 
 }
