@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Evaluacion;
 use App\Taller;
+use App\Pregunta;
+use App\Respuesta;
+use App\EvaluacionUsers;
+use App\DetalleEvaluacion;
 
 use Auth;
 
@@ -66,6 +70,8 @@ class EvaluacionController extends Controller
        
     }
 
+
+
      /**
      * Update the specified resource in storage.
      *
@@ -91,18 +97,74 @@ class EvaluacionController extends Controller
      */
      public function realizar($id)
     {   
-        $user=Auth::user()->id;
+        //$user=Auth::user()->id;
 
         $carbon = new \Carbon\Carbon();
         $date = $carbon->now();
-        $cal=0;
+        //$cal=0;
         $evaluacion=Taller::find($id)->evaluaciones;
 
-        printf("haciendo evaluacion(id eval):$evaluacion->id de(id user):$user  el dia(date):$date su calificacion es(int):$cal ");
+        $evaluser=new EvaluacionUsers();
+
+        $evaluser->evaluacion_id=$evaluacion->id;
+        $evaluser->users_id=Auth::user()->id;
+        $evaluser->fecha= $date;
+        $evaluser->puntuacion=0;
+        $evaluser->save();
+
+        //printf("haciendo evaluacion(id eval):$evaluacion->id de(id user):$user  el dia(date):$date su calificacion es(int):$cal ");
     
         $aleatorio=$evaluacion->preguntas;
-        //return view('evaluaciones.realizar_evaluacion',compact('aleatorio','id'));
 
+        foreach ($aleatorio as $pregunta) {
+
+            $detEval=new DetalleEvaluacion();
+            $detEval->pregunta_id=$pregunta->id;
+            $detEval->evaluacionusers_id=$evaluser->id;
+            $detEval->respuesta_seleccionada_id=null;
+            $detEval->save();
+            //printf("pregunta: $pregunta->id");
+            
+        }
+
+        $id_eval=$evaluser->id;
+
+        return view('evaluacion.realizar_evaluacion',compact('aleatorio','id','id_eval'));
+
+    }
+
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function guardarEvaluacion(Request $request)
+    {
+        
+        
+        $i=$request->pregunta;
+        $cal=0;
+        foreach ($i as $item) {
+            printf("$item ");
+            $respuesta=Respuesta::find($item);
+            $pregunta=Pregunta::find($respuesta->pregunta_id);
+
+            if ($respuesta->es_correcta) {
+                $cal=$cal+5;
+            }
+
+            printf("\n la pregunta fue $pregunta->enunciado y su respuesta fue $respuesta->respuesta");
+        }  
+
+        $evaluacion=EvaluacionUsers::find($request->id_eval);
+
+        $evaluacion->puntuacion=$cal;
+        $evaluacion->save();
+
+        printf("Su calificacion es: $cal salir");
+       
     }
    
 

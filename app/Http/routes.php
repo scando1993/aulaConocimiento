@@ -42,6 +42,8 @@ Route::get('ev3/{nombre}','ev3Controller@index');
 
 Route::get('realizar_evaluacion/{id}', 'EvaluacionController@realizar');
 
+Route::post('guardarEvaluacion', 'EvaluacionController@guardarEvaluacion');
+
 Route::resource('evaluacion','EvaluacionController');
 
 
