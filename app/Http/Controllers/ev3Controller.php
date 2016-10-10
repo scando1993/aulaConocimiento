@@ -37,8 +37,9 @@ class ev3Controller extends Controller
         $item = Ev3::join('menu', 'introev3.id_menu', '=', 'menu.id')
                 ->where('menu.titulo','=',$name)
                 ->get();
-        return view('ev3')->with('nombre',$ev3);
-    }
+        return view('ev3')->with('nombre',$item);
+    } 
+    
 
     public function create(){
 
