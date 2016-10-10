@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use File;
 use App\Ev3;
 use App\Menu;
 
@@ -57,8 +59,22 @@ class ev3Controller extends Controller
             ])->id;
         Ev3::create([
             'id_menu' => $idMenu,
-            'ruta' => $request->ruta
+            'ruta' => $request->uploadFile
             ]);
+
+        $file = $request->file('uploadFile');
+        if ($file)
+            {
+                 $nombreobj = $file->getClientOriginalName();
+                //configurar ruta local en config-->filisystem
+                \Storage::disk('local')->put($nombreobj, \File::get($file));
+                $request['archivo']=$nombreobj;
+                $extension=substr( $nombreobj , -4);
+                $request['extension']=$extension;
+                $narchivo=$nombreobj;
+                $narchivo=substr($narchivo, 0,strlen($narchivo)-4);
+                $request['nombre_archivo']=$narchivo;
+            }
         return redirect()->route('ev3.index')
                         ->with('Excelente','Item creado exitosamente');
     }

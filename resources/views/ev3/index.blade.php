@@ -61,7 +61,7 @@
                     <h4 class="modal-title" id="myModalLabel">Nuevo Ev3</h4>
                 </div>
                 <div class="modal-body">
-                    {!! Form::open(array('route' => 'ev3.store','method'=>'POST')) !!}
+                    {!! Form::open(array('route' => 'ev3.store','method'=>'POST', 'files'=>true, 'enctype'=>'multipart/form-data')) !!}
                         <div class="row">
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -77,9 +77,10 @@
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12"> 
-                                <div class="form-group">
+                                <div class="form-group"> 
                                     <strong>Fuente:</strong> 
-                                    <input type="file" class="form-control" name="ruta" > 
+                                    <!-- <input type="file" class="form-control" name="ruta" >  -->
+                                    {!! Form::file('uploadFile') !!}
                                 </div>
                             </div> 
 
