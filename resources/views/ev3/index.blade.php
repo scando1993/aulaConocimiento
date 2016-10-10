@@ -31,22 +31,27 @@
             <th width="200px">Acciones</th>
         </tr>
     @foreach ($items as $key => $item)
-    <tr>
-        <td>{{ $item->titulo }}</td>
-        <td>{{ $item->descripcion }}</td>
-        <td>
-            <a class="btn btn-info" href="{{ url('ev3',$item->titulo) }}">
-              <span class="glyphicon glyphicon-list-alt"></span>
-            </a>
-            <a class="btn btn-info" data-toggle="modal" data-target="#edittaller{{ $item->id }}"> 
-                <span class="glyphicon glyphicon-pencil"></span>
-            </a>
-            <a class="btn btn-danger" data-toggle="modal" data-target="#etaller{{ $item->id }}"> 
-                <span class="glyphicon glyphicon-remove"></span>
-            </a>
+    @if($item->activo==1)
+    <div>
+        <tr>
+            <td>{{ $item->titulo }}</td>
+            <td>{{ $item->descripcion }}</td>
+            <td>
+                <a class="btn btn-info" href="{{ url('ev3',$item->titulo) }}">
+                  <span class="glyphicon glyphicon-list-alt"></span>
+                </a>
+                <a class="btn btn-info" data-toggle="modal" data-target="#edittaller{{ $item->id }}"> 
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+                <a class="btn btn-danger" href="{{ url('ev3/eliminar',$item->id) }}"> 
+                    <span class="glyphicon glyphicon-remove"></span>
+                    
+                </a>
 
-        </td>
-    </tr>
+            </td>
+        </tr>
+    </div>
+    @endif
     @endforeach
     </table>
 

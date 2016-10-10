@@ -38,6 +38,8 @@ Route::resource('curso','CursoController');
 
 Route::get('ev3/{nombre}','ev3Controller@findByName');
 
+Route::get('ev3/eliminar/{id}','ev3Controller@eliminarregistro');
+
 Route::get('menu','MenuController@index');
 
 Route::get('menu/{id}','MenuController@showSonsById');

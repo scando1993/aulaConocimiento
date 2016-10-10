@@ -40,7 +40,15 @@ class ev3Controller extends Controller
                 ->where('menu.titulo','=',$name)
                 ->get();
         return view('ev3')->with('nombre',$item);
-    } 
+    }
+
+    public function eliminarregistro($id) {   
+        DB::table('menu')
+            ->where('id', $id)
+            ->update(['activo' => 0]);
+        return redirect()->route('ev3.index')
+                        ->with('Excelente','Item creado exitosamente');
+    }  
     
 
     public function create(){
