@@ -10,9 +10,11 @@
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
 				<div class="panel panel-default">
-					@foreach ($nombre as $ev3)	
-						@if ($ev3==end($nombre))
-							<embed src="/aulaConocimiento/resources/docs_blocks/Accion/{{$ev3->ruta}}" type="application/pdf" width="800" height="700"></embed>	
+					<?php $total=count($nombre);$i=0?>
+					@foreach ($nombre as $ev3)
+						<?php $i=$i+1?>
+						@if($i==$total)	
+							<embed src="/aulaConocimiento/resources/docs_blocks/{{$ev3->ruta}}" type="application/pdf" width="800" height="700"></embed>	
 						@endif	
     				@endforeach
 				</div>

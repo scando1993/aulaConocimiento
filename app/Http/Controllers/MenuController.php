@@ -20,7 +20,7 @@ class MenuController extends Controller {
 
 	public function showSonsById($id){
 	 	$data = Menu::where('menu.id_padre','=',$id)
-	 				->get();
+	 				->get();			
  	    return view('menu')->with('menul', $data);
 	} 
 
