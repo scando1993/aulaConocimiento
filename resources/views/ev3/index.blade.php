@@ -35,7 +35,7 @@
         <td>{{ $item->titulo }}</td>
         <td>{{ $item->descripcion }}</td>
         <td>
-            <a class="btn btn-info" href="{{ route('taller.show',$item->id) }}">
+            <a class="btn btn-info" href="{{ url('ev3',$item->titulo) }}">
               <span class="glyphicon glyphicon-list-alt"></span>
             </a>
             <a class="btn btn-info" data-toggle="modal" data-target="#edittaller{{ $item->id }}"> 
