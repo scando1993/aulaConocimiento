@@ -53,44 +53,57 @@
 
 <!-- Modal Nuevo ev3-->
 <div>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Nuevo Ev3</h4>
-        </div>
-        <div class="modal-body">
-
-            {!! Form::open(array('route' => 'ev3.store','method'=>'POST')) !!}
-                <div class="row">
-
-                    <div class="col-xs-12 col-sm-12 col-md-12">
-                        <div class="form-group">
-                            <strong>Titulo:</strong>
-                            {!! Form::text('titulo', null, array('placeholder' => 'Titulo','class' => 'form-control')) !!}
-                        </div>
-                    </div>
-                    
-                   <div class="col-xs-12 col-sm-12 col-md-12">
-                        <div class="form-group">
-                            <strong>Descripcion:</strong>
-                            {!! Form::text('descripcion', null, array('placeholder' => 'Descripcion','class' => 'form-control')) !!}
-                        </div>
-                    </div>
-                    
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Nuevo Ev3</h4>
                 </div>
+                <div class="modal-body">
+                    {!! Form::open(array('route' => 'ev3.store','method'=>'POST')) !!}
+                        <div class="row">
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    {!! Form::text('titulo', null, array('placeholder' => 'Titulo','class' => 'form-control')) !!}
+                                </div>
+                            </div>
+                    
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    {!! Form::text('descripcion', null, array('placeholder' => 'Descripcion','class' => 'form-control')) !!}
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12"> 
+                                <div class="form-group">
+                                    <strong>Fuente:</strong> 
+                                    <input type="file" class="form-control" name="ruta" > 
+                                </div>
+                            </div> 
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group"> 
+                                    <p>Archivos soportados: .pdf, .jpg, .png</p>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div height="200px" class="form-group">
+                                    <strong>Seleccione Grupo de Contenido:</strong>
+                                    {!! Form::select('id_padre', $id_padre) !!}
+                                </div>    
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    {!! Form::close() !!}
+                </div>
+            </div>
         </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <button type="submit" class="btn btn-primary">Guardar</button>
-      </div>
-      {!! Form::close() !!}
     </div>
-  </div>
 </div>
-
-
-
-
 @endsection

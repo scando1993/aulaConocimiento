@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Crear Nuevo Recurso</h2>
@@ -22,33 +22,37 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endif -->
 
-    {!! Form::open(array('route' => 'ev3.store','method'=>'POST')) !!}
+    <!-- {!! Form::open(array('route' => 'ev3.store','method'=>'POST')) !!}
     <div class="row">
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Titulo:</strong>
-                {!! Form::text('titulo', null, array('placeholder' => 'Titulo','class' => 'form-control')) !!}
+                {!! Form::text('titulo', null, array('class' => 'form-control')) !!}
             </div>
         </div>
         
        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Descripción:</strong>
-                {!! Form::text('descripcion', null, array('placeholder' => 'descripcion','class' => 'form-control')) !!}
+                {!! Form::text('descripcion', null, array('class' => 'form-control')) !!}
             </div>
         </div>
 
-
-        
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Fuente:</strong>
+                {!! Form::text('descripcion', null, array('class' => 'form-control')) !!}
+            </div>
+        </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
         </div>
 
     </div>
-    {!! Form::close() !!}
+    {!! Form::close() !!} -->
 
 @endsection
