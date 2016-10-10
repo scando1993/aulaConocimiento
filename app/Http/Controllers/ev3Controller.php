@@ -34,4 +34,10 @@ class ev3Controller extends Controller
                 ->get();
         return view('ev3')->with('nombre',$item);
     } 
+    
+
+    public function create(){
+
+        return view('ev3.create');
+    }
 }
