@@ -3,3 +3,6 @@
 /public/storage
 Homestead.yaml
 Homestead.json
+/config/database.php
+/config/database.rar
+/app/Http/routes.php

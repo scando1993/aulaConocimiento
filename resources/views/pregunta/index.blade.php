@@ -47,7 +47,7 @@
               <span class="glyphicon glyphicon-list-alt"></span>
             </a>
             {{--<a class="btn btn-info" href="{{ route('pregunta.edit',$item->id) }}">Editar</a>--}}
-            <a class="btn btn-info" data-toggle="modal" data-target="#edittaller{{ $item->id }}"> 
+            <a class="btn btn-info" data-toggle="modal" data-target="#editpregunta{{ $item->id }}"> 
                 <span class="glyphicon glyphicon-pencil"></span>
             </a>
             <a class="btn btn-danger" data-toggle="modal" data-target="#epregunta{{ $item->id }}"> 
