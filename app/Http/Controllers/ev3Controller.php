@@ -49,14 +49,13 @@ class ev3Controller extends Controller
         return redirect()->route('ev3.index')
                         ->with('Excelente','Item creado exitosamente');
     }  
-    
 
     public function create(){
 
         return view('ev3.create');
     }
 
-    public function store(Request $request){
+    public function store(Request $request) {
         $idMenu = Menu::create([
             'id_padre' => $request->id_padre,
             'id_curso' => 1,
@@ -87,9 +86,18 @@ class ev3Controller extends Controller
                         ->with('Excelente','Item creado exitosamente');
     }
 
-    public function edit($id)
-    {
+    public function edit($id) {
         $item = Ev3::find($id);
         return view('ev3.editar_ev3',compact('item'));
+    }
+
+    public function update(Request $request, $id) {
+        $ev3 = Ev3::find($id);
+        $ev3Id = $ev3->id;
+        $menuId = $ev3->id_menu;
+        Ev3::find($id)->update($request->all());
+        Menu::find($menuId)->update($request->all());
+        return redirect()->route('ev3.show',$ev3Id)
+                        ->with('success','Item actualizado correctamente');
     }
 }
