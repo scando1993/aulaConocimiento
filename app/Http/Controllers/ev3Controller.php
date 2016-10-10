@@ -86,4 +86,10 @@ class ev3Controller extends Controller
         return redirect()->route('ev3.index')
                         ->with('Excelente','Item creado exitosamente');
     }
+
+    public function edit($id)
+    {
+        $item = Ev3::find($id);
+        return view('ev3.editar_ev3',compact('item'));
+    }
 }
