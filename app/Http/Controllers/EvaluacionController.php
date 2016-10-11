@@ -115,7 +115,8 @@ class EvaluacionController extends Controller
         //printf("haciendo evaluacion(id eval):$evaluacion->id de(id user):$user  el dia(date):$date su calificacion es(int):$cal ");
     
         $aleatorio=$evaluacion->preguntas;
-
+        $array=[];
+        $i=0;
         foreach ($aleatorio as $pregunta) {
 
             $detEval=new DetalleEvaluacion();
@@ -123,13 +124,17 @@ class EvaluacionController extends Controller
             $detEval->evaluacionusers_id=$evaluser->id;
             $detEval->respuesta_seleccionada_id=null;
             $detEval->save();
-            //printf("pregunta: $pregunta->id");
+            $array[$i]= $detEval->id;
+            $i++;
+
             
         }
 
         $id_eval=$evaluser->id;
 
-        return view('evaluacion.realizar_evaluacion',compact('aleatorio','id','id_eval'));
+        //print_r($array);
+
+        return view('evaluacion.realizar_evaluacion',compact('aleatorio','id','id_eval','array'));
 
     }
 
@@ -147,13 +152,20 @@ class EvaluacionController extends Controller
         $i=$request->pregunta;
         $cal=0;
         foreach ($i as $item) {
-            printf("$item ");
-            $respuesta=Respuesta::find($item);
+            //printf("$item ");
+            $pregid=strstr($item, 'nn',true);
+            $itemid=substr(strstr($item, 'nn'),2);
+            printf(" $pregid ");
+            $respuesta=Respuesta::find($itemid);
             $pregunta=Pregunta::find($respuesta->pregunta_id);
 
             if ($respuesta->es_correcta) {
                 $cal=$cal+5;
             }
+
+            $pseleccionada=DetalleEvaluacion::find($pregid);
+            $pseleccionada->respuesta_seleccionada_id=$respuesta->id;
+            $pseleccionada->save();
 
             printf("\n la pregunta fue $pregunta->enunciado y su respuesta fue $respuesta->respuesta");
         }  

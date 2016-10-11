@@ -16,7 +16,7 @@
 
     {{ Form::hidden('id_eval', $id_eval) }}
 
-
+    {{--*/ $i = 0 /*--}}
 
 	@foreach ($aleatorio as $pregunta)
 
@@ -25,17 +25,17 @@
 
 
 		@foreach ($pregunta->respuestas as $respuesta)
-
-		<div>{{$respuesta->respuesta}}   {{ Form::checkbox('pregunta[]', $respuesta->id) }}</div>
+		<div>{{$respuesta->respuesta}}   {{ Form::checkbox('pregunta[]', $array[$i].'nn'.$respuesta->id) }}</div>
+		
 		@endforeach
 
-		
+		{{--*/ $i++ /*--}}
 
 	</div>
 	@endforeach
 
 		<div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
 	{!! Form::close() !!}
 </div>
