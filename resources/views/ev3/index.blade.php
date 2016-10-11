@@ -40,7 +40,7 @@
                 <a class="btn btn-info" href="{{ url('ev3',$item->titulo) }}">
                   <span class="glyphicon glyphicon-list-alt"></span>
                 </a>
-                <a class="btn btn-info" data-toggle="modal" data-target="#edittaller{{ $item->id }}"> 
+                <a class="btn btn-info" data-toggle="modal" data-target="#editarEv3{{ $item->id }}"> 
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a>
                 <a class="btn btn-danger" href="{{ url('ev3/eliminar',$item->id) }}"> 
@@ -110,6 +110,62 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<!-- Modal editar -->
+<div> 
+    <div class="modal fade" id="editarEv3{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Editar EV3</h4>
+            </div>
+            <div class="modal-body">
+                {!! Form::model($item, ['method' => 'PATCH','route' => ['ev3.update', $item->id]]) !!}
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            {!! Form::text('titulo', null, array('placeholder' => 'Titulo','class' => 'form-control')) !!}
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            {!! Form::text('descripcion', null, array('placeholder' => 'Descripcion','class' => 'form-control')) !!}
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12"> 
+                        <div class="form-group"> 
+                            <strong>Fuente:</strong> 
+                            {!! Form::file('uploadFile') !!}
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group"> 
+                            <p>Archivos soportados: .pdf, .jpg, .png</p>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div height="200px" class="form-group">
+                            <strong>Seleccione Grupo de Contenido:</strong>
+                            {!! Form::select('id_padre', $id_padre) !!}
+                        </div>    
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
+                {!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
+                {!! Form::close() !!}
+            </div>
+        </div>
+      </div>
     </div>
 </div>
 @endsection

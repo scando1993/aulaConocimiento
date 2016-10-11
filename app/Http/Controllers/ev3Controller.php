@@ -51,7 +51,6 @@ class ev3Controller extends Controller
     }  
 
     public function create(){
-
         return view('ev3.create');
     }
 
@@ -87,8 +86,9 @@ class ev3Controller extends Controller
     }
 
     public function edit($id) {
-        $item = Ev3::find($id);
-        return view('ev3.editar_ev3',compact('item'));
+        // $item = Ev3::find($id);
+        // $itemMenu = Menu::find($item->id_menu)
+        // return view('ev3.editar_ev3')->with('itemEv3', $item)->with('itemMenu', $itemMenu);
     }
 
     public function update(Request $request, $id) {
