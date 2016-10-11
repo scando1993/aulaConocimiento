@@ -31,21 +31,21 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Ruta_Imagen:</strong>
-                {!! Form::number('ruta', null, array('placeholder' => 'ruta','class' => 'form-control')) !!}
+                {!! Form::number('rutaImagen', null, array('placeholder' => 'ruta','class' => 'form-control')) !!}
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Evaluacion_id:</strong>
-                {!! Form::number('evaluacion', null, array('placeholder' => 'evaluacion','class' => 'form-control')) !!}
+                {!! Form::number('evaluacion_id', null, array('placeholder' => 'evaluacion','class' => 'form-control')) !!}
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Tipo_pregunta:</strong>
-                {!! Form::number('tipo', null, array('placeholder' => 'tipo','class' => 'form-control')) !!}
+                {!! Form::number('tipopregunta', null, array('placeholder' => 'tipo','class' => 'form-control')) !!}
             </div>
         </div>
 

@@ -40,7 +40,7 @@
         <td>{{ $item->pregunta_id }}</td>
         <td>{{ $item->rutaImagen }}</td>
         <td>
-            {{--<a class="btn btn-info" href="{{ route('pregunta.edit',$item->id) }}">Editar</a>--}}
+            {{--<a class="btn btn-info" href="{{ route('respuesta.edit',$item->id) }}">Editar</a>--}}
             <a class="btn btn-info" data-toggle="modal" data-target="#editrespuesta{{ $item->id }}"> 
                 <span class="glyphicon glyphicon-pencil"></span>
             </a>
