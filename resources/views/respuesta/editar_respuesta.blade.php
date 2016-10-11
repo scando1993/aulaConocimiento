@@ -38,14 +38,14 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Pregunta_id:</strong>
-                {!! Form::number('pregunta', null, array('placeholder' => 'pregunta','class' => 'form-control')) !!}
+                {!! Form::number('pregunta_id', null, array('placeholder' => 'pregunta','class' => 'form-control')) !!}
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Ruta:</strong>
-                {!! Form::number('ruta', null, array('placeholder' => 'ruta','class' => 'form-control')) !!}
+                {!! Form::number('rutaImagen', null, array('placeholder' => 'ruta','class' => 'form-control')) !!}
             </div>
         </div>
 
