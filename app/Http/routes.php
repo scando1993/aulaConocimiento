@@ -40,6 +40,10 @@ Route::resource('curso','CursoController');
 
 Route::get('ev3/{nombre}','ev3Controller@index');
 
+Route::get('resumen', 'EvaluacionController@resumen_evaluaciones');
+
+Route::get('ver_prueba/{id}', 'EvaluacionController@ver_prueba');
+
 Route::get('realizar_evaluacion/{id}', 'EvaluacionController@realizar');
 
 Route::post('guardarEvaluacion', 'EvaluacionController@guardarEvaluacion');

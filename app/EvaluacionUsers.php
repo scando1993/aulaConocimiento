@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class EvaluacionUsers extends Model
 {
 	public $table = "evaluacion_users";
-    public $fillable = ['fecha', 'puntuacion', 'user_id', 'evaluacion_id'];
+    public $fillable = ['fecha', 'puntuacion', 'users_id', 'evaluacion_id'];
     public $timestamps = false;
 
     public function inEvaluacion()
@@ -19,6 +19,10 @@ class EvaluacionUsers extends Model
         return $this->hasMany('App\DetalleEvaluacion');
     }
 
+    public function inUsers()
+    {
+        return $this->belongsTo('App\User');
+    }
 
 
 }

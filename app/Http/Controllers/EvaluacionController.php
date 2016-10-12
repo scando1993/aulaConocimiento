@@ -10,6 +10,7 @@ use App\Pregunta;
 use App\Respuesta;
 use App\EvaluacionUsers;
 use App\DetalleEvaluacion;
+use App\User;
 
 use Auth;
 
@@ -178,6 +179,34 @@ class EvaluacionController extends Controller
         printf("Su calificacion es: $cal salir");
        
     }
-   
+
+/**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+     public function resumen_evaluaciones()
+    {  
+        $user=User::find(Auth::user()->id);
+        $items=$user->evalUsers()->paginate(10);
+        //$items=EvaluacionUsers::$items->orderBy('id','DESC')->paginate(5);
+        // $items = EvaluacionUsers::orderBy('id','DESC')->paginate(5);
+        //$users = User::where('votes', '>', 100)->paginate(15);
+
+        return view('evaluacion.resumen_evaluaciones',compact('items'));
+        //print_r($items);
+            
+    }  
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+     public function ver_prueba($id)
+    {  
+        
+            printf("prueba $id");
+    }  
 
 }
