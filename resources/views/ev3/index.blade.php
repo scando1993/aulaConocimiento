@@ -43,7 +43,7 @@
                 <a class="btn btn-info" data-toggle="modal" data-target="#edittaller{{ $item->id }}"> 
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a>
-                <a class="btn btn-danger" href="{{ url('ev3/eliminar',$item->id) }}"> 
+                <a class="btn btn-danger" data-toggle="modal" data-target="#eliminarev3{{$item->id}}"> 
                     <span class="glyphicon glyphicon-remove"></span>
                     
                 </a>
@@ -52,8 +52,25 @@
         </tr>
     </div>
     @endif
+    <div class="modal fade"  id="eliminarev3{{$item->id}}" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color:#31b0d5">
+            <h4 class="modal-title" style="color:white">Mensaje de Confirmación</h4>
+          </div>
+          <div class="modal-body">
+            <p>¿Está seguro(a) que desea eliminar esta información?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-info" style="color:#444;"href="{{ url('ev3/eliminar',$item->id)}}">Aceptar</a>
+          </div>
+        </div><!-- /.modal-content   -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
     @endforeach
     </table>
+
 
 
 <!-- Modal Nuevo ev3-->
