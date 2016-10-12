@@ -16,7 +16,7 @@ class EvaluacionUsers extends Model
 
     public function detallesEval() {
 
-        return $this->hasMany('App\DetalleEvaluacion');
+        return $this->hasMany('App\DetalleEvaluacion','evaluacionusers_id');
     }
 
     public function inUsers()

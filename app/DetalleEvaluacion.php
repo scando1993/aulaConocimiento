@@ -12,17 +12,17 @@ class DetalleEvaluacion extends Model
     
      public function inEvaluser()
     {
-        return $this->belongsTo('App\EvaluacionUser');
+        return $this->belongsTo('App\EvaluacionUser','evaluacionusers_id');
     }
 
     public function inPregunta()
     {
-        return $this->belongsTo('App\Pregunta');
+        return $this->belongsTo('App\Pregunta','pregunta_id');
     }
 
      public function inRespuesta()
     {
-        return $this->belongsTo('App\Respuetsa');
+        return $this->belongsTo('App\Respuesta','respuesta_seleccionada_id');
     }
 
 }

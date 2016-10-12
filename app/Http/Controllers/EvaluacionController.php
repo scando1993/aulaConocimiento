@@ -11,6 +11,7 @@ use App\Respuesta;
 use App\EvaluacionUsers;
 use App\DetalleEvaluacion;
 use App\User;
+use PDF;
 
 use Auth;
 
@@ -156,7 +157,7 @@ class EvaluacionController extends Controller
             //printf("$item ");
             $pregid=strstr($item, 'nn',true);
             $itemid=substr(strstr($item, 'nn'),2);
-            printf(" $pregid ");
+            //printf(" $pregid ");
             $respuesta=Respuesta::find($itemid);
             $pregunta=Pregunta::find($respuesta->pregunta_id);
 
@@ -168,15 +169,18 @@ class EvaluacionController extends Controller
             $pseleccionada->respuesta_seleccionada_id=$respuesta->id;
             $pseleccionada->save();
 
-            printf("\n la pregunta fue $pregunta->enunciado y su respuesta fue $respuesta->respuesta");
+            //printf("\n la pregunta fue $pregunta->enunciado y su respuesta fue $respuesta->respuesta");
         }  
-
-        $evaluacion=EvaluacionUsers::find($request->id_eval);
+        $id=$request->id_eval;
+        $evaluacion=EvaluacionUsers::find($id);
 
         $evaluacion->puntuacion=$cal;
         $evaluacion->save();
 
-        printf("Su calificacion es: $cal salir");
+            $items=$evaluacion->detallesEval;
+            return view('evaluacion.visualizar_prueba',compact('items','id'));
+
+        //printf("Su calificacion es: $cal salir");
        
     }
 
@@ -205,8 +209,35 @@ class EvaluacionController extends Controller
      */
      public function ver_prueba($id)
     {  
-        
-            printf("prueba $id");
+            $evaluser=EvaluacionUsers::find($id);
+            $items=$evaluser->detallesEval;
+            //printf("prueba $id");
+            return view('evaluacion.visualizar_prueba',compact('items','id'));
+           // foreach ($items as $item) {
+             //  printf($item->inPregunta->id);
+            //}
+            //print_r($items);
     }  
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function pdfview($id)
+    {
+       // $items = DB::table("items")->get();
+       // view()->share('items',$items);
+
+            $evaluser=EvaluacionUsers::find($id);
+            $items=$evaluser->detallesEval;
+
+            $pdf = PDF::loadView('evaluacion.visualizar_prueba',compact('items','id'))->save( 'pdfname.pdf' ); 
+            //return $pdf->download('prueba.pdf');
+            //->save( 'path/pdfname.pdf' ); 
+        
+
+       // return view('pdfview');
+    }
 
 }

@@ -51,3 +51,8 @@ Route::post('guardarEvaluacion', 'EvaluacionController@guardarEvaluacion');
 Route::resource('evaluacion','EvaluacionController');
 
 Route::resource('pregunta','PreguntaController');
+
+Route::get('pdfview/{id}', 'EvaluacionController@pdfview');
+
+
+
