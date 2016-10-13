@@ -14,7 +14,7 @@
 					@foreach ($nombre as $ev3)
 						<?php $i=$i+1?>
 						@if($i==$total)	
-							<embed src="/aulaConocimiento/resources/docs_blocks/{{$ev3->ruta}}" type="application/pdf" width="800" height="700"></embed>	
+							<embed src="/aulaConocimiento/public/Recursos/{{$ev3->ruta}}" type="application/pdf" width="800" height="700"></embed>	
 						@endif	
     				@endforeach
 				</div>

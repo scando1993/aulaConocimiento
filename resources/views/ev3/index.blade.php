@@ -158,7 +158,7 @@
                                 <div class="form-group"> 
                                     <strong>Fuente:</strong> 
                                     <!-- <input type="file" class="form-control" name="ruta" >  -->
-                                    {!! Form::file('uploadFile') !!}
+                                    {!! Form::file('file') !!}
                                 </div>
                             </div> 
 
