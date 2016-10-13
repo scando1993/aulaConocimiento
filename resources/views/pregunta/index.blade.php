@@ -28,6 +28,7 @@
 
     <table class="table table-bordered" style="width : 80%; margin : 0 auto;">
         <tr>
+            <th></th>
             <th>Enunciado</th>
             <th>Ruta_Imagen</th>
             <th>Evaluacion_id</th>
@@ -173,21 +174,21 @@
                    <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Ruta:</strong>
-                            {!! Form::number('ruta', null, array('placeholder' => 'Ruta','class' => 'form-control')) !!}
+                            {!! Form::text('rutaImagen', null, array('placeholder' => 'Ruta','class' => 'form-control')) !!}
                         </div>
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                              <strong>Evaluacion_id:</strong>
-                            {!! Form::number('evaluacion', null, array('placeholder' => 'evaluacion','class' => 'form-control')) !!}
+                            {!! Form::number('evaluacion_id', null, array('placeholder' => 'evaluacion','class' => 'form-control')) !!}
                         </div>
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Tipo_pregunta:</strong>
-                            {!! Form::number('tipo', null, array('placeholder' => 'tipo','class' => 'form-control')) !!}
+                            {!! Form::number('tipopregunta', null, array('placeholder' => 'tipo','class' => 'form-control')) !!}
                         </div>
                     </div>
                     
