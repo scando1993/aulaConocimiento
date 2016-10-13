@@ -36,7 +36,6 @@ Route::get('pdf', 'PdfController@invoice');
 
 Route::resource('curso','CursoController');
 
-<<<<<<< HEAD
 Route::get('ev3/{nombre}','ev3Controller@findByName');
 
 Route::get('ev3/eliminar/{id}','ev3Controller@eliminarregistro');
@@ -45,8 +44,7 @@ Route::get('menu','MenuController@index');
 
 Route::get('menu/{id}','MenuController@showSonsById');
 Route::resource('ev3','ev3Controller');
-=======
-Route::get('ev3/{nombre}','ev3Controller@index');
+
 
 Route::get('resumen', 'EvaluacionController@resumen_evaluaciones');
 
@@ -68,4 +66,3 @@ Route::get('index2/{id}', 'PreguntaController@index2');
 
 
 
->>>>>>> branch_Evaluacion
