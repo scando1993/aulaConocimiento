@@ -55,15 +55,15 @@
     <div class="modal fade"  id="eliminarev3{{$item->id}}" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header" style="background-color:#31b0d5">
-            <h4 class="modal-title" style="color:white">Mensaje de Confirmación</h4>
+          <div class="modal-header" style="background-color:#e7e7e7">
+            <h4 class="modal-title" style="color:black">Mensaje de Confirmación</h4>
           </div>
           <div class="modal-body">
             <p>¿Está seguro(a) que desea eliminar esta información?</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-            <a class="btn btn-info" style="color:#444;"href="{{ url('ev3/eliminar',$item->id)}}">Aceptar</a>
+            <a class="btn btn-info" href="{{ url('ev3/eliminar',$item->id)}}">Aceptar</a>
           </div>
         </div><!-- /.modal-content   -->
       </div><!-- /.modal-dialog -->
