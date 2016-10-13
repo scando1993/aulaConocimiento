@@ -137,7 +137,7 @@
                 <ul class = "treeview-menu">
                     <li><a href="{{ route('taller.index') }}">{{trans('Tutorias')}}</a></li>
                     <li><a>{{trans('Evaluaciones')}}</a></li>
-                    <li><a>{{trans('Cursos')}}</a></li>
+                    <li><a href="{{ route('curso.index') }}">{{trans('Cursos')}}</a></li>
                     <li><a href="{{ route('ev3.index') }}">{{trans('Introducción EV3')}}</a></li>
                 </ul>
             </li>
