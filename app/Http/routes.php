@@ -39,3 +39,24 @@ Route::get('pdf', 'PdfController@invoice');
 Route::resource('curso','CursoController');
 
 Route::get('ev3/{nombre}','ev3Controller@index');
+
+Route::get('resumen', 'EvaluacionController@resumen_evaluaciones');
+
+Route::get('ver_prueba/{id}', 'EvaluacionController@ver_prueba');
+
+Route::get('realizar_evaluacion/{id}', 'EvaluacionController@realizar');
+
+Route::post('guardarEvaluacion', 'EvaluacionController@guardarEvaluacion');
+
+Route::resource('evaluacion','EvaluacionController');
+
+Route::resource('pregunta','PreguntaController');
+
+Route::get('pdfview/{id}', 'EvaluacionController@pdfview');
+
+Route::resource('respuesta','RespuestaController');
+
+Route::get('index2/{id}', 'PreguntaController@index2');
+
+
+

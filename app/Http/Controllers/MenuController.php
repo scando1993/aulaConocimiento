@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
 
-class ev3Controller extends Controller
+class MenuController extends Controller
 {
      /**
      * Create a new controller instance.
@@ -28,12 +28,10 @@ class ev3Controller extends Controller
     public function index($nombre)
     {   
         
-        $ev3 = DB::table('introev3')
-            ->join('menu', 'introev3.id_menu', '=', 'menu.id')
+        $ev3 = DB::table('menu')
             ->where('menu.titulo','=',$nombre)
             ->get();
 
-        
 
 
         //$bloque= string($nombre);
