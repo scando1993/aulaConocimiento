@@ -25,6 +25,20 @@ class PreguntaController extends Controller
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
+       /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index2($id)
+    {
+        $eval=Evaluacion::find($id);
+        $items=$eval->preguntas2()->paginate(5);
+        //$items = Pregunta::orderBy('id','ASC')->paginate(5);
+        return view('pregunta.index2',compact('items','id'));
+            
+    }
+
      /**
      * Show the form for creating a new resource.
      *

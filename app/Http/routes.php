@@ -54,5 +54,9 @@ Route::resource('pregunta','PreguntaController');
 
 Route::get('pdfview/{id}', 'EvaluacionController@pdfview');
 
+Route::resource('respuesta','RespuestaController');
+
+Route::get('index2/{id}', 'PreguntaController@index2');
+
 
 

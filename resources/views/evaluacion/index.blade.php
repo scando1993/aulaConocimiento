@@ -93,7 +93,7 @@
         <td>{{ $item->tiempo }}</td>
         <td>{{ $item->taller_id }}</td>
            <td>
-            <a class="btn btn-info" href="{{ route('evaluacion.show',$item->id) }}">
+            <a class="btn btn-info" href="{{ URL('index2',$item->id) }}">
               <span class="glyphicon glyphicon-list-alt"></span>
             </a>
             {{--<a class="btn btn-info" href="{{ route('evaluacion.edit',$item->id) }}">Editar</a>--}}
