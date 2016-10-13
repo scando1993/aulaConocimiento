@@ -63,24 +63,20 @@ class ev3Controller extends Controller
             'esHoja' => 1,
             'activo' => 1
             ])->id;
+        $file = $request->file('file');
+        $nombreobj = 'none';
+        if ($file)
+            {
+                 $nombreobj = $file->getClientOriginalName();
+                \Storage::disk('local')->put($nombreobj, \File::get($file));
+                $extension=substr( $nombreobj , -4);
+                $request['extension']=$extension;
+                $narchivo=substr($nombreobj, 0,strlen($nombreobj)-4);
+            }
         Ev3::create([
-            'id_menu' => $idMenu,
-            'ruta' => 'ruta2Prueba'
-            ]);
-
-        // $file = $request->file('uploadFile');
-        // if ($file)
-        //     {
-        //          $nombreobj = $file->getClientOriginalName();
-        //         //configurar ruta local en config-->filisystem
-        //         \Storage::disk('local')->put($nombreobj, \File::get($file));
-        //         $request['archivo']=$nombreobj;
-        //         $extension=substr( $nombreobj , -4);
-        //         $request['extension']=$extension;
-        //         $narchivo=$nombreobj;
-        //         $narchivo=substr($narchivo, 0,strlen($narchivo)-4);
-        //         $request['nombre_archivo']=$narchivo;
-        //     }
+                'id_menu' => $idMenu,
+                'ruta' => $nombreobj
+                ]);
         return redirect()->route('ev3.index')
                         ->with('Excelente','Item creado exitosamente');
     }
@@ -97,7 +93,16 @@ class ev3Controller extends Controller
             'titulo'=>$request->titulo,
             'descripcion'=> $request->descripcion
             ]);
-        Ev3::where('id_menu',$id)->update(['ruta' => $request->uploadFile]);
+        $nombreobj = 'none';
+        if ($file)
+            {
+                 $nombreobj = $file->getClientOriginalName();
+                \Storage::disk('local')->put($nombreobj, \File::get($file));
+                $extension=substr( $nombreobj , -4);
+                $request['extension']=$extension;
+                $narchivo=substr($nombreobj, 0,strlen($nombreobj)-4);
+            }
+        Ev3::where('id_menu',$id)->update(['ruta' => $nombreobj]);
         return redirect()->route('ev3.index')
                         ->with('En buena hora','Item actualizado correctamente');
     }
