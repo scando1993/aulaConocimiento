@@ -67,7 +67,7 @@ class TallerController extends Controller
 
         Taller::create($request->all());
         return redirect()->route('taller.index')
-                        ->with('success','Item created successfully');
+                        ->with('success','Taller guardado correctamente');
     }
 
     /**
@@ -109,7 +109,7 @@ class TallerController extends Controller
 
         Taller::find($id)->update($request->all());
         return redirect()->route('taller.index')
-                        ->with('success','Item updated successfully');
+                        ->with('success','Taller actualizado correctamente');
     }
 
     /**

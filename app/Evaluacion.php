@@ -11,7 +11,7 @@ class Evaluacion extends Model
 
     public function entaller()
     {
-        return $this->belongsTo('App\Taller');
+        return $this->belongsTo('App\Taller','taller_id');
     }
 
     public function preguntas() {
@@ -26,6 +26,18 @@ class Evaluacion extends Model
 
     public function evalUsers() {
         return $this->hasMany('App\EvaluacionUsers');
+    }
+
+    // this is a recommended way to declare event handlers
+    protected static function boot() {
+        parent::boot();
+
+        static::deleting(function($evaluacion) { // before delete() method call this
+             
+             $evaluacion->preguntas2()->delete();
+             $evaluacion->evalUsers()->delete();
+             // do the rest of the cleanup...
+        });
     }
 
 

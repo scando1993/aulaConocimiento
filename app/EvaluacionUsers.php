@@ -24,5 +24,16 @@ class EvaluacionUsers extends Model
         return $this->belongsTo('App\User');
     }
 
+    // this is a recommended way to declare event handlers
+    protected static function boot() {
+        parent::boot();
+
+        static::deleting(function($evaluser) { // before delete() method call this
+             
+             $evaluser->detallesEval()->delete();
+             // do the rest of the cleanup...
+        });
+    }
+
 
 }

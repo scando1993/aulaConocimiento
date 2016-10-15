@@ -30,12 +30,13 @@ class PreguntaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index2($id)
+    public function index2(Request $request,$id)
     {
         $eval=Evaluacion::find($id);
         $items=$eval->preguntas2()->paginate(5);
         //$items = Pregunta::orderBy('id','ASC')->paginate(5);
-        return view('pregunta.index2',compact('items','id'));
+        return view('pregunta.index2',compact('items','id'))
+            ->with('i', ($request->input('page', 1) - 1) * 5);
             
     }
 
@@ -66,7 +67,7 @@ class PreguntaController extends Controller
         ]);
 
         Pregunta::find($id)->update($request->all());
-        return redirect()->route('pregunta.index')
+        return redirect()->route('index2',['id' => $request->evaluacion_id])
                         ->with('success','Pregunta editada correctamente');
     }
 
@@ -86,7 +87,7 @@ class PreguntaController extends Controller
         ]);
 
         Pregunta::create($request->all());
-        return redirect()->route('pregunta.index')
+        return redirect()->route('index2',['id' => $request->evaluacion_id])
                         ->with('success','Pregunta guardada exitosamente');
     }
 
@@ -149,8 +150,10 @@ class PreguntaController extends Controller
     */   
     public function destroy($id)
     {
-        Pregunta::find($id)->delete();
-        return redirect()->route('pregunta.index')
+        $pregunta=Pregunta::find($id);
+        $id=$pregunta->evaluacion_id;
+        $pregunta->delete();
+        return redirect()->route('index2',['id' => $id])
                         ->with('success','Pregunta eliminada correctamente');
     }
 

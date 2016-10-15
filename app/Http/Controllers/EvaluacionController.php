@@ -12,6 +12,7 @@ use App\EvaluacionUsers;
 use App\DetalleEvaluacion;
 use App\User;
 use PDF;
+use DB;
 
 use Auth;
 
@@ -26,7 +27,9 @@ class EvaluacionController extends Controller
     public function index(Request $request)
     {
         $items = Evaluacion::orderBy('id','ASC')->paginate(5);
-        return view('evaluacion.index',compact('items'))
+        $talleres = Taller::lists('titulo','id');
+
+        return view('evaluacion.index',compact('items','talleres'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
@@ -44,7 +47,7 @@ class EvaluacionController extends Controller
 
         Evaluacion::create($request->all());
         return redirect()->route('evaluacion.index')
-                        ->with('success','Item created successfully');
+                        ->with('success','Evaluacion guardada correctamente');
     }
 
     /**
@@ -108,6 +111,14 @@ class EvaluacionController extends Controller
         //$cal=0;
         $evaluacion=Taller::find($id)->evaluaciones;
 
+        //print_r($evaluacion->preguntas);
+
+        if(count($evaluacion->preguntas) < 1){
+            //printf('si tengo');
+            $error='No hay preguntas disponibles para esta evaluacion';
+            return view('evaluacion.mensaje_error',compact('id','error'));
+        }
+        //printf('yo tambien');
         $evaluser=new EvaluacionUsers();
 
         $evaluser->evaluacion_id=$evaluacion->id;
@@ -135,10 +146,11 @@ class EvaluacionController extends Controller
         }
 
         $id_eval=$evaluser->id;
-
+        
         //print_r($array);
 
         return view('evaluacion.realizar_evaluacion',compact('aleatorio','id','id_eval','array'));
+        
 
     }
 

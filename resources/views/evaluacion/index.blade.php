@@ -40,7 +40,8 @@
                    <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Fecha:</strong>
-                            {!! Form::text('fecha', null, array('placeholder' => 'fecha','class' => 'form-control')) !!}
+                            <input type="datetime-local" name="fecha">
+                            
                         </div>
                     </div>
 
@@ -54,9 +55,10 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Taller:</strong>
-                            {!! Form::number('taller_id', null, array('placeholder' => 'Taller','class' => 'form-control')) !!}
+                            {!! Form::select('taller_id', $talleres, null) !!}
                         </div>
                     </div>
+
                 </div>
         </div>
       <div class="modal-footer">
@@ -80,7 +82,7 @@
             <th>Nombre</th>
             <th>Fecha</th>
             <th>Tiempo</th>
-            <th>Taller</th>
+            <th>Tutoria</th>
             
 
             <th width="280px">Acciones</th>
@@ -91,7 +93,7 @@
         <td>{{ $item->nombre }}</td>
         <td>{{ $item->fecha }}</td>
         <td>{{ $item->tiempo }}</td>
-        <td>{{ $item->taller_id }}</td>
+        <td>{{ $item->entaller->titulo }}</td>
            <td>
             <a class="btn btn-info" href="{{ URL('index2',$item->id) }}">
               <span class="glyphicon glyphicon-list-alt"></span>
@@ -130,7 +132,8 @@
                                        <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <strong>Fecha:</strong>
-                                                {!! Form::text('fecha', null, array('placeholder' => 'fecha','class' => 'form-control')) !!}
+
+                                                <input type="datetime-local" name="fecha">
                                             </div>
                                         </div>
 
@@ -144,7 +147,7 @@
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <strong>Taller:</strong>
-                                                {!! Form::number('taller_id', null, array('placeholder' => 'Taller','class' => 'form-control')) !!}
+                                                {!! Form::select('taller_id', $talleres, null) !!}
                                             </div>
                                         </div>
                                     </div>

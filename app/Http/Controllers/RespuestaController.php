@@ -25,6 +25,21 @@ class RespuestaController extends Controller
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
+       /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index2(Request $request,$id)
+    {
+        $eval=Pregunta::find($id);
+        $items=$eval->respuestas()->paginate(5);
+        //$items = Pregunta::orderBy('id','ASC')->paginate(5);
+        return view('respuesta.index2',compact('items','id'))
+        ->with('i', ($request->input('page', 1) - 1) * 5);
+            
+    }
+
      /**
      * Show the form for creating a new resource.
      *
@@ -54,7 +69,7 @@ class RespuestaController extends Controller
         //printf("yo soy $request->es_correcta");     
            
         Respuesta::find($id)->update($request->all());
-        return redirect()->route('respuesta.index')
+        return redirect()->route('resp_index2',['id' => $request->pregunta_id])
                        ->with('success','Respuesta editada correctamente');
     }
 
@@ -73,17 +88,12 @@ class RespuestaController extends Controller
             'respuesta' => 'required',
         ]);
 
-       $correcta=$request->correcta;
-       if ($correcta=='V') {
-           $request->es_correcta=1;
-       }
-       else{
-        $request->es_correcta=0;
-       }
+       
+       
 
 
         Respuesta::create($request->all());
-        return redirect()->route('respuesta.index')
+        return redirect()->route('resp_index2',['id' => $request->pregunta_id])
                         ->with('success','Respuesta guardada exitosamente');
     }
 
@@ -146,8 +156,10 @@ class RespuestaController extends Controller
     */   
     public function destroy($id)
     {
-        Respuesta::find($id)->delete();
-        return redirect()->route('respuesta.index')
+        $resp=Respuesta::find($id);
+        $id= $resp->pregunta_id;
+        $resp->delete();
+        return redirect()->route('resp_index2',['id' =>$id])
                         ->with('success','Respuesta eliminada correctamente');
     }
 

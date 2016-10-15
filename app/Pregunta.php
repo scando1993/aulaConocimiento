@@ -20,7 +20,19 @@ class Pregunta extends Model
 
      public function detalleEval() {
 
-        return $this->hasMany('App\DetalleEvaluacion');
+         return $this->hasMany('App\DetalleEvaluacion');
+    }
+
+    // this is a recommended way to declare event handlers
+    protected static function boot() {
+        parent::boot();
+
+        static::deleting(function($pregunta) { // before delete() method call this
+             
+             $pregunta->detalleEval()->delete();
+             $pregunta->respuestas()->delete();
+             // do the rest of the cleanup...
+        });
     }
 
    

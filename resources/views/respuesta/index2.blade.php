@@ -1,18 +1,17 @@
 @extends('layouts.app')
 
 @section('contentheader_title')
-     Mantenimiento de Preguntas
+     MANTENIMIENTO DE RESPUESTAS
 @endsection
-
 
 @section('main-content')
 
     <div class="row" style="width : 80%; margin : 0 auto;">
-        </br><div class="col-lg-12 margin-tb">
+        <div class="col-lg-12 margin-tb">
             
             <div class="pull-right">
                 <a class="btn btn-success" data-toggle="modal" data-target="#myModal">
-                  <span class="glyphicon glyphicon-plus"></span> Crear pregunta
+                  <span class="glyphicon glyphicon-plus"></span> Crear respuesta
                  </a>
             </div>
         </div>
@@ -24,40 +23,42 @@
         </div>
     @endif
 
-</br>
-
-    <table class="table table-bordered" style="width : 80%; margin : 0 auto;">
+    <table class="table table-bordered">
         <tr>
             <th></th>
-            <th>Enunciado</th>
-            <th>Ruta_Imagen</th>
-            <th>Tipo_pregunta</th>
+            <th>Respuesta</th>
+            <th>Validez</th>
+            <th>rutaImagen</th>
             
+
             <th width="280px">Acciones</th>
         </tr>
-    
     @foreach ($items as $key => $item)
     <tr>
-        <td>{{ ++$i }}</td>
-        <td>{{ $item->enunciado }}</td>
+        <td>{{++$i}}</td>
+        <td>{{ $item->respuesta }}</td>
+        <td>@if($item->es_correcta)
+                <p>Verdadero</p>
+            @else
+                <p>Falso</p>
+            @endif
+
+            </td>
+        
         <td>{{ $item->rutaImagen }}</td>
-        <td>{{ $item->tipopregunta}}</td>
         <td>
-            <a class="btn btn-info" href="{{ URL('resp_index2',$item->id) }}">
-              <span class="glyphicon glyphicon-list-alt"></span>
-            </a>
-            {{--<a class="btn btn-info" href="{{ route('pregunta.edit',$item->id) }}">Editar</a>--}}
-            <a class="btn btn-info" data-toggle="modal" data-target="#editpregunta{{ $item->id }}"> 
+                        
+            <a class="btn btn-info" data-toggle="modal" data-target="#editrespuesta{{ $item->id }}"> 
                 <span class="glyphicon glyphicon-pencil"></span>
             </a>
-            <a class="btn btn-danger" data-toggle="modal" data-target="#epregunta{{ $item->id }}"> 
+            <a class="btn btn-danger" data-toggle="modal" data-target="#erespuesta{{ $item->id }}"> 
                 <span class="glyphicon glyphicon-remove"></span>
             </a>
 
                         
             <!-- Modal editar -->
             <div> 
-                        <div class="modal fade" id="editpregunta{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal fade" id="editrespuesta{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
 
@@ -67,30 +68,29 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    {!! Form::model($item, ['method' => 'PATCH','route' => ['pregunta.update', $item->id]]) !!}
+                                    {!! Form::model($item, ['method' => 'PATCH','route' => ['respuesta.update', $item->id]]) !!}
                                     <div class="row">
 
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
-                                                <strong>Enunciado:</strong>
-                                                {!! Form::text('enunciado', null, array('placeholder' => 'Enunciado','class' => 'form-control')) !!}
+                                                <strong>Respuesta:</strong>
+                                                {!! Form::text('respuesta', null, array('placeholder' => 'respuesta','class' => 'form-control')) !!}
                                             </div>
                                         </div>
 
+                                         <div class="form-group">
+                                            <strong>Validez:</strong>
+                                            {!! Form::select('es_correcta', ['' => 'Falso','1' => 'Verdadero'])  !!}
+
+                                        </div>
+
+                                        {{ Form::hidden('pregunta_id', $id) }}
+
+
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
-                                                <strong>Ruta_Imagen:</strong>
+                                                <strong>Ruta:</strong>
                                                 {!! Form::number('rutaImagen', null, array('placeholder' => 'ruta','class' => 'form-control')) !!}
-                                            </div>
-                                        </div>
-
-                                        {{ Form::hidden('evaluacion_id', $id) }}
-
-
-                                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                            <div class="form-group">
-                                                <strong>Tipo_pregunta:</strong>
-                                                {!! Form::number('tipopregunta', null, array('placeholder' => 'tipo','class' => 'form-control')) !!}
                                             </div>
                                         </div>
                                     </div>
@@ -112,7 +112,7 @@
 
             <!-- Modal eliminar -->
             <div>
-                <div class="modal fade" id="epregunta{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal fade" id="erespuesta{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                   <div class="modal-dialog modal-sm" role="document">
                     <div class="modal-content">
 
@@ -122,7 +122,7 @@
                         </div>
                         
                       <div class="modal-footer">
-                         {!! Form::open(['method' => 'DELETE','route' => ['pregunta.destroy', $item->id],'style'=>'display:inline']) !!}
+                         {!! Form::open(['method' => 'DELETE','route' => ['respuesta.destroy', $item->id],'style'=>'display:inline']) !!}
                          <button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
                          {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
                         {!! Form::close() !!}
@@ -152,34 +152,35 @@
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Nueva Pregunta</h4>
+            <h4 class="modal-title" id="myModalLabel">Nueva Respuesta</h4>
         </div>
         <div class="modal-body">
 
-            {!! Form::open(array('route' => 'pregunta.store','method'=>'POST')) !!}
+            {!! Form::open(array('route' => 'respuesta.store','method'=>'POST')) !!}
                 <div class="row">
 
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>Enunciado:</strong>
-                            {!! Form::text('enunciado', null, array('placeholder' => 'Enunciado','class' => 'form-control')) !!}
-                        </div>
-                    </div>
-                    
-                   <div class="col-xs-12 col-sm-12 col-md-12">
-                        <div class="form-group">
-                            <strong>Ruta:</strong>
-                            {!! Form::text('rutaImagen', null, array('placeholder' => 'Ruta','class' => 'form-control')) !!}
+                            <strong>Respuesta:</strong>
+                            {!! Form::text('respuesta', null, array('placeholder' => 'respuesta','class' => 'form-control')) !!}
                         </div>
                     </div>
 
-                    {{ Form::hidden('evaluacion_id', $id) }}
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>Validez:</strong>
+                            {!! Form::select('es_correcta', ['' => 'Falso','1' => 'Verdadero'])  !!}
+
+                        </div>
+                    </div>
+
+                    {{ Form::hidden('pregunta_id', $id) }}
 
 
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>Tipo_pregunta:</strong>
-                            {!! Form::number('tipopregunta', null, array('placeholder' => 'tipo','class' => 'form-control')) !!}
+                            <strong>Ruta:</strong>
+                            {!! Form::number('rutaImagen', null, array('placeholder' => 'ruta','class' => 'form-control')) !!}
                         </div>
                     </div>
                     
@@ -195,8 +196,7 @@
 </div>
 
 <div style="width : 80%; margin : 0 auto;">
-{!! $items->links() !!}
+{!! $items->render() !!}
 </div>
-
 
 @endsection

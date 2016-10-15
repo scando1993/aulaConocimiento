@@ -62,7 +62,10 @@ Route::get('pdfview/{id}', 'EvaluacionController@pdfview');
 
 Route::resource('respuesta','RespuestaController');
 
-Route::get('index2/{id}', 'PreguntaController@index2');
+Route::get('index2/{id}', 'PreguntaController@index2')->name('index2');
+
+Route::get('resp_index2/{id}', 'RespuestaController@index2')->name('resp_index2');
+
 
 
 
