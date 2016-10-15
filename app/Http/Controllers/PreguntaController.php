@@ -66,6 +66,17 @@ class PreguntaController extends Controller
             'enunciado' => 'required',
         ]);
 
+          $file = $request->file('file');
+       
+        if ($file)
+            {
+                 $nombreobj = $file->getClientOriginalName();
+                //configurar ruta local en config-->filisystem
+                \Storage::disk('local')->put($nombreobj, \File::get($file));
+
+                $request['rutaImagen']=$nombreobj;
+            }
+
         Pregunta::find($id)->update($request->all());
         return redirect()->route('index2',['id' => $request->evaluacion_id])
                         ->with('success','Pregunta editada correctamente');
@@ -85,6 +96,17 @@ class PreguntaController extends Controller
        $this->validate($request, [
             'enunciado' => 'required',
         ]);
+
+        $file = $request->file('file');
+       
+        if ($file)
+            {
+                 $nombreobj = $file->getClientOriginalName();
+                //configurar ruta local en config-->filisystem
+                \Storage::disk('local')->put($nombreobj, \File::get($file));
+
+                $request['rutaImagen']=$nombreobj;
+            }
 
         Pregunta::create($request->all());
         return redirect()->route('index2',['id' => $request->evaluacion_id])

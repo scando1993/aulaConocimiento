@@ -68,13 +68,13 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    {!! Form::model($item, ['method' => 'PATCH','route' => ['respuesta.update', $item->id]]) !!}
+                                    {!! Form::model($item, ['method' => 'PATCH','route' => ['respuesta.update', $item->id],'files'=>true]) !!}
                                     <div class="row">
 
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <strong>Respuesta:</strong>
-                                                {!! Form::text('respuesta', null, array('placeholder' => 'respuesta','class' => 'form-control')) !!}
+                                                {!! Form::text('respuesta', null, array('placeholder' => 'respuesta','class' => 'form-control','files'=>true)) !!}
                                             </div>
                                         </div>
 
@@ -86,11 +86,23 @@
 
                                         {{ Form::hidden('pregunta_id', $id) }}
 
+                                         <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                              <strong>Subir imagen:</strong>
+                                              <input type="file" class="form-control" name="file" >
+                                            </div>
+                                          </div>
+                                          <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group"> 
+                                              <p>Archivos soportados: .jpg, .png, .gif</p>
+                                            </div>
+                                          </div> 
+
 
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <strong>Ruta:</strong>
-                                                {!! Form::number('rutaImagen', null, array('placeholder' => 'ruta','class' => 'form-control')) !!}
+                                                {!! Form::text('rutaImagen', null, array('placeholder' => 'ruta','class' => 'form-control')) !!}
                                             </div>
                                         </div>
                                     </div>
@@ -144,6 +156,7 @@
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+            <!-- Modal nuevo -->
 
 
 <div>
@@ -156,7 +169,7 @@
         </div>
         <div class="modal-body">
 
-            {!! Form::open(array('route' => 'respuesta.store','method'=>'POST')) !!}
+            {!! Form::open(array('route' => 'respuesta.store','method'=>'POST','files'=>true)) !!}
                 <div class="row">
 
                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -176,11 +189,23 @@
 
                     {{ Form::hidden('pregunta_id', $id) }}
 
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                          <strong>Subir imagen:</strong>
+                          <input type="file" class="form-control" name="file" >
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group"> 
+                          <p>Archivos soportados: .jpg, .png, .gif</p>
+                        </div>
+                      </div> 
+
 
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Ruta:</strong>
-                            {!! Form::number('rutaImagen', null, array('placeholder' => 'ruta','class' => 'form-control')) !!}
+                            {!! Form::text('rutaImagen', null, array('placeholder' => 'ruta','class' => 'form-control')) !!}
                         </div>
                     </div>
                     

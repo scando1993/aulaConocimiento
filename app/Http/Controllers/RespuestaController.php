@@ -66,6 +66,17 @@ class RespuestaController extends Controller
             'respuesta' => 'required',
         ]);
 
+         $file = $request->file('file');
+       
+        if ($file)
+            {
+                 $nombreobj = $file->getClientOriginalName();
+                //configurar ruta local en config-->filisystem
+                \Storage::disk('local')->put($nombreobj, \File::get($file));
+
+                $request['rutaImagen']=$nombreobj;
+            }
+
         //printf("yo soy $request->es_correcta");     
            
         Respuesta::find($id)->update($request->all());
@@ -88,7 +99,19 @@ class RespuestaController extends Controller
             'respuesta' => 'required',
         ]);
 
+       //guardar archivo no olvidar q form debe ser multipart
+        $file = $request->file('file');
        
+        if ($file)
+            {
+                 $nombreobj = $file->getClientOriginalName();
+        //configurar ruta local en config-->filisystem
+        \Storage::disk('local')->put($nombreobj, \File::get($file));
+
+        $request['rutaImagen']=$nombreobj;
+
+               
+            }
        
 
 

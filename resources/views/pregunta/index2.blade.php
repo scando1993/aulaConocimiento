@@ -30,8 +30,7 @@
         <tr>
             <th></th>
             <th>Enunciado</th>
-            <th>Ruta_Imagen</th>
-            <th>Tipo_pregunta</th>
+            <th>Imagen</th>
             
             <th width="280px">Acciones</th>
         </tr>
@@ -41,7 +40,6 @@
         <td>{{ ++$i }}</td>
         <td>{{ $item->enunciado }}</td>
         <td>{{ $item->rutaImagen }}</td>
-        <td>{{ $item->tipopregunta}}</td>
         <td>
             <a class="btn btn-info" href="{{ URL('resp_index2',$item->id) }}">
               <span class="glyphicon glyphicon-list-alt"></span>
@@ -67,7 +65,7 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    {!! Form::model($item, ['method' => 'PATCH','route' => ['pregunta.update', $item->id]]) !!}
+                                    {!! Form::model($item, ['method' => 'PATCH','route' => ['pregunta.update', $item->id],'files'=>true]) !!}
                                     <div class="row">
 
                                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -79,20 +77,27 @@
 
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
-                                                <strong>Ruta_Imagen:</strong>
-                                                {!! Form::number('rutaImagen', null, array('placeholder' => 'ruta','class' => 'form-control')) !!}
+                                                <strong>Imagen:</strong>
+                                                {!! Form::text('rutaImagen', null, array('placeholder' => 'ruta','class' => 'form-control','readonly' => 'true')) !!}
                                             </div>
                                         </div>
 
                                         {{ Form::hidden('evaluacion_id', $id) }}
 
-
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
-                                                <strong>Tipo_pregunta:</strong>
-                                                {!! Form::number('tipopregunta', null, array('placeholder' => 'tipo','class' => 'form-control')) !!}
+                                              <strong>Subir imagen:</strong>
+                                              <input type="file" class="form-control" name="file" >
                                             </div>
-                                        </div>
+                                          </div>
+                                          <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group"> 
+                                              <p>Archivos soportados: .jpg, .png, .gif</p>
+                                            </div>
+                                          </div>
+
+
+                                        
                                     </div>
                                 </div>
                                 
@@ -156,7 +161,7 @@
         </div>
         <div class="modal-body">
 
-            {!! Form::open(array('route' => 'pregunta.store','method'=>'POST')) !!}
+            {!! Form::open(array('route' => 'pregunta.store','method'=>'POST','files'=>true)) !!}
                 <div class="row">
 
                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -166,22 +171,23 @@
                         </div>
                     </div>
                     
-                   <div class="col-xs-12 col-sm-12 col-md-12">
-                        <div class="form-group">
-                            <strong>Ruta:</strong>
-                            {!! Form::text('rutaImagen', null, array('placeholder' => 'Ruta','class' => 'form-control')) !!}
-                        </div>
-                    </div>
+                  
+                            {{ Form::hidden('rutaImagen', '') }}
 
-                    {{ Form::hidden('evaluacion_id', $id) }}
-
+                            {{ Form::hidden('evaluacion_id', $id) }}
 
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>Tipo_pregunta:</strong>
-                            {!! Form::number('tipopregunta', null, array('placeholder' => 'tipo','class' => 'form-control')) !!}
+                          <strong>Subir imagen:</strong>
+                          <input type="file" class="form-control" name="file" >
                         </div>
-                    </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group"> 
+                          <p>Archivos soportados: .jpg, .png, .gif</p>
+                        </div>
+                      </div>
+                    
                     
                 </div>
         </div>
