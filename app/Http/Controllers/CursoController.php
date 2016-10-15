@@ -83,7 +83,7 @@ class CursoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     
+     */
     public function update(Request $request, $id)
     {
          $this->validate($request, [
@@ -92,21 +92,21 @@ class CursoController extends Controller
 
         Curso::find($id)->update($request->all());
         return redirect()->route('curso.index')
-                        ->with('success','Item updated successfully');
+                        ->with('success','Curso actualizado correctamente');
     }
-*/
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
- 
+ */ 
     public function destroy($id)
     {
         Curso::find($id)->delete();
         return redirect()->route('curso.index')
                         ->with('success','Curso eliminado correctamente');
     }
-*/  
+ 
 
 }
