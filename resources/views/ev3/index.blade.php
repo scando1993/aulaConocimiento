@@ -94,10 +94,16 @@
                             </div>
                         </div>
 
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                Archivo Actual : {!! Form::text('ruta', null, array('placeholder' => 'Archivo','class' => 'form-control', 'disabled')) !!}
+                            </div>
+                        </div>
+
                         <div class="col-xs-12 col-sm-12 col-md-12"> 
                             <div class="form-group"> 
                                 <strong>Fuente:</strong> 
-                                {!! Form::file('uploadFile') !!}
+                                {!! Form::file('file') !!}
                             </div>
                         </div>
 
