@@ -23,7 +23,7 @@
         </div>
     @endif
 
-    <table class="table table-bordered">
+    <table class="table table-bordered" style="width : 80%; margin : 0 auto;">
         <tr>
             <th></th>
             <th>Respuesta</th>

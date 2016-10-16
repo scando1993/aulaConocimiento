@@ -45,9 +45,16 @@ class EvaluacionController extends Controller
             'nombre' => 'required',
         ]);
 
-        Evaluacion::create($request->all());
+        $carbon = new \Carbon\Carbon();
+        $date = $carbon->now();
+        $request->fecha= $date;
+        //printf( $date);
+        //printf( $request->fecha);
+        $e=Evaluacion::create($request->all());
+        $e->fecha= $date;
+        $e->save();
         return redirect()->route('evaluacion.index')
-                        ->with('success','Evaluacion guardada correctamente');
+                     ->with('success','Evaluacion guardada correctamente');
     }
 
     /**

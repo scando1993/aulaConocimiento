@@ -6,7 +6,7 @@
 
 @section('main-content')
 
-    <div class="row">
+    <div class="row" style="margin-right:15%;">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
                 <a class="btn btn-success" data-toggle="modal" data-target="#nEval">
@@ -37,18 +37,12 @@
                         </div>
                     </div>
                     
-                   <div class="col-xs-12 col-sm-12 col-md-12">
-                        <div class="form-group">
-                            <strong>Fecha:</strong>
-                            <input type="datetime-local" name="fecha">
-                            
-                        </div>
-                    </div>
+                    {{ Form::hidden('fecha', null) }}
 
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>Tiempo:</strong>
-                            {!! Form::text('tiempo', null, array('placeholder' => 'tiempo','class' => 'form-control')) !!}
+                            <strong>Duracion:</strong>
+                            {!! Form::text('tiempo', null, array('placeholder' => 'Duracion','class' => 'form-control')) !!}
                         </div>
                     </div>
 
@@ -80,8 +74,8 @@
         <tr>
             <th>No</th>
             <th>Nombre</th>
-            <th>Fecha</th>
-            <th>Tiempo</th>
+            <th>Fecha de Creacion</th>
+            <th>Duracion</th>
             <th>Tutoria</th>
             
 
@@ -129,18 +123,11 @@
                                             </div>
                                         </div>
                                         
-                                       <div class="col-xs-12 col-sm-12 col-md-12">
-                                            <div class="form-group">
-                                                <strong>Fecha:</strong>
-
-                                                <input type="datetime-local" name="fecha">
-                                            </div>
-                                        </div>
 
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
-                                                <strong>Tiempo:</strong>
-                                                {!! Form::text('tiempo', null, array('placeholder' => 'tiempo','class' => 'form-control')) !!}
+                                                <strong>Duracion:</strong>
+                                                {!! Form::text('tiempo', null, array('placeholder' => 'Duracion','class' => 'form-control')) !!}
                                             </div>
                                         </div>
 
@@ -195,7 +182,7 @@
     </tr>
     @endforeach
     </table>
-
+    <div style="margin-left:10%;">
     {!! $items->render() !!}
-
+    </div>
 @endsection
