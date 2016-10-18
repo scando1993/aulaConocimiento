@@ -79,7 +79,7 @@
                     <h4 class="modal-title" id="myModalLabel">Editar EV3 {{$item->id}}</h4>
                 </div>
                 <div class="modal-body">
-                    {!! Form::model($item,['method' => 'PATCH','route' => ['ev3.update', $item->id]]) !!}
+                    {!! Form::model($item, array('route' => ['ev3.update',$item->id],'method'=>'PATCH', 'files'=>true, 'enctype'=>'multipart/form-data')) !!}
                     <div class="row">
 
                         <div class="col-xs-12 col-sm-12 col-md-12">

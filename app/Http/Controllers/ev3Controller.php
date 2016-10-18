@@ -94,9 +94,10 @@ class ev3Controller extends Controller
             'descripcion'=> $request->descripcion
             ]);
         $nombreobj = 'none';
+        $file = $request->file('file');
         if ($file)
             {
-                 $nombreobj = $file->getClientOriginalName();
+                $nombreobj = $file->getClientOriginalName();
                 \Storage::disk('local')->put($nombreobj, \File::get($file));
                 $extension=substr( $nombreobj , -4);
                 $request['extension']=$extension;
