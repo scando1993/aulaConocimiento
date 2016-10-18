@@ -43,6 +43,7 @@ Route::get('ev3/eliminar/{id}','ev3Controller@eliminarregistro');
 Route::get('menu','MenuController@index');
 
 Route::get('menu/{id}','MenuController@showSonsById');
+
 Route::resource('ev3','ev3Controller');
 
 
