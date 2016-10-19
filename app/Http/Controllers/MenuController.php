@@ -10,7 +10,11 @@ use App\Menu;
 
 
 class MenuController extends Controller {
-
+	
+	public function __construct()
+    {
+        $this->middleware('auth'); 
+    }
 	
 	public function index() { 
 		$items = Menu::all();

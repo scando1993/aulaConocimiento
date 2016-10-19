@@ -9,7 +9,10 @@ use App\Recurso;
 
 class TallerController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware('auth'); 
+    }
     /**
      * Display a listing of the resource.
      *
@@ -60,7 +63,17 @@ class TallerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        $v = \Validator::make($request->all(), [
+            
+            'titulo' => 'required'
+        ]);
+ 
+        if ($v->fails())
+        {
+            return redirect()->back()->withInput()->withErrors($v->errors());
+        }
+
         $this->validate($request, [
             'titulo' => 'required',
         ]);
@@ -103,7 +116,17 @@ class TallerController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $this->validate($request, [
+         $v = \Validator::make($request->all(), [
+            
+            'titulo' => 'required'
+        ]);
+ 
+        if ($v->fails())
+        {
+            return redirect()->back()->withInput()->withErrors($v->errors());
+        }
+
+        $this->validate($request, [
             'titulo' => 'required',
         ]);
 

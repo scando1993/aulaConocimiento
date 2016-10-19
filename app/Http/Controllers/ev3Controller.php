@@ -27,8 +27,9 @@ class ev3Controller extends Controller
 
     public function index() {
         $items = Ev3::join('menu', 'introev3.id_menu', '=', 'menu.id')
+                ->orderBy('updated_at', 'desc')
                 ->get();
-        $id_padre = Menu::where('id_padre', '=', 2)  
+        $id_padre = Menu::where('id_padre', '=', 2)
                 ->lists('titulo', 'id') 
                 ->toArray();
 

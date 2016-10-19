@@ -23,6 +23,14 @@
             <p>{{ $message }}</p>
         </div>
     @endif
+
+    @if($errors->has())
+        <div class="alert alert-warning" role="alert">
+           @foreach ($errors->all() as $error)
+              <div>{{ $error }}</div>
+          @endforeach
+        </div>
+    @endif </br>
 </br>
     <table class="table table-bordered" style="width : 80%; margin : 0 auto;">
         <tr>
@@ -66,7 +74,7 @@
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <strong>Titulo:</strong>
-                                                {!! Form::text('titulo', null, array('placeholder' => 'Titulo','class' => 'form-control')) !!}
+                                                {!! Form::text('titulo', null, array('placeholder' => 'Titulo','class' => 'form-control'),['class' => 'form-control' , 'required' => 'required']) !!}
                                             </div>
                                         </div>
 
@@ -141,7 +149,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Titulo:</strong>
-                            {!! Form::text('titulo', null, array('placeholder' => 'Titulo','class' => 'form-control')) !!}
+                            {!! Form::text('titulo', null, array('placeholder' => 'Titulo','class' => 'form-control'),['class' => 'form-control' , 'required' => 'required']) !!}
                         </div>
                     </div>
                     
