@@ -41,7 +41,7 @@
 
                 @if(!$m->id_padre and $m->id_curso)
                     @if($m->activo==1)
-                    <?php echo "<a><span></span>".$m->titulo."<i class='fa'></i></a>";  ?>
+                    <?php echo "<a href='".url('listar')."'>".$m->titulo."<i class='fa'></i></a>";  ?>
                     <?php $id_padre=$m->id ?>
                     @endif
                 @endif
