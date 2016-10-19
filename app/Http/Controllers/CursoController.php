@@ -9,7 +9,10 @@ use App\Curso;
 
 class CursoController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware('auth'); 
+    }
     /**
      * Display a listing of the resource.
      *
@@ -30,8 +33,6 @@ class CursoController extends Controller
     */ 
     public function create()
     {
-
-       
         return view('curso.crear_curso');
     }
 
@@ -45,9 +46,14 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'nombre' => 'required',
+        $v = \Validator::make($request->all(), [
+            'nombre' => 'required'
         ]);
+        if ($v->fails())
+        {
+            return redirect()->back()->withInput()->withErrors($v->errors());
+        }
+
         $request->fecha_inicio=null;
         $request->fecha_fin=null;
         $request->id_profesor='1';
@@ -86,9 +92,13 @@ class CursoController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $this->validate($request, [
-            'nombre' => 'required',
+        $v = \Validator::make($request->all(), [
+            'nombre' => 'required'
         ]);
+        if ($v->fails())
+        {
+            return redirect()->back()->withInput()->withErrors($v->errors());
+        }
 
         Curso::find($id)->update($request->all());
         return redirect()->route('curso.index')
