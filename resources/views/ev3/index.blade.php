@@ -19,9 +19,11 @@
     </div>
 
     @if ($message = Session::get('mensajeRetroAlimentacion'))
-        <div class="alert alert-success" >
-            <p>{{ $message }}</p>
+        <div class="alert alert-success alert-dismissible" runat ="server" id="modalEditError" visible ="false">
+            <button class="close" type="button" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong> <div id="Div2" runat="server" ></div>
         </div>
+
     @endif
 
     @if($errors->has())

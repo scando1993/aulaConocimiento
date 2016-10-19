@@ -47,7 +47,7 @@ class ev3Controller extends Controller
             ->where('id', $id)
             ->update(['activo' => 0]);
         return redirect()->route('ev3.index')
-                        ->with('mensajeRetroAlimentacion','Item creado exitosamente');
+                        ->with('mensajeRetroAlimentacion','Item eliminado exitosamente');
     }  
 
     public function create(){
