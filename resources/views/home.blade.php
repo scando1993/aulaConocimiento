@@ -13,7 +13,10 @@
 					<div class="panel-heading">Home</div>
 
 					<div class="panel-body">
-						
+						<div class="alert alert-info alert-dismissible" runat ="server" id="modalEditError" visible ="false">
+  							<button class="close" type="button" data-dismiss="alert">×</button>
+  							<strong>The updated interview information was not saved!</strong> <div id="Div2" runat="server" ></div>
+						</div>
 					</div>
 				</div>
 			</div>
