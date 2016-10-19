@@ -47,7 +47,7 @@ class ev3Controller extends Controller
             ->where('id', $id)
             ->update(['activo' => 0]);
         return redirect()->route('ev3.index')
-                        ->with('Excelente','Item creado exitosamente');
+                        ->with('mensajeRetroAlimentacion','Item creado exitosamente');
     }  
 
     public function create(){
@@ -55,6 +55,18 @@ class ev3Controller extends Controller
     }
 
     public function store(Request $request) {
+        $v = \Validator::make($request->all(), [
+            
+            'titulo' => 'required',
+            'descripcion' => 'required',
+            'file' => 'required'
+        ]);
+ 
+        if ($v->fails())
+        {
+            return redirect()->back()->withInput()->withErrors($v->errors());
+        }
+
         $idMenu = Menu::create([
             'id_padre' => $request->id_padre,
             'id_curso' => 1,
@@ -78,7 +90,7 @@ class ev3Controller extends Controller
                 'ruta' => $nombreobj
                 ]);
         return redirect()->route('ev3.index')
-                        ->with('Excelente','Item creado exitosamente');
+                        ->with('mensajeRetroAlimentacion','Item creado exitosamente');
     }
 
     public function edit($id) {
@@ -88,6 +100,18 @@ class ev3Controller extends Controller
     }
 
     public function update(Request $request, $id) {
+        
+        $v = \Validator::make($request->all(), [
+            
+            'titulo' => 'required',
+            'descripcion' => 'required'
+        ]);
+ 
+        if ($v->fails())
+        {
+            return redirect()->back()->withInput()->withErrors($v->errors());
+        }
+
         Menu::find($id)->update([
             'id_padre'=>$request->id_padre,
             'titulo'=>$request->titulo,
@@ -105,6 +129,6 @@ class ev3Controller extends Controller
             }
         Ev3::where('id_menu',$id)->update(['ruta' => $nombreobj]);
         return redirect()->route('ev3.index')
-                        ->with('En buena hora','Item actualizado correctamente');
+                        ->with('mensajeRetroAlimentacion','Item actualizado correctamente');
     }
 }
