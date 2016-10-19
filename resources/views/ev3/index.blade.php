@@ -6,7 +6,7 @@
 
 
 @section('main-content')
-
+    
     <div class="row" style="width : 80%; margin : 0 auto;">
         </br><div class="col-lg-12 margin-tb">
             
@@ -18,11 +18,19 @@
         </div>
     </div>
 
-    @if ($message = Session::get('success'))
+    @if ($message = Session::get('mensajeRetroAlimentacion'))
         <div class="alert alert-success" >
             <p>{{ $message }}</p>
         </div>
     @endif
+
+    @if($errors->has())
+        <div class="alert alert-warning" role="alert">
+           @foreach ($errors->all() as $error)
+              <div>{{ $error }}</div>
+          @endforeach
+        </div>
+    @endif </br>
 
     <table class="table table-bordered" style="width : 80%; margin : 0 auto; ">
         <tr>
@@ -76,7 +84,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Editar EV3 {{$item->id}}</h4>
+                    <h4 class="modal-title" id="myModalLabel">Editar EV3</h4>
                 </div>
                 <div class="modal-body">
                     {!! Form::model($item, array('route' => ['ev3.update',$item->id],'method'=>'PATCH', 'files'=>true, 'enctype'=>'multipart/form-data')) !!}
@@ -84,13 +92,13 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                {!! Form::text('titulo', null, array('placeholder' => 'Titulo','class' => 'form-control')) !!}
+                                {!! Form::text('titulo',null, array('placeholder' => 'Titulo','class' => 'form-control'),['class' => 'form-control' , 'required' => 'required']) !!}
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                {!! Form::text('descripcion', null, array('placeholder' => 'Descripcion','class' => 'form-control')) !!}
+                                {!! Form::text('descripcion', null, array('placeholder' => 'Descripcion','class' => 'form-control'),['class' => 'form-control' , 'required' => 'required']) !!}
                             </div>
                         </div>
 
@@ -150,21 +158,20 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    {!! Form::text('titulo', null, array('placeholder' => 'Titulo','class' => 'form-control')) !!}
+                                    {!! Form::text('titulo', '', array('placeholder' => 'Titulo','class' => 'form-control'),['class' => 'form-control' , 'required' => 'required']) !!}
                                 </div>
                             </div>
                     
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    {!! Form::text('descripcion', null, array('placeholder' => 'Descripcion','class' => 'form-control')) !!}
+                                    {!! Form::text('descripcion', '', array('placeholder' => 'Descripcion','class' => 'form-control'), ['class' => 'form-control' , 'required' => 'required']) !!}
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12"> 
                                 <div class="form-group"> 
                                     <strong>Fuente:</strong> 
-                                    <!-- <input type="file" class="form-control" name="ruta" >  -->
-                                    {!! Form::file('file') !!}
+                                    {!! Form::file('file',['class' => 'form-control' , 'required' => 'required']) !!}
                                 </div>
                             </div> 
 
