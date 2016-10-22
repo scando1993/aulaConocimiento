@@ -11,7 +11,7 @@ class EvaluacionUsers extends Model
 
     public function inEvaluacion()
     {
-        return $this->belongsTo('App\Evaluacion');
+        return $this->belongsTo('App\Evaluacion','evaluacion_id');
     }
 
     public function detallesEval() {

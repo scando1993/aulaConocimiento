@@ -15,9 +15,9 @@
     <table class="table table-bordered" style="width : 80%; margin : 0 auto;">
         <tr>
             <th>No</th>
-            <th>Evaluacion</th>
+            <th>Tutoria</th>
             <th>Fecha</th>
-            <th>Puntuacion</th>
+            <th>Puntuación</th>
             <th>Ver Prueba</th>
             
 
@@ -26,7 +26,7 @@
     @foreach ($items as $key => $item)
     <tr>
         <td>{{ ++$i }}</td>
-        <td>{{ $item->evaluacion_id }}</td>
+        <td>{{ $item->inEvaluacion->enTaller->titulo }}</td>
         <td>{{ $item->fecha }}</td>
         <td>{{ $item->puntuacion }}</td>
         <td>            <a class="btn btn-info" href="{{ URL('ver_prueba',$item->id) }}" >Ver prueba</a>

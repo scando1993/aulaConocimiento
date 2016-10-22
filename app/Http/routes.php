@@ -49,7 +49,7 @@ Route::resource('ev3','ev3Controller');
 
 Route::get('resumen', 'EvaluacionController@resumen_evaluaciones');
 
-Route::get('ver_prueba/{id}', 'EvaluacionController@ver_prueba');
+Route::get('ver_prueba/{id}',  ['as' =>'ver_prueba', 'uses' => 'EvaluacionController@ver_prueba']);
 
 Route::get('realizar_evaluacion/{id}', 'EvaluacionController@realizar');
 

@@ -117,8 +117,9 @@ class EvaluacionController extends Controller
         //$user=Auth::user()->id;
 
         $carbon = new \Carbon\Carbon();
-        $date = $carbon->now();
+        $date = $carbon->now(-5);
         //$cal=0;
+        $titulo=Taller::find($id)->titulo;
         $evaluacion=Taller::find($id)->evaluaciones;
 
         //print_r($evaluacion->preguntas);
@@ -159,7 +160,7 @@ class EvaluacionController extends Controller
         
         //print_r($array);
 
-        return view('evaluacion.realizar_evaluacion',compact('aleatorio','id','id_eval','array'));
+        return view('evaluacion.realizar_evaluacion',compact('aleatorio','id','id_eval','array','titulo'));
         
 
     }
@@ -176,7 +177,7 @@ class EvaluacionController extends Controller
         
         
         $i=$request->pregunta;
-        $cal=0;
+        $calificacion=0;
         foreach ($i as $item) {
             //printf("$item ");
             $pregid=strstr($item, 'nn',true);
@@ -186,7 +187,7 @@ class EvaluacionController extends Controller
             $pregunta=Pregunta::find($respuesta->pregunta_id);
 
             if ($respuesta->es_correcta) {
-                $cal=$cal+5;
+                $calificacion=$calificacion+5;
             }
 
             $pseleccionada=DetalleEvaluacion::find($pregid);
@@ -198,11 +199,12 @@ class EvaluacionController extends Controller
         $id=$request->id_eval;
         $evaluacion=EvaluacionUsers::find($id);
 
-        $evaluacion->puntuacion=$cal;
+        $evaluacion->puntuacion=$calificacion;
         $evaluacion->save();
 
             $items=$evaluacion->detallesEval;
-            return view('evaluacion.visualizar_prueba',compact('items','id'));
+            //return view('evaluacion.visualizar_prueba',compact('items','id','calificacion'));
+            return redirect()->route('ver_prueba',['id' => $id]);
 
         //printf("Su calificacion es: $cal salir");
        
@@ -234,9 +236,13 @@ class EvaluacionController extends Controller
      public function ver_prueba($id)
     {  
             $evaluser=EvaluacionUsers::find($id);
+            $titulo=$evaluser->inEvaluacion->enTaller->titulo;
+            //printf($eval);
+            //$tall=Taller::$eval->enTaller;
+            $calificacion=$evaluser->puntuacion;
             $items=$evaluser->detallesEval;
             //printf("prueba $id");
-            return view('evaluacion.visualizar_prueba',compact('items','id'));
+            return view('evaluacion.visualizar_prueba',compact('items','id','calificacion','titulo'));
            // foreach ($items as $item) {
              //  printf($item->inPregunta->id);
             //}
