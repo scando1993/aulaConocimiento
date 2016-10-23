@@ -4,7 +4,6 @@
      Mantenimiento de Tutorias
 @endsection
 
-
 @section('main-content')
 
     <div class="row" style="width : 80%; margin : 0 auto;">
@@ -125,11 +124,6 @@
     </tr>
     @endforeach
     </table>
-
-
-<script src="https://code.jquery.com/jquery-3.1.1.js" ></script>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 
 <!-- Modal Nuevo taller-->
