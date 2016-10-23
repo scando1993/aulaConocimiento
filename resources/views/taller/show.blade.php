@@ -18,6 +18,12 @@
         </div>
     </div>
 
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
+
     <div class="row" style="width : 80%; margin : 0 auto;">
 
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -184,6 +190,7 @@
               {{ Form::hidden('nombre_archivo', '') }}
               {{ Form::hidden('extension','' ) }}
 
+
               <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                   <strong>Numero de actividad:</strong>
@@ -205,6 +212,7 @@
               <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group"> 
                   <p>Archivos soportados: .mp4, .pdf, .jpg, .png, .gif</p>
+                  <p>Peso maximo: 3Mb</p>
                 </div>
               </div> 
         </div>

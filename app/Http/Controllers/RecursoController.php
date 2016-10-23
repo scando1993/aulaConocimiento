@@ -26,6 +26,7 @@ class RecursoController extends Controller
     {
         $this->validate($request, [
             'descripcion' => 'required',
+            'file' => 'mimes:jpeg,bmp,png,gif,mp4,pdf,jpg|max:3000'
         ]);
         
 
@@ -36,7 +37,9 @@ class RecursoController extends Controller
        
         if ($file)
             {
-                 $nombreobj = $file->getClientOriginalName();
+                 $nombreobjor = $file->getClientOriginalName();
+                $nombreobj=strtr($nombreobjor,'àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ',
+'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
         //configurar ruta local en config-->filisystem
         \Storage::disk('local')->put($nombreobj, \File::get($file));
 
@@ -51,7 +54,7 @@ class RecursoController extends Controller
 
         Recurso::create($request->all());
         return redirect()->route('taller.show',[$request->taller_id])
-                        ->with('success','Recurso created successfully');
+                        ->with('success','Actividad creada exitosamente');
 
                         //<a class="btn btn-info" href="{{ route('taller.show',$item->id) }}">
     }
@@ -79,6 +82,7 @@ class RecursoController extends Controller
     public function update(Request $request, $id)
     {
          $this->validate($request, [
+            'file' => 'mimes:jpeg,bmp,png,gif,mp4,pdf,jpg|max:3000'
         ]);
          $t=Recurso::find($id)->taller_id;
 
@@ -88,7 +92,9 @@ class RecursoController extends Controller
        
         if ($file)
             {
-                 $nombreobj = $file->getClientOriginalName();
+                $nombreobjor = $file->getClientOriginalName();
+                $nombreobj=strtr($nombreobjor,'àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ',
+'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
         //configurar ruta local en config-->filisystem
         \Storage::disk('local')->put($nombreobj, \File::get($file));
 
@@ -104,7 +110,7 @@ class RecursoController extends Controller
 
         Recurso::find($id)->update($request->all());
         return redirect()->route('taller.show',$t)
-                        ->with('success','Item updated successfully');
+                        ->with('success','Actividad editada exitosamente');
     }
     /**
      * Remove the specified resource from storage.
@@ -119,7 +125,7 @@ class RecursoController extends Controller
         Storage::delete($filename);
         Recurso::find($id)->delete();
         return redirect()->route('taller.show', $t)
-                        ->with('success','Taller eliminado correctamente');
+                        ->with('success','Actividad eliminada correctamente');
     }
 
 

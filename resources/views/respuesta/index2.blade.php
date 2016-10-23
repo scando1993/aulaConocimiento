@@ -95,6 +95,7 @@
                                           <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group"> 
                                               <p>Archivos soportados: .jpg, .png, .gif</p>
+                                              <p>Peso maximo: 3Mb</p>
                                             </div>
                                           </div> 
 

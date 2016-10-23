@@ -31,7 +31,7 @@
             @endif
             @if($recurso->extension===".pdf")
               <embed src="/aulaConocimiento/public/Recursos/{{ $recurso->nombre_archivo }}.pdf" type="application/pdf" width="800" height="700"></embed>          @endif
-            @if($recurso->extension===".jpg" || $recurso->extension===".png" || $recurso->extension===".gif")
+            @if($recurso->extension===".jpg" || $recurso->extension===".png" || $recurso->extension===".gif" || $recurso->extension===".jpeg" || $recurso->extension===".bmp")
               <img src="/aulaConocimiento/public/Recursos/{{ $recurso->archivo }}" alt="{{ $recurso->archivo }}" height="800" width="700">        
             @endif
           </div>

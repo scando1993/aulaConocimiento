@@ -69,6 +69,7 @@ class RespuestaController extends Controller
     {
          $this->validate($request, [
             'respuesta' => 'required',
+            'file' => 'mimes:jpeg,bmp,png,gif,jpg|max:3000'
         ]);
 
          $file = $request->file('file');
@@ -102,6 +103,7 @@ class RespuestaController extends Controller
         
        $this->validate($request, [
             'respuesta' => 'required',
+            'file' => 'mimes:jpeg,bmp,png,gif,jpg|max:3000'
         ]);
 
        //guardar archivo no olvidar q form debe ser multipart
