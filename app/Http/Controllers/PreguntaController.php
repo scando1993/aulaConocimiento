@@ -70,8 +70,8 @@ class PreguntaController extends Controller
             'enunciado' => 'required',
         ]);
 
-          $file = $request->file('file');
-       
+         // $file = $request->file('file');
+       /**
         if ($file)
             {
                  $nombreobj = $file->getClientOriginalName();
@@ -80,6 +80,7 @@ class PreguntaController extends Controller
 
                 $request['rutaImagen']=$nombreobj;
             }
+        */
 
         Pregunta::find($id)->update($request->all());
         return redirect()->route('index2',['id' => $request->evaluacion_id])

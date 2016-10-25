@@ -36,7 +36,7 @@
 		@foreach ($pregunta->respuestas as $respuesta)
 		<div class="row" style="margin-left: 5%;    margin-right: 5%;">
 			<div class="col-md-1" style="padding: 4%;">
-				{{ Form::checkbox('pregunta[]', $array[$i].'nn'.$respuesta->id) }}
+				{{ Form::radio('pregunta['.$i.']', $array[$i].'nn'.$respuesta->id) }}
 			</div>
 			<div class="col-md-3">
                 @if($respuesta->rutaIMagen)
@@ -50,6 +50,7 @@
 				<div >{{$respuesta->respuesta}}   </div>
 			</div>
 		</div>
+		
 		@endforeach
 	</div>
 		{{--*/ $i++ /*--}}
