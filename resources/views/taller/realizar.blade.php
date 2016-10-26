@@ -25,19 +25,21 @@
             <strong>Actividad {{$i++}}: </strong>
             {{ $recurso->descripcion }}<br/>  
           </div>
-          <div style="margin-left: 10%;">
+          <div style="margin-left: 15%; ">
             @if($recurso->extension===".mp4")
-              <video width="800" height="700" controls><source src="/aulaConocimiento/public/Recursos/{{ $recurso->nombre_archivo }}.mp4" type="video/mp4"></video>
+              <video width="80%" height="70%" onclick="this.play();"controls><source src="/aulaConocimiento/public/Recursos/{{ $recurso->nombre_archivo }}.mp4" type="video/mp4" ></video>
             @endif
             @if($recurso->extension===".pdf")
-              <embed src="/aulaConocimiento/public/Recursos/{{ $recurso->nombre_archivo }}.pdf" type="application/pdf" width="800" height="700"></embed>          @endif
+              <embed src="/aulaConocimiento/public/Recursos/{{ $recurso->nombre_archivo }}.pdf" type="application/pdf" width="80%" height="700px"></embed>          @endif
             @if($recurso->extension===".jpg" || $recurso->extension===".png" || $recurso->extension===".gif" || $recurso->extension===".jpeg" || $recurso->extension===".bmp")
-              <img src="/aulaConocimiento/public/Recursos/{{ $recurso->archivo }}" alt="{{ $recurso->archivo }}" height="800" width="700">        
+              <img src="/aulaConocimiento/public/Recursos/{{ $recurso->archivo }}" alt="{{ $recurso->archivo }}" height="80%" width="70%">        
             @endif
           </div>
         </div>
         @endforeach
       </div>
+
+
       
       <!-- Left and right controls -->
       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -50,10 +52,6 @@
       </a>
     </div>
 
-  
-<script src="https://code.jquery.com/jquery-3.1.1.js" ></script>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <div style="margin-left: 40%;">
   @if($item->evaluaciones)
