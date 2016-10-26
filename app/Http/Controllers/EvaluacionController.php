@@ -174,28 +174,30 @@ class EvaluacionController extends Controller
      */
     public function guardarEvaluacion(Request $request)
     {
-        
+       
         
         $i=$request->pregunta;
         $calificacion=0;
-        foreach ($i as $item) {
-            //printf("$item ");
-            $pregid=strstr($item, 'nn',true);
-            $itemid=substr(strstr($item, 'nn'),2);
-            //printf(" $pregid ");
-            $respuesta=Respuesta::find($itemid);
-            $pregunta=Pregunta::find($respuesta->pregunta_id);
+        if($i){
+            foreach ($i as $item) {
+                //printf("$item ");
+                $pregid=strstr($item, 'nn',true);
+                $itemid=substr(strstr($item, 'nn'),2);
+                //printf(" $pregid ");
+                $respuesta=Respuesta::find($itemid);
+                $pregunta=Pregunta::find($respuesta->pregunta_id);
 
-            if ($respuesta->es_correcta) {
-                $calificacion=$calificacion+5;
-            }
+                if ($respuesta->es_correcta) {
+                    $calificacion=$calificacion+5;
+                }
 
-            $pseleccionada=DetalleEvaluacion::find($pregid);
-            $pseleccionada->respuesta_seleccionada_id=$respuesta->id;
-            $pseleccionada->save();
+                $pseleccionada=DetalleEvaluacion::find($pregid);
+                $pseleccionada->respuesta_seleccionada_id=$respuesta->id;
+                $pseleccionada->save();
 
-            //printf("\n la pregunta fue $pregunta->enunciado y su respuesta fue $respuesta->respuesta");
-        }  
+                //printf("\n la pregunta fue $pregunta->enunciado y su respuesta fue $respuesta->respuesta");
+            }  
+        }
         $id=$request->id_eval;
         $evaluacion=EvaluacionUsers::find($id);
 

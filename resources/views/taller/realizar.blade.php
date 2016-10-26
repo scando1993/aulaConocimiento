@@ -21,7 +21,7 @@
         @else
         <div class="item">
         @endif  
-          <div style="margin-left: 30%; margin-bottom: 2%; margin-top: 3%;">
+          <div style="margin-left: 20%; margin-right: 20%; margin-bottom: 2%; margin-top: 3%;">
             <strong>Actividad {{$i++}}: </strong>
             {{ $recurso->descripcion }}<br/>  
           </div>

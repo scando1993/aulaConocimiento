@@ -28,7 +28,7 @@
             <th></th>
             <th>Respuesta</th>
             <th>Validez</th>
-            <th>rutaImagen</th>
+            <th>Imagen</th>
             
 
             <th width="280px">Acciones</th>

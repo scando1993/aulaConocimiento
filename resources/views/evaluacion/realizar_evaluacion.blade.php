@@ -17,7 +17,7 @@
     {{--*/ $i = 0 /*--}}
 <div style="margin-right: 5%; margin-left: 5%; margin-top: 5%;">
 	@foreach ($aleatorio as $pregunta)
-	<div >
+	<div style="margin-top: 5%; margin-bottom: 2%;" >
 		<div >
 			<strong>{{$i+1}}:{{$pregunta->enunciado}}</strong>
 		</div>
@@ -46,8 +46,8 @@
                 @endif
                                      
             </div>
-            <div class="col-md-8">
-				<div >{{$respuesta->respuesta}}   </div>
+            <div class="col-md-8" style="height: 100px; display: table;">
+				<div style="display: table-cell; vertical-align: middle;">{{$respuesta->respuesta}}   </div>
 			</div>
 		</div>
 		

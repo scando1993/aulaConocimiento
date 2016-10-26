@@ -16,7 +16,7 @@ class Evaluacion extends Model
 
     public function preguntas() {
 
-        return $this->hasMany('App\Pregunta')->orderByRaw("RAND()")->take(3);
+        return $this->hasMany('App\Pregunta')->orderByRaw("RAND()")->take(5);
     }
 
      public function preguntas2() {

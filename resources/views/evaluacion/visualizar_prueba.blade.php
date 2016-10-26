@@ -21,7 +21,7 @@
     </div>
     <div style="margin-right: 5%; margin-left: 5%; margin-top: 5%;">
     @foreach($items as $detalle)
-        <div>
+        <div style="margin-top: 5%; margin-bottom: 2%;">
             <strong>{{++$i}}: {{$detalle->inPregunta->enunciado}}</strong>
         </div>
        
@@ -36,14 +36,14 @@
                     @endif
                                          
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8" style="height: 100px; display: table;">
 
                     @if(($resp->es_correcta)&& ($resp->id == $detalle->respuesta_seleccionada_id))
-                    <div style="background:#00ff00;">
+                    <div style="background:#00ff00; display: table-cell; vertical-align: middle;">
                     @elseif($resp->id == $detalle->respuesta_seleccionada_id)
-                    <div style="background:#ff3300;">
+                    <div style="background:#ff3300; display: table-cell; vertical-align: middle; color: white;">
                     @else
-                    <div>
+                    <div style="display: table-cell; vertical-align: middle; ">
                     @endif
                         <p>{{$resp->respuesta}}</p>
                     </div>
