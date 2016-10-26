@@ -1,25 +1,36 @@
 @extends('layouts.app')
 
 @section('contentheader_title')
-	Home
+AVANCE DEL CONOCIMIENTO
 @endsection
 
 
 @section('main-content')
-	<div class="container spark-screen">
-		<div class="row">
-			<div class="col-md-10 col-md-offset-1">
-				<div class="panel panel-default">
-					<div class="panel-heading">Home</div>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
 
-					<div class="panel-body">
-						<div class="alert alert-info alert-dismissible" runat ="server" id="modalEditError" visible ="false">
-  							<button class="close" type="button" data-dismiss="alert">×</button>
-  							<strong>The updated interview information was not saved!</strong> <div id="Div2" runat="server" ></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+	          @foreach($pastel as $pastels)
+	          	['{{$pastels->titulo}}',{{$pastels->id}}],
+	          @endforeach
+        ]);
+
+        var options = {
+          title: 'My Daily Activities',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
 @endsection
+
+

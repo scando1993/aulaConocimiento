@@ -35,8 +35,9 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        
-        return view('home');
+        $users = DB::table('taller')->select('titulo','id')->get();
+
+        return view('home',['pastel'=>$users]);
     }
 
 }
