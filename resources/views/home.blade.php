@@ -15,12 +15,12 @@ AVANCE DEL CONOCIMIENTO
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
 	          @foreach($pastel as $pastels)
-	          	['{{$pastels->titulo}}',{{$pastels->id}}],
+	          	['{{$pastels->name}}',{{$pastels->value}}],
 	          @endforeach
         ]);
 
         var options = {
-          title: 'My Daily Activities',
+          title: 'Ultimo reto completado: {{$tutoria}}',
           is3D: true,
         };
 
