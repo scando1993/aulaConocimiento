@@ -20,7 +20,7 @@
             <th>No</th>
             <th>Titulo</th>
                   
-            <th width="280px">Acciones</th>
+            <th width="280px">Ver</th>
         </tr>
     @foreach ($items as $key => $item)
     <tr>

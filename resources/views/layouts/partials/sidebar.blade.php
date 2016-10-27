@@ -23,7 +23,7 @@
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
-            <li class="header">Aprendizaje</li>
+            <li class="header">Tutorias</li>
             <!-- Optionally, you can add icons to the links -->
             @foreach ($menu as $m)
 
@@ -131,14 +131,15 @@
                 <!-- </ul> -->
             
             @if (! Auth::user()->rol == 0)
-            <li class="header">Administrativo</li>
+            <li class="header"> </li>
             <li class="treeview">
-                <a><span>{{ trans('Mantenimientos') }}</span><i class="fa fa-angle-left pull-right"></i></a>
+                <a><span>{{ trans('Administración') }}</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class = "treeview-menu">
-                    <li><a href="{{ route('taller.index') }}">{{trans('Tutorias')}}</a></li>
-                    <li><a href="{{ route('evaluacion.index') }}">{{trans('Evaluaciones')}}</a></li>
-                    <li><a href="{{ route('curso.index') }}">{{trans('Cursos')}}</a></li>
                     <li><a href="{{ route('ev3.index') }}">{{trans('Introducción EV3')}}</a></li>
+                    <li><a href="{{ route('taller.index') }}">{{trans('Secciones')}}</a></li>
+                    <li><a href="{{ route('evaluacion.index') }}">{{trans('Evaluaciones')}}</a></li>
+<!--                     <li><a href="{{ route('curso.index') }}">{{trans('Cursos')}}</a></li>
+ -->                    
                 </ul>
             </li>
             @endif
