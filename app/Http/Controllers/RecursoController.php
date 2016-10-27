@@ -26,7 +26,7 @@ class RecursoController extends Controller
     {
         $this->validate($request, [
             'descripcion' => 'required',
-            'file' => 'mimes:jpeg,bmp,png,gif,mp4,pdf,jpg|max:3000'
+            'file' => 'mimes:jpeg,bmp,png,gif,mp4,pdf,jpg|max:4000'
         ]);
         
 
@@ -82,7 +82,7 @@ class RecursoController extends Controller
     public function update(Request $request, $id)
     {
          $this->validate($request, [
-            'file' => 'mimes:jpeg,bmp,png,gif,mp4,pdf,jpg|max:3000'
+            'file' => 'mimes:jpeg,bmp,png,gif,mp4,pdf,jpg|max:4000'
         ]);
          $t=Recurso::find($id)->taller_id;
 
