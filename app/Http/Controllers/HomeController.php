@@ -52,15 +52,22 @@ where ta.curso_id = 1',[$user]);
        
         $total=$results[0]->result;
         $realizadas=$results2[0]->result2;
-        $no_realizadas=$total-$realizadas;
 
+        $no_realizadas=$total-$realizadas;
+        
+        if($no_realizadas<0){
+            $no_realizadas=0;
+        }
         $collection = ([
             (object)['name' => 'Realizadas', 'value' => $realizadas],
             (object)['name' => 'No realizadas', 'value' => $no_realizadas]
          ]);
         $ultimo=EvaluacionUsers::all()->last()->evaluacion_id;
         $eval=Evaluacion::find($ultimo);
-        $tutoria=$eval->entaller->titulo;
+        $tutoria='no existen secciones realizadas';
+        if($eval){
+            $tutoria=$eval->entaller->titulo;
+        }
         return view('home',['pastel'=>$collection])->with('tutoria',$tutoria);
     }
 
