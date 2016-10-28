@@ -62,10 +62,12 @@ where ta.curso_id = 1',[$user]);
             (object)['name' => 'Realizadas', 'value' => $realizadas],
             (object)['name' => 'No realizadas', 'value' => $no_realizadas]
          ]);
+        $eval=null;
         if(EvaluacionUsers::all()->last()){
             $ultimo=EvaluacionUsers::all()->last()->evaluacion_id;
+            $eval=Evaluacion::find($ultimo);
         }
-        $eval=Evaluacion::find($ultimo);
+        
         $tutoria='no existen secciones realizadas';
          if($eval){
          $tutoria=$eval->entaller->titulo;
