@@ -62,12 +62,14 @@ where ta.curso_id = 1',[$user]);
             (object)['name' => 'Realizadas', 'value' => $realizadas],
             (object)['name' => 'No realizadas', 'value' => $no_realizadas]
          ]);
-        $ultimo=EvaluacionUsers::all()->last()->evaluacion_id;
+        if(EvaluacionUsers::all()->last()){
+            $ultimo=EvaluacionUsers::all()->last()->evaluacion_id;
+        }
         $eval=Evaluacion::find($ultimo);
         $tutoria='no existen secciones realizadas';
-        if($eval){
-            $tutoria=$eval->entaller->titulo;
-        }
+         if($eval){
+         $tutoria=$eval->entaller->titulo;
+         }
         return view('home',['pastel'=>$collection])->with('tutoria',$tutoria);
     }
 
