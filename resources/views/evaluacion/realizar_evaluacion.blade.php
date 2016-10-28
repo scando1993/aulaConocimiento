@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('contentheader_title')
-    EVALUACION DE LA TUTORIA: {{$titulo}}
+    Conocete tutoria: {{$titulo}}
 @endsection 
 
 @section('main-content')

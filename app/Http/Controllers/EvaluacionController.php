@@ -188,7 +188,7 @@ class EvaluacionController extends Controller
                 $pregunta=Pregunta::find($respuesta->pregunta_id);
 
                 if ($respuesta->es_correcta) {
-                    $calificacion=$calificacion+5;
+                    $calificacion=$calificacion+1;
                 }
 
                 $pseleccionada=DetalleEvaluacion::find($pregid);
