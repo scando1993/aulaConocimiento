@@ -8,7 +8,6 @@
 @section('main-content')
 	<div class="container spark-screen">
 		<div class="row">
-			
 			<div class="col-md-1"></div>
   			<div class="col-md-9">
   				@foreach ($menul as $m)
