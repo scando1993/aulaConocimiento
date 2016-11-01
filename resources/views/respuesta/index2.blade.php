@@ -23,6 +23,10 @@
         </div>
     @endif
 
+    <div style="width : 80%; margin : 2% auto;">
+      <strong>Pregunta:</strong> {{$titulo}}</br>
+    </div>
+
     <table class="table table-bordered" style="width : 80%; margin : 0 auto;">
         <tr>
             <th></th>
@@ -102,8 +106,8 @@
 
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
-                                                <strong>Ruta:</strong>
-                                                {!! Form::text('rutaImagen', null, array('placeholder' => 'ruta','class' => 'form-control')) !!}
+                                                <strong>Imagen:</strong>
+                                                {!! Form::text('rutaImagen', null, array('placeholder' => 'ruta','class' => 'form-control','readonly')) !!}
                                             </div>
                                         </div>
                                     </div>
@@ -189,6 +193,8 @@
                     </div>
 
                     {{ Form::hidden('pregunta_id', $id) }}
+                    {{ Form::hidden('rutaImagen', '') }}
+
 
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
@@ -203,12 +209,7 @@
                       </div> 
 
 
-                    <div class="col-xs-12 col-sm-12 col-md-12">
-                        <div class="form-group">
-                            <strong>Ruta:</strong>
-                            {!! Form::text('rutaImagen', null, array('placeholder' => 'ruta','class' => 'form-control')) !!}
-                        </div>
-                    </div>
+                   
                     
                 </div>
         </div>

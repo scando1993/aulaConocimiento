@@ -26,11 +26,15 @@
 
 </br>
 
+    <div style="width : 80%; margin : 2% auto;">
+      <strong>Evaluación:</strong>{{$titulo}}</br>
+    </div>
+
     <table class="table table-bordered" style="width : 80%; margin : 0 auto;">
         <tr>
             <th></th>
             <th>Enunciado</th>
-            
+            <th>Imagen</th>
             <th width="280px">Acciones</th>
         </tr>
     
@@ -38,6 +42,7 @@
     <tr>
         <td>{{ ++$i }}</td>
         <td>{{ $item->enunciado }}</td>
+        <td>{{ $item->rutaImagen }}</td>
         <td>
             <a class="btn btn-info" href="{{ URL('resp_index2',$item->id) }}">
               <span class="glyphicon glyphicon-list-alt"></span>
@@ -76,6 +81,27 @@
                                         
 
                                         {{ Form::hidden('evaluacion_id', $id) }}
+
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                              <strong>Subir imagen:</strong>
+                                              <input type="file" class="form-control" name="file" >
+                                            </div>
+                                          </div>
+                                          <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group"> 
+                                              <p>Archivos soportados: .jpg, .png, .gif</p>
+                                              <p>Peso maximo: 3Mb</p>
+                                            </div>
+                                          </div> 
+
+
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <strong>Ruta:</strong>
+                                                {!! Form::text('rutaImagen', null, array('placeholder' => 'Imagen','class' => 'form-control','readonly')) !!}
+                                            </div>
+                                        </div>
 
                                         
 
@@ -158,6 +184,19 @@
                             {{ Form::hidden('rutaImagen', '') }}
 
                             {{ Form::hidden('evaluacion_id', $id) }}
+
+                   <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                          <strong>Subir imagen:</strong>
+                          <input type="file" class="form-control" name="file" >
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group"> 
+                          <p>Archivos soportados: .jpg, .png, .gif</p>
+                        </div>
+                      </div> 
+
 
                    
                     

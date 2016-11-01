@@ -38,9 +38,10 @@ class RespuestaController extends Controller
     public function index2(Request $request,$id)
     {
         $eval=Pregunta::find($id);
+        $titulo=$eval->enunciado;
         $items=$eval->respuestas()->paginate(5);
         //$items = Pregunta::orderBy('id','ASC')->paginate(5);
-        return view('respuesta.index2',compact('items','id'))
+        return view('respuesta.index2',compact('items','id','titulo'))
         ->with('i', ($request->input('page', 1) - 1) * 5);
             
     }

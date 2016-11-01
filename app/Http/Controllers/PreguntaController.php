@@ -37,9 +37,10 @@ class PreguntaController extends Controller
     public function index2(Request $request,$id)
     {
         $eval=Evaluacion::find($id);
+        $titulo=$eval->nombre;
         $items=$eval->preguntas2()->paginate(5);
         //$items = Pregunta::orderBy('id','ASC')->paginate(5);
-        return view('pregunta.index2',compact('items','id'))
+        return view('pregunta.index2',compact('items','id','titulo'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
             
     }
@@ -70,8 +71,8 @@ class PreguntaController extends Controller
             'enunciado' => 'required',
         ]);
 
-         // $file = $request->file('file');
-       /**
+         $file = $request->file('file');
+       
         if ($file)
             {
                  $nombreobj = $file->getClientOriginalName();
@@ -80,7 +81,7 @@ class PreguntaController extends Controller
 
                 $request['rutaImagen']=$nombreobj;
             }
-        */
+       
 
         Pregunta::find($id)->update($request->all());
         return redirect()->route('index2',['id' => $request->evaluacion_id])
