@@ -28,7 +28,7 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Titulo:</strong>
+                <strong>Título:</strong>
                 {{ $item->titulo }}
             </div>
         </div>
@@ -36,7 +36,7 @@
        
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Duracion:</strong>
+                <strong>Duración:</strong>
                 {{ $item->duracion }}
             </div>
         </div>
@@ -45,7 +45,7 @@
         <table class="table-bordered table-striped">
             <tr>
                 <th>Actividad</th>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <th>Nombre de archivo</th>
                 <th>Tipo archivo</th>
                 <th>Acciones</th>

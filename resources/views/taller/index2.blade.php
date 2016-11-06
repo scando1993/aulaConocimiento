@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('contentheader_title')
-    Tutorias
+    Tutorías
 @endsection
 
 
@@ -18,9 +18,9 @@
     <table class="table table-bordered" style="width : 80%; margin : 0 auto; ">
         <tr>
             <th>No</th>
-            <th>Titulo</th>
+            <th>Título</th>
                   
-            <th width="280px">Ver</th>
+            <th width="280px"></th>
         </tr>
     @foreach ($items as $key => $item)
     <tr>

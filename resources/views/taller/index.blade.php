@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('contentheader_title')
-     Mantenimiento de Tutorias
+     Mantenimiento de Tutorías
 @endsection
 
 @section('main-content')
@@ -11,7 +11,7 @@
             
             <div class="pull-right">
                 <a class="btn btn-success" data-toggle="modal" data-target="#myModal">
-                  <span class="glyphicon glyphicon-plus"></span> Crear tutoria
+                  <span class="glyphicon glyphicon-plus"></span> Crear tutoría
                  </a>
             </div>
         </div>
@@ -34,8 +34,8 @@
     <table class="table table-bordered" style="width : 80%; margin : 0 auto;">
         <tr>
             <th>No</th>
-            <th>Titulo</th>
-            <th>Duracion</th>
+            <th>Título</th>
+            <th>Duración</th>
             
             <th width="280px">Acciones</th>
         </tr>
@@ -63,7 +63,7 @@
 
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Editar Taller</h4>
+                                    <h4 class="modal-title" id="myModalLabel">Editar Tutoria</h4>
                                 </div>
 
                                 <div class="modal-body">

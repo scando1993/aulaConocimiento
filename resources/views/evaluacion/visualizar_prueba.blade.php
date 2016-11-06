@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('contentheader_title')
-     Resultados de la evaluación del taller:{{$titulo}}
+     Resultados de la evaluación de la tutoría:{{$titulo}}
 @endsection 
 
 @section('main-content')
@@ -24,11 +24,11 @@
         <div style="margin-top: 5%; margin-bottom: 2%;">
           
                 @if($detalle->inPregunta->rutaImagen)
-                    <div class="col-md-6">
+                    <div>
                         <strong>{{++$i}}: {{$detalle->inPregunta->enunciado}}</strong>
                     </div>
-                    <div class="col-md-6">
-                        <img src="../Recursos/{{$detalle->inPregunta->rutaImagen}}" height="150" width="300">
+                    <div style="margin-left:20%;">
+                        <img src="../Recursos/{{$detalle->inPregunta->rutaImagen}}" height="200" width="300">
                     </div>
                 @else
                     <strong>{{++$i}}: {{$detalle->inPregunta->enunciado}}</strong>

@@ -10,7 +10,7 @@
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
                 <a class="btn btn-success" data-toggle="modal" data-target="#nEval">
-                  <span class="glyphicon glyphicon-plus"></span> Crear nueva evaluacion
+                  <span class="glyphicon glyphicon-plus"></span> Crear nueva evaluación
                  </a>
             </div>
         </div>
@@ -28,7 +28,7 @@
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Nueva Evaluacion</h4>
+            <h4 class="modal-title" id="myModalLabel">Nueva Evaluación</h4>
         </div>
         <div class="modal-body">
 
@@ -46,14 +46,14 @@
 
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>Duracion:</strong>
+                            <strong>Duración:</strong>
                             {!! Form::text('tiempo', null, array('placeholder' => 'Duracion','class' => 'form-control')) !!}
                         </div>
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>Taller:</strong>
+                            <strong>Tutoría:</strong>
                             {!! Form::select('taller_id', $talleres, null) !!}
                         </div>
                     </div>
@@ -79,9 +79,9 @@
         <tr>
             <th>No</th>
             <th>Nombre</th>
-            <th>Fecha de Creacion</th>
-            <th>Duracion</th>
-            <th>Tutoria</th>
+            <th>Fecha de Creación</th>
+            <th>Duración</th>
+            <th>Tutoría</th>
             
 
             <th width="280px">Acciones</th>
@@ -114,7 +114,7 @@
 
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Editar Evaluacion</h4>
+                                    <h4 class="modal-title" id="myModalLabel">Editar Evaluación</h4>
                                 </div>
 
                                 <div class="modal-body">

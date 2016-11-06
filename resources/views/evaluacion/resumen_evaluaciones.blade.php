@@ -15,7 +15,7 @@
     <table class="table table-bordered" style="width : 80%; margin : 0 auto;">
         <tr>
             <th>No</th>
-            <th>Tutoria</th>
+            <th>Tutoría</th>
             <th>Fecha</th>
             <th>Puntuación</th>
             <th>Ver Prueba</th>

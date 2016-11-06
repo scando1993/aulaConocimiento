@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('contentheader_title')
-     Tutoria: {{ $item->titulo }}
+     Tutoría: {{ $item->titulo }}
 @endsection
 
 
