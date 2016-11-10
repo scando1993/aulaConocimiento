@@ -24,42 +24,14 @@
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
             <li class="header">Tutorias</li>
-            <!-- Optionally, you can add icons to the links -->
-            @foreach ($menu as $m)
-
-                <?php $tag=""?>
-                
-                @if (!$m->id_padre and $tag =="abierto")
-                    </li>
-                @endif
-
-                @if (!$m->id_padre)
-                    <li class='treeview'>
-                    <?php $tag="abierto"?>
-                @endif    
-                
-
-                @if(!$m->id_padre and $m->id_curso)
-                    @if($m->activo==1)
-                    <?php echo "<a href='".url('listar')."'>".$m->titulo."<i class='fa'></i></a>";  ?>
-                    <?php $id_padre=$m->id ?>
-                    @endif
-                @endif
-                @if($m->id_padre or !$m->id_curso)
-                    @if($m->id_padre==$id_padre)
-                        @if($m->activo==1)
-                        <?php echo "<ul class='treeview-menu'>";  ?>
-                        @if($m->titulo=="Tutoria")
-                        <?php echo "<li><a href='".URL('listar')."'>".$m->titulo."</a></li>";  ?>
-                        @else
-                            <?php echo "<li><a href='".url('menu/'.$m->id)."'>".$m->titulo."</a></li>";  ?>
-                        @endif
-                        <?php echo "</ul>";?>
-                        @endif
-                    @endif
-                @endif
-            @endforeach        
-            
+            <li class="treeview">
+                <a><span>{{ trans('Robótica') }}</span></a>
+                <ul class = "treeview-menu">
+                    <li><a href="{{ url('menu/2') }}">{{ trans('Introducción EV3') }}<i class='fa'></i></a></li>
+                    <li><a href="{{ url('listar') }}">{{ trans('Tutorias') }}<i class='fa'></i></a></li>
+                </ul>
+            </li>
+            <!-- Optionally, you can add icons to the links -->      
                 <!-- <ul class="treeview-menu">
                     <li class="treeview">
                         <a><span>{{ trans('Introducción EV3') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
