@@ -118,17 +118,18 @@ class ev3Controller extends Controller
             'titulo'=>$request->titulo,
             'descripcion'=> $request->descripcion
             ]);
-        $nombreobj = 'none';
-        $file = $request->file('file');
-        if ($file)
-            {
-                $nombreobj = $file->getClientOriginalName();
-                \Storage::disk('local')->put($nombreobj, \File::get($file));
-                $extension=substr( $nombreobj , -4);
-                $request['extension']=$extension;
-                $narchivo=substr($nombreobj, 0,strlen($nombreobj)-4);
-            }
-        Ev3::where('id_menu',$id)->update(['ruta' => $nombreobj]);
+        
+            $nombreobj = 'none';
+            $file = $request->file('file');
+                if ($file)
+                    {
+                        $nombreobj = $file->getClientOriginalName();
+                        \Storage::disk('local')->put($nombreobj, \File::get($file));
+                        $extension=substr( $nombreobj , -4);
+                        $request['extension']=$extension;
+                        $narchivo=substr($nombreobj, 0,strlen($nombreobj)-4);
+                        Ev3::where('id_menu',$id)->update(['ruta' => $nombreobj]);
+                    }
         return redirect()->route('ev3.index')
                         ->with('mensajeRetroAlimentacion','Item actualizado correctamente');
     }
