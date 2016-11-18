@@ -36,7 +36,7 @@ class RoboticaTables extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('descripcion');
-            $table->integer('duracion')
+            $table->integer('duracion');
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
 
@@ -52,7 +52,7 @@ class RoboticaTables extends Migration
             $table->increments('id');
             $table->string('apellidos');
             $table->string('nombres');
-            $table->string('cedula')
+            $table->string('cedula');
             $table->string('direccion');
             $table->date('fecha_nacimiento');
 
