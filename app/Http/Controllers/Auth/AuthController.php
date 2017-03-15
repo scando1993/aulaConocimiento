@@ -93,6 +93,6 @@ class AuthController extends Controller
     
     protected function getLogout(){
         Auth::guard($this->getGuard())->logout();
-        \Redirect::away('http://localhost:8000');
+        \Redirect::away('http://138.197.34.45:8000');
     }
 }
