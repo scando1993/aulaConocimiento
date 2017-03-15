@@ -13,15 +13,17 @@
 
 
 
-Route::get('/', function () {
-    return view('auth/login');
-});
+//Route::get('/', function () {
+//    return view('auth/login');
+//});
 
-Route::get('home','HomeController@index');
+Route::get('/','HomeController@index');
 
 
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', ['as' =>'auth/login', 'uses' => 'Auth\AuthController@postLogin']);
+//Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::get('authAdmin','Auth\AuthController@getAdminLogin');
+Route::get('authUser','Auth\AuthController@getUserLogin');
+//Route::post('auth/login', ['as' =>'auth/login', 'uses' => 'Auth\AuthController@postLogin']);
 Route::get('auth/logout', ['as' => 'auth/logout', 'uses' => 'Auth\AuthController@getLogout']);
 
 Route::get('listar', 'TallerController@listar');

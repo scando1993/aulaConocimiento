@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -30,6 +31,7 @@ class AuthController extends Controller
      */
     protected $redirectTo = '/home';
 
+    protected $redirectAfterLogout = 'http://localhost:8000';
     /**
      * Create a new authentication controller instance.
      *
@@ -69,5 +71,28 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+    
+    protected function getLogin(){
+//        if(Auth::attempt(['email' => "admin2@gmail.com", 'password' => "admin2"]))
+//            if(Auth::check())
+//                \Redirect::home();
+    }
+    
+    protected function getAdminLogin(){
+        if(Auth::attempt(['email' => "admin2@gmail.com", 'password' => "admin2"]))
+            if(Auth::check())
+                \Redirect::to('/');
+    }
+    
+    protected function getUserLogin(){
+        if(Auth::attempt(['email' => "estudiante@gmail.com", 'password' => "estudiante"]))
+            if(Auth::check())
+                \Redirect::to('/');
+    }
+    
+    protected function getLogout(){
+        Auth::guard($this->getGuard())->logout();
+        \Redirect::away('http://localhost:8000');
     }
 }
